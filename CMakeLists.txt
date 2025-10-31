@@ -105,6 +105,8 @@ if(NOT MANUAL_SUBMODULES)
   endif()
 endif()
 
+# Make our compat headers win over system includes
+include_directories(BEFORE ${CMAKE_SOURCE_DIR}/compat)
 add_subdirectory(xcash-labs-core)
 add_subdirectory(external)
 
