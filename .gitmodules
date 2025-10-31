@@ -1,7 +1,7 @@
-[submodule "monero"]
-	path = monero
-	url = https://github.com/monero-project/monero
-	ignore = all
+[submodule "xcash-labs-core"]
+	path = xcash-labs-core
+	url = https://github.com/Xcash-Labs/xcash-labs-core
+
 [submodule "external/quirc"]
 	path = external/quirc
 	url = https://github.com/dlbeer/quirc/

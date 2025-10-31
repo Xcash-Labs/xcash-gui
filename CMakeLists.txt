@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.12)
-project(monero-gui)
+project(xcash-gui)
 
 message(STATUS "Initiating compile using CMake ${CMAKE_VERSION}")
 
@@ -14,10 +14,10 @@ option(USE_DEVICE_TREZOR "Trezor support compilation" ON)
 option(WITH_SCANNER "Enable webcam QR scanner" OFF)
 option(WITH_DESKTOP_ENTRY "Ask to install desktop entry on first startup" ON)
 option(WITH_UPDATER "Regularly check for new updates" ON)
-option(DEV_MODE "Checkout latest monero master on build" OFF)
+option(DEV_MODE "Checkout latest xcash-labs-core master on build" OFF)
 
 if(DEV_MODE)
-  # DEV_MODE checks out the monero submodule to master, which requires C++17.
+  # DEV_MODE checks out the xcash submodule to master, which requires C++17.
   set(CMAKE_CXX_STANDARD 17)
 else()
   set(CMAKE_CXX_STANDARD 14)
@@ -33,42 +33,87 @@ set(BUILD_GUI_DEPS ON)
 set(BUILD_64 ON CACHE BOOL "Build 64-bit binaries")
 
 if(NOT MANUAL_SUBMODULES)
-  find_package(Git)
+  find_package(Git QUIET)
   if(GIT_FOUND)
-    if(NOT DEV_MODE)
-      function (check_submodule relative_path)
-        execute_process(COMMAND git rev-parse "HEAD" WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/${relative_path} OUTPUT_VARIABLE localHead)
-        execute_process(COMMAND git rev-parse "HEAD:${relative_path}" WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR} OUTPUT_VARIABLE checkedHead)
-        string(COMPARE EQUAL "${localHead}" "${checkedHead}" upToDate)
-        if (upToDate)
-          message(STATUS "Submodule '${relative_path}' is up-to-date")
-        else()
-          message(FATAL_ERROR "Submodule '${relative_path}' is not using the checked head. Please update all submodules with\ngit submodule update --init --force --recursive\nor run cmake with -DMANUAL_SUBMODULES=1,\n or if you want to build from latest master run cmake with -DDEV_MODE=ON,\n or run make devmode")
-        endif()
-      endfunction ()
-      message(STATUS "Checking submodules")
-      check_submodule(monero)
-    else()
-      execute_process(COMMAND ${GIT_EXECUTABLE} fetch WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/monero RESULT_VARIABLE GIT_FETCH_RESULT)
-      execute_process(COMMAND ${GIT_EXECUTABLE} checkout -f origin/master WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/monero RESULT_VARIABLE GIT_CHECKOUT_MASTER_RESULT)
-      execute_process(COMMAND ${GIT_EXECUTABLE} submodule sync --recursive WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/monero RESULT_VARIABLE GIT_SUBMODULE_SYNC_RESULT)
-      execute_process(COMMAND ${GIT_EXECUTABLE} submodule update --init --force --recursive WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/monero RESULT_VARIABLE GIT_SUBMODULE_UPDATE_RESULT)
-      if(NOT GIT_FETCH_RESULT EQUAL "0" OR NOT GIT_CHECKOUT_MASTER_RESULT EQUAL "0" OR NOT GIT_SUBMODULE_SYNC_RESULT EQUAL "0" OR NOT GIT_SUBMODULE_UPDATE_RESULT EQUAL "0")
-        message(FATAL_ERROR "Updating git submodule to master (-DDEV_MODE=ON) failed")
+    function(check_submodule relative_path)
+      # 1) Get the currently checked out commit in the submodule dir
+      execute_process(
+        COMMAND ${GIT_EXECUTABLE} rev-parse HEAD
+        WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/${relative_path}
+        OUTPUT_VARIABLE localHead
+        RESULT_VARIABLE localRc
+        OUTPUT_STRIP_TRAILING_WHITESPACE
+        ERROR_QUIET
+        TIMEOUT 5
+      )
+
+      if(NOT localRc EQUAL 0)
+        message(FATAL_ERROR
+          "Submodule '${relative_path}' not a git repo or unreadable at "
+          "'${CMAKE_CURRENT_SOURCE_DIR}/${relative_path}'.\n"
+          "Fix:\n"
+          "  git submodule update --init --force --recursive\n"
+          "or run CMake with -DMANUAL_SUBMODULES=1"
+        )
       endif()
-    endif()
+
+      # 2) Get the commit recorded in the superproject's HEAD (the gitlink)
+      execute_process(
+        COMMAND ${GIT_EXECUTABLE} rev-parse HEAD:${relative_path}
+        WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}
+        OUTPUT_VARIABLE checkedHead
+        RESULT_VARIABLE checkedRc
+        OUTPUT_STRIP_TRAILING_WHITESPACE
+        ERROR_VARIABLE checkedErr
+        ERROR_STRIP_TRAILING_WHITESPACE
+        TIMEOUT 5
+      )
+
+      if(NOT checkedRc EQUAL 0)
+        # The path likely isn't recorded in HEAD at all.
+        message(FATAL_ERROR
+          "Submodule path '${relative_path}' exists on disk, but not in HEAD.\n"
+          "CMake cannot verify the pin.\n"
+          "Fix options:\n"
+          "  A) Add submodule properly:\n"
+          "     git submodule add <URL> ${relative_path}\n"
+          "     git submodule update --init --recursive\n"
+          "     git commit -m \"Add ${relative_path} submodule\"\n"
+          "  B) Temporarily bypass:\n"
+          "     cmake -DMANUAL_SUBMODULES=1 ..\n"
+          "git error was: ${checkedErr}"
+        )
+      endif()
+
+      if(localHead STREQUAL checkedHead)
+        message(STATUS "Submodule '${relative_path}' is up-to-date at ${localHead}")
+      else()
+        message(FATAL_ERROR
+          "Submodule '${relative_path}' is not using the checked head.\n"
+          "Current: ${localHead}\n"
+          "Expected: ${checkedHead}\n"
+          "Run:\n"
+          "  git submodule update --init --force --recursive\n"
+          "or build with -DDEV_MODE=ON (uses latest master), or -DMANUAL_SUBMODULES=1"
+        )
+      endif()
+    endfunction()
+
+    message(STATUS "Checking submodules")
+    check_submodule(xcash-labs-core)
+    check_submodule(external/quirc)
   endif()
 endif()
 
-add_subdirectory(monero)
+add_subdirectory(xcash-labs-core)
 add_subdirectory(external)
 
 set(CMAKE_AUTOMOC ON)
 set(CMAKE_AUTORCC ON)
 set(CMAKE_AUTOUIC ON)
 
-get_directory_property(ARCH_WIDTH DIRECTORY "monero" DEFINITION ARCH_WIDTH)
-get_directory_property(Boost_VERSION_STRING DIRECTORY "monero" DEFINITION Boost_VERSION_STRING)
+get_directory_property(ARCH_WIDTH DIRECTORY "xcash-labs-core" DEFINITION ARCH_WIDTH)
+get_directory_property(Boost_VERSION_STRING DIRECTORY "xcash-labs-core" DEFINITION Boost_VERSION_STRING)
 
 if (NOT CMAKE_BUILD_TYPE STREQUAL "Debug")
   add_definitions(-DQT_NO_DEBUG)
