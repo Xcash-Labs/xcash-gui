@@ -31,7 +31,6 @@
 #include <algorithm>
 #include <locale>
 #include <vector>
-
 #include "hash.h"
 #include "mpi.h"
 #include "packet_stream.h"
