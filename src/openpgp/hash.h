@@ -31,7 +31,7 @@
 #include <vector>
 
 #include <gcrypt.h>
-#include <span.h>
+#include <span>
 
 namespace openpgp
 {
