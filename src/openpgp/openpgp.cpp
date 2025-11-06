@@ -27,10 +27,9 @@
 // THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 #include "openpgp.h"
-
 #include <algorithm>
 #include <locale>
-#include <vector>
+#include <vector> 
 #include "hash.h"
 #include "mpi.h"
 #include "packet_stream.h"
