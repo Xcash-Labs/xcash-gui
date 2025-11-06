@@ -33,7 +33,7 @@
 
 #include <gcrypt.h>
 
-#include <span.h>
+#include <span>
 
 #include "s_expression.h"
 
