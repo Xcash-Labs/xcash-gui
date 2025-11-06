@@ -30,7 +30,7 @@
 
 #include <vector>
 
-#include <span.h>
+#include <span>
 
 #include "serialization.h"
 
