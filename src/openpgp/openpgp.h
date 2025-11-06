@@ -30,10 +30,9 @@
 
 #include <string>
 #include <vector>
-
+#include "epee/span.h"
+#include "epee/string_tools.h"
 #include <gcrypt.h>
-
-#include <span>
 
 #include "s_expression.h"
 
