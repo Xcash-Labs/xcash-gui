@@ -2,7 +2,7 @@
 	path = xcash-labs-core
 	url = https://github.com/Xcash-Labs/xcash-labs-core
 
-	branch = main
+	branch = master
 [submodule "external/quirc"]
 	path = external/quirc
 	url = https://github.com/dlbeer/quirc/
