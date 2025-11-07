@@ -1,4 +1,4 @@
-// Copyright (c) 2020-2024, The Monero Project
+// Copyright (c) 2020-2025, XCash, Fork of the Monero Project
 //
 // All rights reserved.
 //
@@ -31,7 +31,7 @@
 #include <vector>
 
 #include <gcrypt.h>
-#include "epee/span.h"
+#include <span.h>
 
 namespace openpgp
 {

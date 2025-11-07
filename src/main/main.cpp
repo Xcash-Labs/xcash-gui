@@ -91,7 +91,7 @@
 #include "QR-Code-scanner/QrCodeScanner.h"
 #endif
 
-#ifdef MONERO_GUI_STATIC
+#ifdef XCASH_GUI_STATIC
 
 #include <QtPlugin>
 #if defined(Q_OS_OSX)

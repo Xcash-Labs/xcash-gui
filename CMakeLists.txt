@@ -16,13 +16,10 @@ option(WITH_DESKTOP_ENTRY "Ask to install desktop entry on first startup" ON)
 option(WITH_UPDATER "Regularly check for new updates" ON)
 option(DEV_MODE "Checkout latest xcash-labs-core master on build" OFF)
 
-if(DEV_MODE)
-  # DEV_MODE checks out the xcash submodule to master, which requires C++17.
-  set(CMAKE_CXX_STANDARD 17)
-else()
-  set(CMAKE_CXX_STANDARD 14)
-endif()
-set(CMAKE_CXX_STANDARD_REQUIRED ON)
+# Always use C++17 regardless of DEV_MODE
+ set(CMAKE_CXX_STANDARD 17)
+ set(CMAKE_CXX_STANDARD_REQUIRED ON)
+ set(CMAKE_CXX_EXTENSIONS OFF)
 
 list(INSERT CMAKE_MODULE_PATH 0 "${CMAKE_SOURCE_DIR}/cmake")
 include(CheckCCompilerFlag)
@@ -107,6 +104,14 @@ endif()
 
 # Make our compat headers win over system includes
 include_directories(BEFORE ${CMAKE_SOURCE_DIR}/compat)
+# Monero/XCash core headers for GUI sources
+set(MONERO_CORE "${CMAKE_SOURCE_DIR}/xcash-labs-core")
+include_directories(BEFORE
+  ${MONERO_CORE}/contrib/epee/include
+  ${MONERO_CORE}/src
+  ${MONERO_CORE}/external
+)
+# process subdirs BEFORE querying their properties
 add_subdirectory(xcash-labs-core)
 add_subdirectory(external)
 
@@ -124,7 +129,7 @@ endif()
 if(STATIC)
   message(STATUS "Initiating static build")
   set(CMAKE_FIND_LIBRARY_SUFFIXES ".a" ${CMAKE_FIND_LIBRARY_SUFFIXES})
-  add_definitions(-DMONERO_GUI_STATIC)
+  add_definitions(-DXCASH_GUI_STATIC)
 endif()
 
 include(CMakePackageConfigHelpers)

@@ -1,4 +1,4 @@
-// Copyright (c) 2020-2024, The Monero Project
+// Copyright (c) 2020-2025, XCash, Fork of the Monero Project
 //
 // All rights reserved.
 //
@@ -30,9 +30,12 @@
 
 #include <string>
 #include <vector>
-#include "epee/span.h"
-#include "epee/string_tools.h"
+#include <span.h>
+#include <string_tools.h>
+#include <string_coding.h>
 #include <gcrypt.h>
+
+#include <span>
 
 #include "s_expression.h"
 
