@@ -110,6 +110,7 @@ include_directories(BEFORE
   ${MONERO_CORE}/contrib/epee/include
   ${MONERO_CORE}/src
   ${MONERO_CORE}/external
+  ${MONERO_CORE}/external/easylogging++
 )
 # process subdirs BEFORE querying their properties
 add_subdirectory(xcash-labs-core)
