@@ -41,7 +41,7 @@
 
 Updater::Updater()
 {
-    m_maintainers.emplace_back(fileGetContents(":/xcash-labs-core/utils/gpg_keys/binaryfate.asc").toStdString());
+    m_maintainers.emplace_back(fileGetContents(":/xcash-labs-core/utils/gpg_keys/minerjed.asc").toStdString());
 }
 
 QByteArray Updater::fetchSignedHash(
