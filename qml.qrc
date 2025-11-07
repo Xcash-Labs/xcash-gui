@@ -16,7 +16,7 @@
         <file>components/UpdateDialog.qml</file>
         <file>images/whatIsIcon.png</file>
         <file>images/whatIsIcon@2x.png</file>
-        <file>components/MenuButton.qml</file>e>
+        <file>components/MenuButton.qml</file>
         <file>xcash-labs-core/utils/gpg_keys/minerjed.asc</file>
         <file>pages/Account.qml</file>
         <file>pages/Advanced.qml</file>
