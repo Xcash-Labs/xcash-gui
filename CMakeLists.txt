@@ -10,6 +10,11 @@ set(VERSION "0.${VERSION_MAJOR}.${VERSION_MINOR}.${VERSION_REVISION}")
 
 option(STATIC "Link libraries statically, requires static Qt")
 
+if (MINGW)
+  set(Boost_USE_STATIC_LIBS OFF)
+  find_package(Boost REQUIRED COMPONENTS filesystem thread date_time chrono serialization program_options locale)
+endif()
+
 option(USE_DEVICE_TREZOR "Trezor support compilation" ON)
 option(WITH_SCANNER "Enable webcam QR scanner" OFF)
 option(WITH_DESKTOP_ENTRY "Ask to install desktop entry on first startup" ON)
@@ -102,27 +107,6 @@ if(NOT MANUAL_SUBMODULES)
   endif()
 endif()
 
-# Boost - had to downgrade to verison 1.83 on MSYS
-set(Boost_USE_MULTITHREADED ON)
-if(STATIC)
-  set(Boost_USE_STATIC_LIBS ON)
-else()
-  set(Boost_USE_STATIC_LIBS OFF)
-endif()
-# MinGW/MSYS-only tweaks (avoid static CRT headaches)
-if(MINGW) # (true on MSYS2 MinGW builds)
-  set(Boost_USE_STATIC_RUNTIME OFF)
-  # If you installed Boost to a custom prefix, let CMake see it:
-  if(DEFINED ENV{BOOST_ROOT})
-    list(APPEND CMAKE_PREFIX_PATH "$ENV{BOOST_ROOT}")
-  endif()
-endif()
-# Prefer Boost's CMake package configs when available
-set(Boost_NO_BOOST_CMAKE OFF)
-find_package(Boost 1.83 REQUIRED COMPONENTS
-  chrono filesystem locale program_options serialization thread
-)
-
 # Make our compat headers win over system includes
 include_directories(BEFORE ${CMAKE_SOURCE_DIR}/compat)
 # Monero/XCash core headers for GUI sources
@@ -142,6 +126,7 @@ set(CMAKE_AUTORCC ON)
 set(CMAKE_AUTOUIC ON)
 
 get_directory_property(ARCH_WIDTH DIRECTORY "xcash-labs-core" DEFINITION ARCH_WIDTH)
+get_directory_property(Boost_VERSION_STRING DIRECTORY "xcash-labs-core" DEFINITION Boost_VERSION_STRING)
 
 if (NOT CMAKE_BUILD_TYPE STREQUAL "Debug")
   add_definitions(-DQT_NO_DEBUG)
