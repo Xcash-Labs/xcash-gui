@@ -56,13 +56,14 @@ if(APPLE OR (WIN32 AND NOT STATIC))
                            COMMAND "${CMAKE_COMMAND}" -E env PATH="${_qt_bin_dir}" "${WINDEPLOYQT_EXECUTABLE}" "$<TARGET_FILE:monero-wallet-gui>" -no-translations -qmldir="${CMAKE_SOURCE_DIR}"
                            COMMENT "Running windeployqt..."
         )
+# -mt is for boost pre 1.70, -mt was dropped after that
         set(WIN_DEPLOY_DLLS
-            libboost_chrono-mt.dll
-            libboost_filesystem-mt.dll
-            libboost_locale-mt.dll
-            libboost_program_options-mt.dll
-            libboost_serialization-mt.dll
-            libboost_thread-mt.dll
+            libboost_chrono.dll
+            libboost_filesystem.dll
+            libboost_locale.dll
+            libboost_program_options.dll
+            libboost_serialization.dll
+            libboost_thread.dll
             libprotobuf.dll
             libbrotlicommon.dll
             libbrotlidec.dll
