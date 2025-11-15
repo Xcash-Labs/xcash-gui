@@ -338,7 +338,7 @@ The Monero GUI on Windows is 64 bits only; 32-bit Windows GUI builds are not off
 7. Build
 
     ```
-    make release-win64 -j4
+    make release-win64 JOBS=4
     cd build/release
     make deploy
     ```
