@@ -229,9 +229,9 @@ int main(int argc, char *argv[])
     }
 #endif
 
-    app.setApplicationName("monero-core");
-    app.setOrganizationDomain("getmonero.org");
-    app.setOrganizationName("monero-project");
+    app.setApplicationName("xcash-core");
+    app.setOrganizationDomain("xcashlabs.org");
+    app.setOrganizationName("xcash-project");
 
     // Ask to enable Tails OS persistence mode, it affects:
     // - Log file location
@@ -252,10 +252,12 @@ int main(int argc, char *argv[])
         QStringList moneroAccountsRootDir = QStandardPaths::standardLocations(QStandardPaths::HomeLocation);
     #endif
 
-    if(isTails && TailsOS::usePersistence){
-        moneroAccountsDir = QDir::homePath() + "/Persistent/Monero/wallets";
+    if (isTails && TailsOS::usePersistence) {
+        // Tails persistence directory for X-Cash wallets
+        moneroAccountsDir = QDir::homePath() + "/Persistent/X-Cash/wallets";
     } else if (!moneroAccountsRootDir.empty()) {
-        moneroAccountsDir = moneroAccountsRootDir.at(0) + "/Monero/wallets";
+        // Default wallet directory on all platforms
+        moneroAccountsDir = moneroAccountsRootDir.at(0) + "/X-Cash/wallets";
     } else {
         qCritical() << "Error: accounts root directory could not be set";
         return 1;
@@ -503,7 +505,7 @@ Verify update binary using 'shasum'-compatible (SHA256 algo) output signed by tw
     if (accountName.isEmpty())
         accountName = qgetenv("USERNAME"); // Windows
     if (accountName.isEmpty())
-        accountName = "My monero Account";
+        accountName = "My xcash Account";
 
     engine.rootContext()->setContextProperty("defaultAccountName", accountName);
     engine.rootContext()->setContextProperty("homePath", QDir::homePath());
