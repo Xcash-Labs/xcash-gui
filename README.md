@@ -340,7 +340,7 @@ The Monero GUI on Windows is 64 bits only; 32-bit Windows GUI builds are not off
     ```
     make release-win64 JOBS=4
     cd build/release
-    make deploy
+    mingw32-make deploy
     ```
     \* `4` - number of CPU threads to use
 
