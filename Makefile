@@ -1,5 +1,7 @@
 ANDROID_STANDALONE_TOOLCHAIN_PATH ?= /usr/local/toolchain
 MANUAL_SUBMODULES ?= OFF
+JOBS ?= 4
+MINGW_MAKE ?= mingw32-make
 
 dotgit=$(shell ls -d .git/config)
 ifeq ($(dotgit), .git/config)
@@ -66,5 +68,20 @@ debug-static-mac64:
 release-static-win64:
 	mkdir -p $(builddir)/release && cd $(builddir)/release && cmake -D STATIC=ON -G "MSYS Makefiles" -D DEV_MODE=$(or ${DEV_MODE},OFF) -DMANUAL_SUBMODULES=${MANUAL_SUBMODULES} -D ARCH="x86-64" -D BUILD_64=ON -D CMAKE_BUILD_TYPE=Release -D BUILD_TAG="win-x64" -D CMAKE_TOOLCHAIN_FILE=$(topdir)/cmake/64-bit-toolchain.cmake -D MSYS2_FOLDER=$(shell cd ${MINGW_PREFIX}/.. && pwd -W) -D MINGW=ON $(topdir) && $(MAKE)
 
+#release-win64:
+#	mkdir -p $(builddir)/release && cd $(builddir)/release && cmake -D STATIC=OFF -G "MSYS Makefiles" -D DEV_MODE=$(or ${DEV_MODE},OFF) -DMANUAL_SUBMODULES=${MANUAL_SUBMODULES} -D ARCH="x86-64" -D BUILD_64=ON -D CMAKE_BUILD_TYPE=Release -D BUILD_TAG="win-x64" -D CMAKE_TOOLCHAIN_FILE=$(topdir)/cmake/64-bit-toolchain.cmake -D MSYS2_FOLDER=$(shell cd ${MINGW_PREFIX}/.. && pwd -W) -D MINGW=ON $(topdir) && $(MAKE)
+
 release-win64:
-	mkdir -p $(builddir)/release && cd $(builddir)/release && cmake -D STATIC=OFF -G "MSYS Makefiles" -D DEV_MODE=$(or ${DEV_MODE},OFF) -DMANUAL_SUBMODULES=${MANUAL_SUBMODULES} -D ARCH="x86-64" -D BUILD_64=ON -D CMAKE_BUILD_TYPE=Release -D BUILD_TAG="win-x64" -D CMAKE_TOOLCHAIN_FILE=$(topdir)/cmake/64-bit-toolchain.cmake -D MSYS2_FOLDER=$(shell cd ${MINGW_PREFIX}/.. && pwd -W) -D MINGW=ON $(topdir) && $(MAKE)
+	# Clean and recreate build/release
+	rm -rf $(builddir)/release
+	mkdir -p $(builddir)/release
+
+	# Configure with CMake using MinGW Makefiles and your Qt prefix
+	cd $(builddir)/release && cmake $(topdir) \
+	  -G "MinGW Makefiles" \
+	  -DCMAKE_PREFIX_PATH="/c/Qt/5.15.2/mingw81_64" \
+	  -DCMAKE_BUILD_TYPE=Release
+
+	# Build and then run the deploy target
+	cd $(builddir)/release && $(MINGW_MAKE) -j$(JOBS)
+	
