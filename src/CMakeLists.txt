@@ -79,6 +79,7 @@ else()
 endif()
 
 set_target_properties(monero-wallet-gui PROPERTIES
+    OUTPUT_NAME "xcash-wallet-gui"
     RUNTIME_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/bin"
     MACOSX_BUNDLE TRUE
     MACOSX_BUNDLE_INFO_PLIST "${CMAKE_SOURCE_DIR}/share/Info.plist"

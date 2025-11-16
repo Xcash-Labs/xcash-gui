@@ -109,7 +109,7 @@ ApplicationWindow {
     property var fiatPriceAPIs: {
             "coingecko": {
                 "xmrusd": "https://api.coingecko.com/api/v3/simple/price?ids=xcash&vs_currencies=usd",
-                "xmreur": "https://api.coingecko.com/api/v3/simple/price?ids=xcash&vs_currencies=eur"
+                "xmreur": "https://api.coingecko.com/api/v3/simple/price?ids=xcash&vs_currencies=eur",
             },
             "cryptocompare": {
                 "xmrusd": "https://min-api.cryptocompare.com/data/price?fsym=XCASH&tsyms=USD",
