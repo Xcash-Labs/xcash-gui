@@ -451,8 +451,8 @@ Rectangle {
                     Usage:<br>
                         --wallet              Wallet address to mine to. Subaddresses and integrated addresses are not supported!<br>
                         --host                IP address of your Monero node, default is 127.0.0.1<br>
-                        --rpc-port            monerod RPC API port number, default is 18081<br>
-                        --zmq-port            monerod ZMQ pub port number, default is 18083 (same port as in monerod\'s \"--zmq-pub\" command line parameter)<br>
+                        --rpc-port            monerod RPC API port number, default is 18281<br>
+                        --zmq-port            monerod ZMQ pub port number, default is 18283 (same port as in monerod\'s \"--zmq-pub\" command line parameter)<br>
                         --stratum             Comma-separated list of IP:port for stratum server to listen on<br>
                         --p2p                 Comma-separated list of IP:port for p2p server to listen on<br>
                         --addpeers            Comma-separated list of IP:port of other p2pool nodes to connect to<br>

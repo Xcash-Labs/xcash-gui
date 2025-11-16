@@ -90,8 +90,11 @@ ApplicationWindow {
     property var cameraUi
     property bool androidCloseTapped: false;
     property int userLastActive;  // epoch
+
     // Default daemon addresses
-    readonly property string localDaemonAddress : "localhost:" + getDefaultDaemonRpcPort(persistentSettings.nettype)
+    readonly property string localDaemonAddress : "seeds.xcashseeds.us:" + getDefaultDaemonRpcPort(persistentSettings.nettype)
+
+
     property string currentDaemonAddress;
     property int disconnectedEpoch: 0
     property int estimatedBlockchainSize: persistentSettings.pruneBlockchain ? 100 : 225 // GB
@@ -104,18 +107,13 @@ ApplicationWindow {
     // fiat price conversion
     property real fiatPrice: 0
     property var fiatPriceAPIs: {
-        return {
-            "kraken": {
-                "xmrusd": "https://api.kraken.com/0/public/Ticker?pair=XMRUSD",
-                "xmreur": "https://api.kraken.com/0/public/Ticker?pair=XMREUR"
-            },
             "coingecko": {
-                "xmrusd": "https://api.coingecko.com/api/v3/simple/price?ids=monero&vs_currencies=usd",
-                "xmreur": "https://api.coingecko.com/api/v3/simple/price?ids=monero&vs_currencies=eur"
+                "xmrusd": "https://api.coingecko.com/api/v3/simple/price?ids=xcash&vs_currencies=usd",
+                "xmreur": "https://api.coingecko.com/api/v3/simple/price?ids=xcash&vs_currencies=eur"
             },
             "cryptocompare": {
-                "xmrusd": "https://min-api.cryptocompare.com/data/price?fsym=XMR&tsyms=USD",
-                "xmreur": "https://min-api.cryptocompare.com/data/price?fsym=XMR&tsyms=EUR",
+                "xmrusd": "https://min-api.cryptocompare.com/data/price?fsym=XCASH&tsyms=USD",
+                "xmreur": "https://min-api.cryptocompare.com/data/price?fsym=XCASH&tsyms=EUR",
             }
         }
     }
@@ -262,7 +260,37 @@ ApplicationWindow {
         }
 
         // Local daemon settings
-        walletManager.setDaemonAddressAsync(localDaemonAddress);
+//        walletManager.setDaemonAddressAsync(localDaemonAddress);
+
+
+
+        // Daemon settings: honor remote vs local
+        var daemonAddr;
+
+        if (persistentSettings.useRemoteNode) {
+            // Use saved remote node if you already store one, otherwise fall back
+            // to our default X-Cash seed.
+            if (remoteNodesModel && remoteNodesModel.currentRemoteNode
+                    && remoteNodesModel.currentRemoteNode().address !== "") {
+                daemonAddr = remoteNodesModel.currentRemoteNode().address;
+            } else {
+                daemonAddr = defaultRemoteDaemonAddress; // seeds.xcashseeds.us:18281
+            }
+        } else {
+            daemonAddr = localDaemonAddress;
+        }
+
+        // keep currentDaemonAddress in sync for other UI parts
+        currentDaemonAddress = daemonAddr;
+
+        console.log("Using daemon:", daemonAddr);
+        walletManager.setDaemonAddressAsync(daemonAddr);
+
+
+
+
+
+
 
         // enable timers
         userInActivityTimer.running = true;
@@ -1458,10 +1486,9 @@ ApplicationWindow {
         id: persistentSettings
         fileName: {
             if(isTails && tailsUsePersistence)
-                return homePath + "/Persistent/Monero/monero-core.conf";
+                return homePath + "/Persistent/X-CASH/xcash-core.conf";
             return "";
         }
-
         property bool askDesktopShortcut: isLinux
         property bool askStopLocalNode: true
         property string language: 'English (US)'
@@ -1492,7 +1519,8 @@ ApplicationWindow {
         property bool historyShowAdvanced: false
         property bool historyHumanDates: true
         property string blockchainDataDir: ""
-        property bool useRemoteNode: isAndroid
+//        property bool useRemoteNode: isAndroid
+        property bool useRemoteNode: true               // start in remote mode
         property string remoteNodeAddress: "" // TODO: drop after v0.17.2.0 release
         property string remoteNodesSerialized: JSON.stringify({
                 selected: 0,
@@ -1525,7 +1553,7 @@ ApplicationWindow {
         property bool fiatPriceEnabled: false
         property bool fiatPriceToggle: false
         property string fiatPriceProvider: "kraken"
-        property string fiatPriceCurrency: "xmrusd"
+        property string fiatPriceCurrency: "xcausd"
 
         property string proxyAddress: "127.0.0.1:9050"
         property bool proxyEnabled: isTails
@@ -2369,11 +2397,11 @@ ApplicationWindow {
     function getDefaultDaemonRpcPort(networkType) {
         switch (parseInt(networkType)) {
             case NetworkType.STAGENET:
-                return 38081;
+                return 38281;
             case NetworkType.TESTNET:
-                return 28081;
+                return 28281;
             default:
-                return 18081;
+                return 18281;
         }
     }
 
