@@ -155,8 +155,8 @@
         <file>images/lightning@2x.png</file>
         <file>images/logout.png</file>
         <file>images/logout@2x.png</file>
-        <file>images/moneroIcon-28x28.png</file>
-        <file>images/moneroIcon-28x28@2x.png</file>
+        <file>images/xcashIcon-28x28.png</file>
+        <file>images/xcashIcon-28x28@2x.png</file>
         <file>images/lightning-white.png</file>
         <file>images/lightning-white@2x.png</file>
         <file>components/InputMulti.qml</file>
