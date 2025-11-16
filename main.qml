@@ -865,7 +865,7 @@ ApplicationWindow {
         // resume refresh
         currentWallet.startRefresh();
         informationPopup.title = qsTr("Daemon failed to start") + translationManager.emptyString;
-        informationPopup.text  = error + ".\n\n" + qsTr("Please check your wallet and daemon log for errors. You can also try to start %1 manually.").arg((isWindows)? "monerod.exe" : "monerod")
+        informationPopup.text  = error + ".\n\n" + qsTr("Please check your wallet and daemon log for errors. You can also try to start %1 manually.").arg((isWindows)? "xcashd.exe" : "monerod")
         if (middlePanel.advancedView.miningView.stopMiningEnabled == true) {
             walletManager.stopMining()
             p2poolManager.exit()
@@ -1410,7 +1410,7 @@ ApplicationWindow {
 
         translationManager.setLanguage(persistentSettings.locale.split("_")[0]);
 
-        // Force X-Cash behavior: advanced mode + remote node jed
+        // Force X-Cash behavior: advanced mode + remote node
         persistentSettings.walletMode = 2;
         appWindow.walletMode = 2;
         persistentSettings.useRemoteNode = true;
@@ -2172,23 +2172,14 @@ ApplicationWindow {
     }
 
     // jed
-    // Timer {
-    //  Simple mode connection check timer
-    //  id: simpleModeConnectionTimer
-    //  interval: 2000
-    //  running: appWindow.walletMode < 2 && currentWallet != undefined && daemonStartStopInProgress == 0
-    //  repeat: true
-    //  onTriggered: appWindow.checkSimpleModeConnection()
-    // }
-
-    Timer {
-    // Simple mode connection check timer (disabled)
-        id: simpleModeConnectionTimer
-        interval: 2000
-        running: false
-        repeat: true
-        onTriggered: appWindow.checkSimpleModeConnection()
-    }
+     Timer {
+      Simple mode connection check timer
+      id: simpleModeConnectionTimer
+      interval: 2000
+      running: appWindow.walletMode < 2 && currentWallet != undefined && daemonStartStopInProgress == 0
+      repeat: true
+      onTriggered: appWindow.checkSimpleModeConnection()
+     }
 
     Rectangle {
         id: statusMessage

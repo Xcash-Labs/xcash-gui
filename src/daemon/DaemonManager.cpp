@@ -187,7 +187,7 @@ bool DaemonManager::stopWatcher(NetworkType::Type nettype, const QString &dataDi
             if(counter >= 5) {
                 qDebug() << "Killing it! ";
 #ifdef Q_OS_WIN
-                QProcess::execute("taskkill",  {"/F", "/IM", "monerod.exe"});
+                QProcess::execute("taskkill",  {"/F", "/IM", "xcashd.exe"});
 #else
                 QProcess::execute("pkill", {"monerod"});
 #endif
@@ -350,7 +350,7 @@ QString DaemonManager::getArgs(const QString &dataDir) {
     QStringList tempArgs;
     #ifdef Q_OS_WIN
         //powershell
-        tempArgs << "Get-CimInstance Win32_Process -Filter \"name = 'monerod.exe'\" | select -ExpandProperty CommandLine ";
+        tempArgs << "Get-CimInstance Win32_Process -Filter \"name = 'xcashd.exe'\" | select -ExpandProperty CommandLine ";
         p.setProgram("powershell");
         p.setArguments(tempArgs);
         p.start();
@@ -400,7 +400,7 @@ DaemonManager::DaemonManager(QObject *parent)
 
     // Platform depetent path to monerod
 #ifdef Q_OS_WIN
-    m_monerod = QApplication::applicationDirPath() + "/monerod.exe";
+    m_monerod = QApplication::applicationDirPath() + "/xcashd.exe";
 #elif defined(Q_OS_UNIX)
     m_monerod = QApplication::applicationDirPath() + "/monerod";
 #endif
