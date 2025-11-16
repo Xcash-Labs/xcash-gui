@@ -1,4 +1,4 @@
-// Copyright (c) 2014-2024, The Monero Project
+// Copyright (c) 2014-2024, The Monero Project6
 //
 // All rights reserved.
 //
@@ -260,24 +260,23 @@ ApplicationWindow {
             leftPanel.selectItem(middlePanel.state)
         }
 
-        // Local daemon settings
+        // Local daemon settings jed
 //        walletManager.setDaemonAddressAsync(localDaemonAddress);
 
-
-
-        // Daemon settings: honor remote vs local
+        // Daemon settings: always end up with a valid X-Cash daemon address
         var daemonAddr;
 
         if (persistentSettings.useRemoteNode) {
-            // Use saved remote node if you already store one, otherwise fall back
-            // to our default X-Cash seed.
+            // Try saved remote node first
             if (remoteNodesModel && remoteNodesModel.currentRemoteNode
                     && remoteNodesModel.currentRemoteNode().address !== "") {
                 daemonAddr = remoteNodesModel.currentRemoteNode().address;
             } else {
-                daemonAddr = defaultRemoteDaemonAddress; // seeds.xcashseeds.us:18281
+                // Fallback to X-Cash seed (your localDaemonAddress)
+                daemonAddr = localDaemonAddress; // seeds.xcashseeds.us:<port>
             }
         } else {
+            // For now also use the seed when "local" is selected
             daemonAddr = localDaemonAddress;
         }
 
@@ -286,12 +285,6 @@ ApplicationWindow {
 
         console.log("Using daemon:", daemonAddr);
         walletManager.setDaemonAddressAsync(daemonAddr);
-
-
-
-
-
-
 
         // enable timers
         userInActivityTimer.running = true;
@@ -401,10 +394,17 @@ ApplicationWindow {
 
         if (persistentSettings.useRemoteNode) {
             const remoteNode = remoteNodesModel.currentRemoteNode();
-            currentDaemonAddress = remoteNode.address;
-            currentWallet.setDaemonLogin(remoteNode.username, remoteNode.password);
+            if (remoteNode.address && remoteNode.address !== "") {
+                currentDaemonAddress = remoteNode.address;
+                currentWallet.setDaemonLogin(remoteNode.username, remoteNode.password);
+            } else {
+                // No saved remote node – stick with our default seed
+                currentDaemonAddress = localDaemonAddress;
+                currentWallet.setDaemonLogin("", "");
+            }
         } else {
             currentDaemonAddress = localDaemonAddress;
+            currentWallet.setDaemonLogin("", "");
         }
 
         console.log("initializing with daemon address: ", currentDaemonAddress)
@@ -510,14 +510,14 @@ ApplicationWindow {
             firstBlockSeen = 0;
         }
 
-        // If wallet isnt connected, advanced wallet mode and no daemon is running - Ask
-        if (appWindow.walletMode >= 2 && !persistentSettings.useRemoteNode && !walletInitialized && disconnected) {
-            daemonManager.runningAsync(persistentSettings.nettype, persistentSettings.blockchainDataDir, function(running) {
-                if (!running) {
-                    daemonManagerDialog.open();
-                }
-            });
-        }
+        // If wallet isnt connected, advanced wallet mode and no daemon is running - Ask - jed
+        //if (appWindow.walletMode >= 2 && !persistentSettings.useRemoteNode && !walletInitialized && disconnected) {
+        //    daemonManager.runningAsync(persistentSettings.nettype, persistentSettings.blockchainDataDir, function(running) {
+        //        if (!running) {
+        //            daemonManagerDialog.open();
+        //        }
+        //    });
+        //}
         // initialize transaction history once wallet is initialized first time;
         if (!walletInitialized) {
             currentWallet.history.refresh(currentWallet.currentSubaddressAccount)
@@ -2173,7 +2173,6 @@ ApplicationWindow {
 
     // jed
      Timer {
-      Simple mode connection check timer
       id: simpleModeConnectionTimer
       interval: 2000
       running: appWindow.walletMode < 2 && currentWallet != undefined && daemonStartStopInProgress == 0
