@@ -109,12 +109,12 @@ ApplicationWindow {
     property var fiatPriceAPIs: {
         return {
             "coingecko": {
-                "xmrusd": "https://api.coingecko.com/api/v3/simple/price?ids=xcash&vs_currencies=usd",
-                "xmreur": "https://api.coingecko.com/api/v3/simple/price?ids=xcash&vs_currencies=eur"
+                "xcausd": "https://api.coingecko.com/api/v3/simple/price?ids=xcash&vs_currencies=usd",
+                "xcaeur": "https://api.coingecko.com/api/v3/simple/price?ids=xcash&vs_currencies=eur"
             },
             "cryptocompare": {
-                "xmrusd": "https://min-api.cryptocompare.com/data/price?fsym=XCASH&tsyms=USD",
-                "xmreur": "https://min-api.cryptocompare.com/data/price?fsym=XCASH&tsyms=EUR"
+                "xcausd": "https://min-api.cryptocompare.com/data/price?fsym=XCASH&tsyms=USD",
+                "xcaeur": "https://min-api.cryptocompare.com/data/price?fsym=XCASH&tsyms=EUR"
             }
         }
     }
@@ -1368,9 +1368,9 @@ ApplicationWindow {
 
     function fiatApiCurrencySymbol() {
         switch (persistentSettings.fiatPriceCurrency) {
-            case "xmrusd":
+            case "xcausd":
                 return "USD";
-            case "xmreur":
+            case "xcaeur":
                 return "EUR";
             default:
                 console.error("unsupported currency", persistentSettings.fiatPriceCurrency);
@@ -1553,9 +1553,8 @@ ApplicationWindow {
 
         property bool fiatPriceEnabled: false
         property bool fiatPriceToggle: false
-        property string fiatPriceProvider: "kraken"
+        property string fiatPriceProvider: "coingecko"
         property string fiatPriceCurrency: "xcausd"
-
         property string proxyAddress: "127.0.0.1:9050"
         property bool proxyEnabled: isTails
         function getProxyAddress() {
