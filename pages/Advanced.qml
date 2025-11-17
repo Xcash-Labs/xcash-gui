@@ -52,7 +52,7 @@ ColumnLayout {
 
         MoneroComponents.NavbarItem {
             active: state == "Mining"
-            text: qsTr("Mining") + translationManager.emptyString
+            text: qsTr("Staking") + translationManager.emptyString
             onSelected: state = "Mining"
             visible: !isAndroid
         }

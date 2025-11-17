@@ -137,12 +137,15 @@ Rectangle{
             MouseArea {
                 cursorShape: Qt.PointingHandCursor
                 anchors.fill: parent
-                enabled: persistentSettings.useRemoteNode
+                enabled: true
                 onClicked: {
-                    persistentSettings.useRemoteNode = false;
-                    appWindow.disconnectRemoteNode();
+                    appWindow.showStatusMessage(
+                        qsTr("Local node is disabled in this X-Cash build. Please use a remote node."),
+                        6
+                    )
                 }
             }
+
         }
 
         Rectangle {

@@ -56,13 +56,13 @@ Rectangle {
         MoneroComponents.Label {
             id: soloTitleLabel
             fontSize: 24
-            text: qsTr("Mining") + translationManager.emptyString
+            text: qsTr("Staking") + translationManager.emptyString
         }
 
         MoneroComponents.WarningBox {
             Layout.bottomMargin: 8
             id: localDaemonWarning
-            text: qsTr("Mining is only available on local daemons.") + translationManager.emptyString
+            text: qsTr("Staking Status Goes Here.") + translationManager.emptyString
             visible: persistentSettings.useRemoteNode && !persistentSettings.allowRemoteNodeMining
         }
 
