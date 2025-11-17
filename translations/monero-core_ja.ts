@@ -2753,8 +2753,8 @@ Please upgrade or connect to another daemon</source>
     </message>
     <message>
         <location filename="../pages/Transfer.qml" line="169"/>
-        <source>Spendable funds: %1 XMR. Please wait ~%2 minutes for your whole balance to become spendable.</source>
-        <translation>支出可能な資金: %1 XMR. 全ての残高が利用可能になるまで~%2分ほどお待ちください。</translation>
+        <source>Spendable funds: %1 XCA. Please wait ~%2 minutes for your whole balance to become spendable.</source>
+        <translation>支出可能な資金: %1 XCA. 全ての残高が利用可能になるまで~%2分ほどお待ちください。</translation>
     </message>
     <message>
         <location filename="../pages/Transfer.qml" line="333"/>
@@ -2899,7 +2899,7 @@ Please upgrade or connect to another daemon</source>
     </message>
     <message>
         <location filename="../pages/Transfer.qml" line="985"/>
-        <source>Spend XMR from a cold (offline) wallet</source>
+        <source>Spend XCA from a cold (offline) wallet</source>
         <translation>XMRをコールド(オフライン)ウォレットから消費する</translation>
     </message>
     <message>
@@ -3187,7 +3187,7 @@ For reserve proofs you don&apos;t need to specify tx id or address.</source>
     </message>
     <message>
         <location filename="../pages/TxKey.qml" line="109"/>
-        <source>Paste amount of XMR (reserve proof only)</source>
+        <source>Paste amount of XCA (reserve proof only)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>

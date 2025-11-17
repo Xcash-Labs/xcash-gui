@@ -92,8 +92,7 @@ ApplicationWindow {
     property int userLastActive;  // epoch
 
     // Default daemon addresses
-    readonly property string localDaemonAddress : "seeds.xcashseeds.us:" + getDefaultDaemonRpcPort(persistentSettings.nettype)
-
+    readonly property string localDaemonAddress : "seeds.xcashseeds.us:" + getDefaultDaemonRpcPort(persistentSettings.nettype) 
 
     property string currentDaemonAddress;
     property int disconnectedEpoch: 0
@@ -1589,6 +1588,7 @@ ApplicationWindow {
         signal store()
 
         function initialize() {
+            // 1) Load any previously saved nodes from settings
             try {
                 const remoteNodes = JSON.parse(persistentSettings.remoteNodesSerialized);
                 for (var index = 0; index < remoteNodes.nodes.length; ++index) {
@@ -1600,6 +1600,32 @@ ApplicationWindow {
                 console.error('failed to parse remoteNodesSerialized', e);
             }
 
+            // 2) Ensure all default X-Cash seed nodes exist in the list
+            const defaultSeedNodes = [
+                { address: "seeds.xcashseeds.us:", username: "", password: "", trusted: true },
+                { address: "seeds.xcashseeds.uk:", username: "", password: "", trusted: true },
+                { address: "seeds.xcashseeds.cc:", username: "", password: "", trusted: true },
+                { address: "seeds.xcashseeds.me:", username: "", password: "", trusted: true }
+            ];
+
+            for (var i = 0; i < defaultSeedNodes.length; ++i) {
+                var node = {
+                    address: defaultSeedNodes[i].address + getDefaultDaemonRpcPort(persistentSettings.nettype),
+                    username: defaultSeedNodes[i].username,
+                    password: defaultSeedNodes[i].password,
+                    trusted: defaultSeedNodes[i].trusted
+                };
+                remoteNodesModel.appendIfNotExists(node);
+            }
+
+            // Make sure "selected" is in range
+            if (remoteNodesModel.count === 0) {
+                selected = 0;
+            } else {
+                selected = selected % remoteNodesModel.count;
+            }
+
+            // 3) Persist changes whenever the model changes
             store.connect(function() {
                 var remoteNodes = [];
                 for (var index = 0; index < remoteNodesModel.count; ++index) {
