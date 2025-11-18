@@ -64,7 +64,7 @@ Rectangle {
             var status = "";
 
             try {
-                // Calls your libwalletqt wrapper: QString Wallet::voteStatus()
+                // Calls libwalletqt: QString Wallet::voteStatus()
                 status = appWindow.currentWallet.voteStatus();
                 console.log("DPOPS voteStatus() returned:", status);
             } catch (e) {
@@ -80,31 +80,24 @@ Rectangle {
             }
         }
 
-        // Optionally refresh when this component is created
         Component.onCompleted: {
             refreshStakingStatus();
-        }
-
-        MoneroComponents.Label {
-            id: soloTitleLabel
-            fontSize: 24
-            text: qsTr("Staking") + translationManager.emptyString
-        }
-
-        // Label that actually shows the staking status text
-        MoneroComponents.Label {
-            id: stakingStatusLabel
-            anchors.top: soloTitleLabel.bottom
-            anchors.topMargin: 8
-            wrapMode: Text.Wrap
-            text: stakingStatus
         }
 
         MoneroComponents.WarningBox {
             Layout.bottomMargin: 8
             id: localDaemonWarning
-            text: qsTr("Staking Status Goes Here.") + translationManager.emptyString
+
+            text: stakingStatus
+
+            // your existing condition
             visible: persistentSettings.useRemoteNode && !persistentSettings.allowRemoteNodeMining
+
+            // Optional: STILL refresh when it becomes visible
+            onVisibleChanged: {
+                if (visible)
+                    refreshStakingStatus();
+            }
         }
 
         MoneroComponents.WarningBox {
