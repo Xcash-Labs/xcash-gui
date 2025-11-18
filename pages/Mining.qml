@@ -43,6 +43,38 @@ Rectangle {
     property int threads: idealThreadCount / 2
     property alias stopMiningEnabled: stopSoloMinerButton.enabled
     property string args: ""
+    property string stakingStatus: qsTr("Loading staking status…") + translationManager.emptyString
+
+    function refreshStakingStatus() {
+        if (!appWindow.currentWallet) {
+            stakingStatus = qsTr("No wallet is currently open.") + translationManager.emptyString;
+            return;
+        }
+
+        var status = "";
+
+        try {
+            // Calls libwalletqt: QString Wallet::voteStatus()
+            status = appWindow.currentWallet.voteStatus();
+            console.log("DPOPS voteStatus() returned:", status);
+        } catch (e) {
+            console.log("Error calling voteStatus():", e);
+            stakingStatus = qsTr("Failed to load staking status.") + translationManager.emptyString;
+            return;
+        }
+
+        if (!status || status.length === 0) {
+            stakingStatus = qsTr("No staking information available.") + translationManager.emptyString;
+        } else {
+            stakingStatus = status;
+        }
+    }
+
+    // Optional: refresh once when this Mining page is created
+    Component.onCompleted: {
+        refreshStakingStatus();
+    }
+
     ColumnLayout {
         id: mainLayout
         Layout.fillWidth: true
@@ -52,37 +84,6 @@ Rectangle {
         anchors.top: parent.top
         anchors.right: parent.right
         spacing: 20
-
-        property string stakingStatus: qsTr("Loading staking status…") + translationManager.emptyString
-
-        function refreshStakingStatus() {
-            if (!appWindow.currentWallet) {
-                stakingStatus = qsTr("No wallet is currently open.") + translationManager.emptyString;
-                return;
-            }
-
-            var status = "";
-
-            try {
-                // Calls libwalletqt: QString Wallet::voteStatus()
-                status = appWindow.currentWallet.voteStatus();
-                console.log("DPOPS voteStatus() returned:", status);
-            } catch (e) {
-                console.log("Error calling voteStatus():", e);
-                stakingStatus = qsTr("Failed to load staking status.") + translationManager.emptyString;
-                return;
-            }
-
-            if (!status || status.length === 0) {
-                stakingStatus = qsTr("No staking information available.") + translationManager.emptyString;
-            } else {
-                stakingStatus = status;
-            }
-        }
-
-        Component.onCompleted: {
-            refreshStakingStatus();
-        }
 
         MoneroComponents.WarningBox {
             Layout.bottomMargin: 8
