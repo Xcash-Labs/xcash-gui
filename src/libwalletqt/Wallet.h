@@ -94,7 +94,6 @@ class Wallet : public QObject, public PassprasePrompter
 
 public:
 
-
     enum Status {
         Status_Ok       = Monero::Wallet::Status_Ok,
         Status_Error    = Monero::Wallet::Status_Error,
@@ -119,6 +118,11 @@ public:
     };
 
     Q_ENUM(BackgroundSyncType)
+
+    // Voting an staking helpers exposed to QML
+    Q_INVOKABLE QString voteStatus();
+    Q_INVOKABLE QString vote(const QString &value);
+    Q_INVOKABLE QString revote();
 
     //! returns mnemonic seed
     QString getSeed() const;

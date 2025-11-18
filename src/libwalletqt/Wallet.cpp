@@ -529,6 +529,35 @@ bool Wallet::scanTransactions(const QVector<QString> &txids)
     return m_walletImpl->scanTransactions(c);
 }
 
+// // Voting an staking helpers
+QString Wallet::voteStatus()
+{
+    if (!m_walletImpl)
+        return QStringLiteral("wallet not initialized");
+
+    return QString::fromStdString(m_walletImpl->vote_status());
+}
+
+QString Wallet::vote(const QString &value)
+{
+    if (!m_walletImpl)
+        return QStringLiteral("wallet not initialized");
+
+    // Convert QString -> std::string for the core API
+    return QString::fromStdString(
+        m_walletImpl->vote(value.toStdString())
+    );
+}
+
+QString Wallet::revote()
+{
+    if (!m_walletImpl)
+        return QStringLiteral("wallet not initialized");
+
+    return QString::fromStdString(m_walletImpl->revote());
+}
+// End DPOPS
+
 void Wallet::setupBackgroundSync(const Wallet::BackgroundSyncType background_sync_type, const QString &wallet_password)
 {
     qDebug() << "Setting up background sync";

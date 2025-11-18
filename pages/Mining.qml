@@ -53,6 +53,20 @@ Rectangle {
         anchors.right: parent.right
         spacing: 20
 
+        property string stakingStatus: qsTr("Loading staking status…") + translationManager.emptyString
+
+        function refreshStakingStatus() {
+            if (!appWindow.currentWallet) {
+                stakingStatus = qsTr("No wallet is currently open.") + translationManager.emptyString;
+                return;
+            }
+
+            // this calls your libwalletqt wrapper:
+            // QString Wallet::voteStatus()
+            var status = appWindow.currentWallet.voteStatus();
+            stakingStatus = status;
+        }
+
         MoneroComponents.Label {
             id: soloTitleLabel
             fontSize: 24
