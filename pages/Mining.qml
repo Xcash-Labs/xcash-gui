@@ -61,16 +61,43 @@ Rectangle {
                 return;
             }
 
-            // this calls your libwalletqt wrapper:
-            // QString Wallet::voteStatus()
-            var status = appWindow.currentWallet.voteStatus();
-            stakingStatus = status;
+            var status = "";
+
+            try {
+                // Calls your libwalletqt wrapper: QString Wallet::voteStatus()
+                status = appWindow.currentWallet.voteStatus();
+                console.log("DPOPS voteStatus() returned:", status);
+            } catch (e) {
+                console.log("Error calling voteStatus():", e);
+                stakingStatus = qsTr("Failed to load staking status.") + translationManager.emptyString;
+                return;
+            }
+
+            if (!status || status.length === 0) {
+                stakingStatus = qsTr("No staking information available.") + translationManager.emptyString;
+            } else {
+                stakingStatus = status;
+            }
+        }
+
+        // Optionally refresh when this component is created
+        Component.onCompleted: {
+            refreshStakingStatus();
         }
 
         MoneroComponents.Label {
             id: soloTitleLabel
             fontSize: 24
             text: qsTr("Staking") + translationManager.emptyString
+        }
+
+        // Label that actually shows the staking status text
+        MoneroComponents.Label {
+            id: stakingStatusLabel
+            anchors.top: soloTitleLabel.bottom
+            anchors.topMargin: 8
+            wrapMode: Text.Wrap
+            text: stakingStatus
         }
 
         MoneroComponents.WarningBox {
