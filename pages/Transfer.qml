@@ -45,7 +45,7 @@ import "../js/Utils.js" as Utils
 
 Rectangle {
     id: root
-    signal paymentClicked(var recipients, string paymentId, int mixinCount, int priority, string description)
+    signal paymentClicked(var recipients, string paymentId, int mixinCount, int priority, int flextype, string description)
     signal sweepUnmixableClicked()
 
     color: "transparent"
@@ -658,6 +658,13 @@ Rectangle {
             // ListElement { column1: qsTr("LOW") + translationManager.emptyString ; column2: ""; priority: PendingTransaction.Priority_Low }
             // For translations to work, the strings need to be listed in
             // the file components/StandardDropdown.qml too.
+
+            ListModel {
+                id: flexModel
+
+                ListElement { column1: qsTr("Private") ; column2: ""; flextype: 0}
+                ListElement { column1: qsTr("Public") ; column2: ""; flextype: 1}
+            }
 
             // Priorites after v5
             ListModel {
