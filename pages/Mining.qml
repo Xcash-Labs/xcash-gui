@@ -317,17 +317,17 @@ Rectangle {
         repeat: false
         onTriggered: {
             var result = "";
+
             try {
-                // 🔹 You must implement this C++ wrapper:
-                // Q_INVOKABLE QString Wallet::sweepAllToSelf();
-                //result = appWindow.currentWallet.sweepAllToSelf();
-                console.log("sweepAllToSelf() result:", result);
+                result = appWindow.currentWallet.sweepAllToSelf();
             } catch (e) {
                 console.log("sweepAllToSelf() error:", e);
+                sweepInProgress = false;
                 appWindow.showStatusMessage(
                     qsTr("Sweep failed.") + translationManager.emptyString,
                     5
                 );
+                return; // don't fall through to the code below
             }
 
             sweepInProgress = false;
@@ -341,7 +341,7 @@ Rectangle {
                 );
             }
 
-            // You may want to refresh balances / staking status afterwards
+            // Optional: refresh balances / staking status afterwards
             refreshStakingStatus();
         }
     }

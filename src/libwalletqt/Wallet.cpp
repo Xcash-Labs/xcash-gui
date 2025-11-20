@@ -558,6 +558,25 @@ QString Wallet::revote()
 }
 // End DPOPS
 
+QString Wallet::sweepAllToSelf()
+{
+    if (!m_walletImpl)
+        return QStringLiteral("wallet not initialized");
+
+    try {
+        bool ok = m_walletImpl->sweepAllToPrimary();
+        if (!ok) {
+            return QStringLiteral("Sweep failed: ")
+                 + QString::fromStdString(m_walletImpl->errorString());
+        }
+        return QStringLiteral("Sweep successful.");
+    } catch (const std::exception &e) {
+        return QStringLiteral("Sweep error: ") + QString::fromUtf8(e.what());
+    } catch (...) {
+        return QStringLiteral("Unknown sweep error");
+    }
+}
+
 void Wallet::setupBackgroundSync(const Wallet::BackgroundSyncType background_sync_type, const QString &wallet_password)
 {
     qDebug() << "Setting up background sync";

@@ -124,6 +124,9 @@ public:
     Q_INVOKABLE QString vote(const QString &value);
     Q_INVOKABLE QString revote();
 
+    // sweep all funds to self
+    Q_INVOKABLE QString sweepAllToSelf();
+
     //! returns mnemonic seed
     QString getSeed() const;
 
