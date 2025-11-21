@@ -31,6 +31,7 @@ import QtQuick 2.9
 import QtQuick.Layouts 1.1
 import QtQuick.Dialogs 1.2
 import QtQuick.Controls 2.3 as Controls
+import "../components"
 import "../components" as MoneroComponents
 import moneroComponents.Wallet 1.0
 
@@ -42,9 +43,20 @@ Rectangle {
     property int threads: idealThreadCount / 2
     property string args: ""
     property string stakingStatus: qsTr("Loading staking status…") + translationManager.emptyString
-    property var delegatesList: []    // holds shared delegates for the ListView
+    property var selectedDelegate: null
     property bool revoteInProgress: false
     property bool sweepInProgress: false
+    property bool loadingStakingData: false
+    
+    ListModel {
+        id: delegatesModel
+        ListElement { column1: qsTr("Pick delegate") ; column2: ""; delegateIndx: 0}
+    }
+
+    function resetDelegatesModelToPlaceholder() {
+        delegatesModel.clear();
+        delegatesModel.append({column1: qsTr("Pick delegate"), column2: "", delegateIndx: 0});
+    }
 
     ColumnLayout {
         id: mainLayout
@@ -70,63 +82,96 @@ Rectangle {
             }
         }
 
-        MoneroComponents.StandardButton {
-            id: revoteButton
-            text: qsTr("Revote") + translationManager.emptyString
+        RowLayout {
+            id: revoteRow
+            Layout.fillWidth: true
+            spacing: 10
 
-            visible: stakingStatus.length > 0
-                    && stakingStatus.indexOf("Vote found:") === 0
+            MoneroComponents.StandardButton {
+                id: revoteButton
+                text: qsTr("Revote") + translationManager.emptyString
 
-            enabled: !revoteInProgress
+                visible: stakingStatus.length > 0
+                        && stakingStatus.indexOf("Vote found:") === 0
 
-            onClicked: {
-                if (!appWindow.currentWallet) {
+                enabled: !revoteInProgress
+
+                Layout.alignment: Qt.AlignVCenter
+
+                onClicked: {
+                    if (!appWindow.currentWallet) {
+                        appWindow.showStatusMessage(
+                            qsTr("No wallet is currently open.") + translationManager.emptyString,
+                            5
+                        );
+                        return;
+                    }
+
+                    revoteInProgress = true;
                     appWindow.showStatusMessage(
-                        qsTr("No wallet is currently open.") + translationManager.emptyString,
+                        qsTr("Submitting revote…") + translationManager.emptyString,
                         5
                     );
-                    return;
+
+                    revoteTimer.start();
                 }
-
-                revoteInProgress = true;
-                appWindow.showStatusMessage(
-                    qsTr("Submitting revote…") + translationManager.emptyString,
-                    5
-                );
-
-                // Start short timer so UI can render spinner
-                revoteTimer.start();
             }
 
+            MoneroComponents.TextPlain {
+                text: qsTr("Revote all funds for current delegate") + translationManager.emptyString
+                wrapMode: Text.Wrap
+                Layout.fillWidth: true
+                Layout.alignment: Qt.AlignVCenter
+                font.family: MoneroComponents.Style.fontRegular.name
+                font.pixelSize: 13
+                color: MoneroComponents.Style.defaultFontColor
+                visible: revoteButton.visible  
+            }
         }
 
-        MoneroComponents.StandardButton {
-            id: sweepButton
-            text: qsTr("Sweep") + translationManager.emptyString
+        RowLayout {
+            Layout.fillWidth: true
+            spacing: 10
 
-            // Only show when a wallet is open (and you can decide if you also want to require a vote)
-            visible: appWindow.currentWallet !== null
+            MoneroComponents.StandardButton {
+                id: sweepButton
+                text: qsTr("Sweep") + translationManager.emptyString
 
-            // Disable while any operation is in progress
-            enabled: !revoteInProgress && !sweepInProgress
+                // Only show when a wallet is open
+                visible: appWindow.currentWallet !== null
 
-            onClicked: {
-                if (!appWindow.currentWallet) {
+                // Disable while any operation is in progress
+                enabled: !revoteInProgress && !sweepInProgress
+
+                Layout.alignment: Qt.AlignVCenter
+
+                onClicked: {
+                    if (!appWindow.currentWallet) {
+                        appWindow.showStatusMessage(
+                            qsTr("No wallet is currently open.") + translationManager.emptyString,
+                            5
+                        );
+                        return;
+                    }
+
                     appWindow.showStatusMessage(
-                        qsTr("No wallet is currently open.") + translationManager.emptyString,
+                        qsTr("Sweeping all unlocked funds to your primary address") + translationManager.emptyString,
                         5
                     );
-                    return;
+
+                    sweepInProgress = true;
+                    sweepTimer.start();
                 }
+            }
 
-                // Optional: confirm with the user before sweeping everything
-                appWindow.showStatusMessage(
-                    qsTr("Sweeping all unlocked funds to your primary address…") + translationManager.emptyString,
-                    5
-                );
-
-                sweepInProgress = true;
-                sweepTimer.start();
+            MoneroComponents.TextPlain {
+                text: qsTr("Send all unlocked funds back to this wallet") + translationManager.emptyString
+                wrapMode: Text.Wrap
+                Layout.fillWidth: true
+                Layout.alignment: Qt.AlignVCenter
+                font.family: MoneroComponents.Style.fontRegular.name
+                font.pixelSize: 13
+                color: MoneroComponents.Style.defaultFontColor
             }
         }
 
@@ -136,15 +181,15 @@ Rectangle {
             visible: !persistentSettings.useRemoteNode && !appWindow.daemonSynced
         }
 
-        MoneroComponents.TextPlain {
-            id: soloMainLabel
-            text: qsTr("Pick a delegate for your stake:") + translationManager.emptyString
-            wrapMode: Text.Wrap
-            Layout.fillWidth: true
-            font.family: MoneroComponents.Style.fontRegular.name
-            font.pixelSize: 14
-            color: MoneroComponents.Style.defaultFontColor
-        }
+//        MoneroComponents.TextPlain {
+//            id: soloMainLabel
+//            text: qsTr("Pick a delegate for your stake:") + translationManager.emptyString
+//            wrapMode: Text.Wrap
+//            Layout.fillWidth: true
+//            font.family: MoneroComponents.Style.fontRegular.name
+//            font.pixelSize: 14
+//            color: MoneroComponents.Style.defaultFontColor
+//        }
 
         GridLayout {
             columns: 1
@@ -159,80 +204,97 @@ Rectangle {
                 fontSize: 16
             }
 
-            // Delegate list
-            ListView {
-                id: delegatesView
-                Layout.fillWidth: true
-                Layout.preferredHeight: 300
-                clip: true
+            // Delegate selector (drop-down)
+            RowLayout {
+                Layout.topMargin: 5
+                spacing: 10
 
-                model: delegatesList    // array of non-seed, shared delegates
+                Controls.ComboBox {
+                    id: delegateCombo
+                    Layout.maximumWidth: 420        // we’ll tweak this more below
+                    Layout.minimumWidth: 320
+                    font.pixelSize: 16
+                    model: delegatesModel
+                    textRole: "column1"             // what shows in the closed box
+                    currentIndex: 0
 
-                delegate: Rectangle {
-                    width: delegatesView.width
-                    height: 40
-                    color: "transparent"
-
-                    RowLayout {
-                        anchors.fill: parent
-                        anchors.margins: 4
-                        spacing: 10
-
-                        // Online status bullet
-                        Rectangle {
-                            width: 10
-                            height: 10
-                            radius: 5
-                            color: modelData.online ? "#00c853" : "#b0bec5"   // green if online, grey if not
-                            Layout.alignment: Qt.AlignVCenter
+                    onCurrentIndexChanged: {
+                        if (!delegatesModel || currentIndex < 0 || currentIndex >= delegatesModel.count) {
+                            selectedDelegate = null;
+                            return;
                         }
 
-                        // Delegate name
-                        MoneroComponents.Label {
-                            text: modelData.delegateName
-                            fontSize: 14
-                            color: MoneroComponents.Style.defaultFontColor
-                            Layout.fillWidth: true
-                            elide: Text.ElideRight
+                        if (currentIndex === 0) {   // "Pick delegate"
+                            selectedDelegate = null;
+                            return;
                         }
 
-                        // Fee %
-                        MoneroComponents.Label {
-                            text: modelData.fee + "%"
-                            fontSize: 12
-                            color: MoneroComponents.Style.defaultFontColor
-                        }
-
-                        // Votes (XCASH formatted)
-                        MoneroComponents.Label {
-                            text: formatVotesAtomicToXcash(modelData.votes) + " XCA"
-                            fontSize: 12
-                            color: MoneroComponents.Style.defaultFontColor
-                        }
+                        selectedDelegate = delegatesModel.get(currentIndex).column1;
                     }
 
-                    MouseArea {
-                        anchors.fill: parent
+                    delegate: Controls.ItemDelegate {
+                        width: parent.width
+                        font.pixelSize: 16   // bigger text in the popup rows
+
+                        contentItem: Column {
+                            anchors.fill: parent
+                            anchors.margins: 4
+
+                            Text {
+                                text: column1
+                                font.pixelSize: 16
+                                font.bold: true
+                                elide: Text.ElideRight
+                                color: MoneroComponents.Style.defaultFontColor
+                            }
+
+                            Text {
+                                text: column2          // "5% fee · 123 XCA votes"
+                                font.pixelSize: 15          // slightly smaller subline (optional)
+                                color: "#888"
+                                elide: Text.ElideRight
+                            }
+                        }
+
                         onClicked: {
-                            console.log("Selected delegate:", modelData.delegateName);
-                            // later:
-                            // root.selectedDelegateName = modelData.delegateName;
-                            // root.selectedDelegateVotes = modelData.votes;
+                            delegateCombo.currentIndex = index;
+                            delegateCombo.popup.close();
                         }
                     }
+                }
+
+                MoneroComponents.TextPlain {
+                    text: selectedDelegate
+                        ? qsTr("Current: %1").arg(selectedDelegate)
+                        : qsTr("No delegate selected") + translationManager.emptyString
+
+                    wrapMode: Text.Wrap
+                    Layout.fillWidth: true
+                    Layout.alignment: Qt.AlignVCenter
+                    font.family: MoneroComponents.Style.fontRegular.name
+                    font.pixelSize: 13
+                    color: MoneroComponents.Style.defaultFontColor
                 }
             }
         }
     }
 
-    // Centered overlay spinner for revote
+    onVisibleChanged: {
+        // When user switches to this page and a wallet is open, load + show spinner
+        if (visible && appWindow.currentWallet) {
+            loadingStakingData = true;
+            stakingStatusTimer.start();
+        }
+    }
+
     Controls.BusyIndicator {
         id: revoteSpinner
         anchors.centerIn: parent
-        running: revoteInProgress || sweepInProgress
-        visible: revoteInProgress || sweepInProgress
         width: 32
         height: 32
+
+        running: revoteInProgress || sweepInProgress || loadingStakingData
+        visible: running
     }
 
     function refreshStakingStatus() {
@@ -265,18 +327,30 @@ Rectangle {
 
         function onCurrentWalletChanged() {
             if (appWindow.currentWallet) {
-                stakingStatusTimer.start();
+                // Wallet just opened
+                if (root.visible) {
+                    loadingStakingData = true;
+                    stakingStatusTimer.start();
+                }
             } else {
+                // Wallet closed
                 stakingStatus = qsTr("No wallet is currently open.") + translationManager.emptyString;
+                resetDelegatesModelToPlaceholder();
+                selectedDelegate = null;     // optional, but nice to reset
+                loadingStakingData = false;
             }
         }
     }
 
     Timer {
         id: stakingStatusTimer
-        interval: 250      // 0.5 sec delay after wallet change
+        interval: 400      // 0.4 sec delay after wallet change
         repeat: false
-        onTriggered: refreshStakingStatus()
+        onTriggered: {
+            refreshStakingStatus();
+            fetchDelegates();
+            loadingStakingData = false;
+        }
     }
 
     Timer {
@@ -347,31 +421,69 @@ Rectangle {
     }
 
     function fetchDelegates() {
-        var xhr = new XMLHttpRequest();
-        xhr.open("GET", "https://api.xcashseeds.us/v2/xcash/dpops/unauthorized/delegates/registered/");
-        xhr.onreadystatechange = function() {
-            if (xhr.readyState === XMLHttpRequest.DONE) {
-                if (xhr.status === 200) {
-                    try {
-                        var data = JSON.parse(xhr.responseText);
+        if (!appWindow.currentWallet) {
+            resetDelegatesModelToPlaceholder();
+            selectedDelegate = null;
+            return;
+        }
+        var json = "";
+        try {
+            json = appWindow.currentWallet.getRegisteredDelegatesJson();
+        } catch (e) {
+            resetDelegatesModelToPlaceholder();
+            selectedDelegate = null;
+            return;
+        }
 
-                        // Keep ONLY shared delegates
-                        var sharedDelegates = data.filter(function(d) {
-                            return d.DelegateType && d.DelegateType.toLowerCase() === "shared";
-                        });
+        if (!json || json.length === 0) {
+            resetDelegatesModelToPlaceholder();
+            selectedDelegate = null;
+            return;
+        }
 
-                        delegatesList = sharedDelegates;
+        var data;
+        try {
+            data = JSON.parse(json);
+        } catch (e) {
+            resetDelegatesModelToPlaceholder();
+            selectedDelegate = null;
+            return;
+        }
 
-                        console.log("Loaded", delegatesList.length, "shared delegates");
-                    } catch (e) {
-                        console.log("Failed to parse delegates JSON:", e);
-                    }
-                } else {
-                    console.log("Delegates API error:", xhr.status);
-                }
+        if (!data || !data.length) {
+            resetDelegatesModelToPlaceholder();
+            selectedDelegate = null;
+            return;
+        }
+
+        // start fresh with placeholder
+        resetDelegatesModelToPlaceholder();
+        var sharedCount = 1;
+
+        for (var i = 0; i < data.length; i++) {
+            var d = data[i];
+
+            if (d.DelegateType && d.DelegateType.toLowerCase() === "shared") {
+                var votesXCA = formatVotesAtomicToXcash(d.votes);
+                delegatesModel.append({
+                    column1: d.delegateName,
+                    column2: qsTr("%1% fee · %2 XCA votes").arg(d.fee).arg(votesXCA),
+                    delegateIndx: sharedCount
+                });
+                sharedCount++;
             }
-        };
-        xhr.send();
+        }
+
+        selectedDelegate = null;
+        if (typeof delegateCombo !== "undefined") {
+            delegateCombo.currentIndex = 0;  // back to “Pick delegate”
+        }
+
+        selectedDelegate = null;
+        if (typeof delegateCombo !== "undefined") {
+            delegateCombo.currentIndex = 0;  // back to “Pick delegate”
+        }
+
     }
 
     function formatVotesAtomicToXcash(v) {
@@ -382,7 +494,7 @@ Rectangle {
     }
 
     Component.onCompleted: {
-        fetchDelegates();
+        resetDelegatesModelToPlaceholder();
     }
 
 }

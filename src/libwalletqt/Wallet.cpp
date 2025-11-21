@@ -56,6 +56,11 @@
 #include <QList>
 #include <QVector>
 #include <QMutexLocker>
+#include <QEventLoop>
+#include <QNetworkAccessManager>
+#include <QNetworkRequest>
+#include <QNetworkReply>
+#include <QUrl>
 
 #include "qt/ScopeGuard.h"
 
@@ -575,6 +580,28 @@ QString Wallet::sweepAllToSelf()
     } catch (...) {
         return QStringLiteral("Unknown sweep error");
     }
+}
+
+QString Wallet::getRegisteredDelegatesJson() const
+{
+    QNetworkAccessManager mgr;
+    QNetworkRequest req(QUrl("https://api.xcashseeds.us/v2/xcash/dpops/unauthorized/delegates/registered/"));
+
+    QEventLoop loop;
+    QObject::connect(&mgr, &QNetworkAccessManager::finished, &loop, &QEventLoop::quit);
+
+    QNetworkReply* reply = mgr.get(req);
+    loop.exec();
+
+    if (reply->error() != QNetworkReply::NoError) {
+        qWarning() << "Failed to fetch delegates:" << reply->errorString();
+        reply->deleteLater();
+        return QString();
+    }
+
+    QByteArray data = reply->readAll();
+    reply->deleteLater();
+    return QString::fromUtf8(data);
 }
 
 void Wallet::setupBackgroundSync(const Wallet::BackgroundSyncType background_sync_type, const QString &wallet_password)

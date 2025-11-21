@@ -683,6 +683,20 @@ Rectangle {
 
                 StandardDropdown {
                     Layout.maximumWidth: 200
+                    id: flexDropdown
+                    currentIndex: 0
+                    dataModel: flexModel
+                    labelText: qsTr("Flex Transaction Type") + translationManager.emptyString
+                    labelFontSize: 16
+                }
+            }
+
+            RowLayout {
+                Layout.topMargin: 15
+                spacing: 10
+
+                StandardDropdown {
+                    Layout.maximumWidth: 200
                     id: priorityDropdown
                     currentIndex: 0
                     dataModel: priorityModelV5

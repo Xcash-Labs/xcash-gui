@@ -127,6 +127,9 @@ public:
     // sweep all funds to self
     Q_INVOKABLE QString sweepAllToSelf();
 
+    // wallet.h (QML-facing class)
+    Q_INVOKABLE QString getRegisteredDelegatesJson() const;
+
     //! returns mnemonic seed
     QString getSeed() const;
 
