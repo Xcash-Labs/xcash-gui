@@ -257,15 +257,16 @@ public:
         const QString &payment_id,
         const QVector<QString> &destinationAmounts,
         quint32 mixin_count,
-        PendingTransaction::Priority priority);
+        PendingTransaction::Priority priority,
+        int flextype);
 
     //! creates transaction with all outputs
     Q_INVOKABLE PendingTransaction * createTransactionAll(const QString &dst_addr, const QString &payment_id,
-                                                       quint32 mixin_count, PendingTransaction::Priority priority);
+                                                       quint32 mixin_count, PendingTransaction::Priority priority, int flextype);
 
     //! creates async transaction with all outputs
     Q_INVOKABLE void createTransactionAllAsync(const QString &dst_addr, const QString &payment_id,
-                                               quint32 mixin_count, PendingTransaction::Priority priority);
+                                               quint32 mixin_count, PendingTransaction::Priority priority, int flextype);
 
     //! creates sweep unmixable transaction
     Q_INVOKABLE PendingTransaction * createSweepUnmixableTransaction();

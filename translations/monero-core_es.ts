@@ -2598,6 +2598,17 @@ Puedes cambiar la contraseña en las opciones del monedero.</translation>
         <source>Fastest (x200 fee)</source>
         <translation>Lo más rápido (comisión de 200)</translation>
     </message>
+    <message>
+        <location filename="../components/StandardDropdown.qml" line="178"/>
+        <source>Private</source>
+        <translation>Privado</translation>
+    </message>
+    <message>
+        <location filename="../components/StandardDropdown.qml" line="179"/>
+        <source>Público</source>
+        <translation>Automático</translation>
+    </message>
+
 </context>
 <context>
     <name>SuccessfulTxDialog</name>

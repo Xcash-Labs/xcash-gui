@@ -125,6 +125,7 @@ Rectangle {
         recipientModel.clear();
         fillPaymentDetails("", "", "", "", "");
         priorityDropdown.currentIndex = 0
+        flexDropdown.currentIndex = 0
     }
 
     // Information dialog
@@ -394,11 +395,11 @@ Rectangle {
                                 wrapMode: Text.WrapAnywhere
                                 placeholderText: {
                                     if(persistentSettings.nettype == NetworkType.MAINNET){
-                                        return "4.. / 8.. / monero:.. / OpenAlias";
+                                        return "XCA.. / 8.. / xcash:.. / OpenAlias";
                                     } else if (persistentSettings.nettype == NetworkType.STAGENET){
-                                        return "5.. / 7.. / monero:..";
+                                        return "5.. / 7.. / xcash:..";
                                     } else if(persistentSettings.nettype == NetworkType.TESTNET){
-                                        return "9.. / B.. / monero:..";
+                                        return "9.. / B.. / xcash:..";
                                     }
                                 }
                                 onTextChanged: {
@@ -662,8 +663,8 @@ Rectangle {
             ListModel {
                 id: flexModel
 
-                ListElement { column1: qsTr("Private") ; column2: ""; flextype: 0}
-                ListElement { column1: qsTr("Public") ; column2: ""; flextype: 1}
+                ListElement { column1: qsTr("Private") ; column2: ""; flextype: 1}
+                ListElement { column1: qsTr("Public") ; column2: ""; flextype: 0}
             }
 
             // Priorites after v5
@@ -859,9 +860,13 @@ Rectangle {
               onClicked: {
                   console.log("Transfer: paymentClicked")
                   var priority = priorityModelV5.get(priorityDropdown.currentIndex).priority
-                  console.log("priority: " + priority)
+                  var flextype = flexModel.get(flexDropdown.currentIndex).flextype
+                  if (flextype < 0)
+                    flextype = 1
+
+                  console.log("priority: " + priority + " flextype: " + flextype)
                   setPaymentId(paymentIdLine.text.trim());
-                  root.paymentClicked(recipientModel.getRecipients(), paymentIdLine.text, root.mixin, priority, descriptionLine.text)
+                  root.paymentClicked(recipientModel.getRecipients(), paymentIdLine.text, root.mixin, priority, flextype, descriptionLine.text)
               }
           }
       }
@@ -959,9 +964,10 @@ Rectangle {
             button1.onClicked: {
                 console.log("Transfer: saveTx Clicked")
                 var priority = priorityModelV5.get(priorityDropdown.currentIndex).priority
-                console.log("priority: " + priority)
+                var flextype = flexModel.get(flexDropdown.currentIndex).flextype
+                console.log("priority: " + priority + " flextype: " + flextype)
                 setPaymentId(paymentIdLine.text.trim());
-                root.paymentClicked(recipientModel.getRecipients(), paymentIdLine.text, root.mixin, priority, descriptionLine.text)
+                root.paymentClicked(recipientModel.getRecipients(), paymentIdLine.text, root.mixin, priority, flextype, descriptionLine.text)
             }
             button2.text: qsTr("Sign (offline)") + translationManager.emptyString
             button2.enabled: !appWindow.viewOnly
@@ -1066,7 +1072,7 @@ Rectangle {
                 informationPopup.open();
             } else {
                 informationPopup.title = qsTr("Information") + translationManager.emptyString
-                informationPopup.text  = qsTr("Monero sent successfully") + translationManager.emptyString
+                informationPopup.text  = qsTr("XCash sent successfully") + translationManager.emptyString
                 informationPopup.icon  = StandardIcon.Information
                 informationPopup.onCloseCallback = null
                 informationPopup.open();

@@ -175,6 +175,8 @@ ColumnLayout {
                     property string stringNormal: qsTr("Normal (x1 fee)")  + translationManager.emptyString
                     property string stringFast: qsTr("Fast (x5 fee)")  + translationManager.emptyString
                     property string stringFastest: qsTr("Fastest (x200 fee)") + translationManager.emptyString
+                    property string stringPrivate: qsTr("Private") + translationManager.emptyString 
+                    property string stringPublic: qsTr("Public") + translationManager.emptyString
 
                     delegate: Rectangle {
                         anchors.left: parent.left
@@ -205,7 +207,8 @@ ColumnLayout {
                             font.family: MoneroComponents.Style.fontRegular.name
                             font.pixelSize: 14
                             color: "#FFFFFF"
-                            text: ""
+                            text: (typeof column2 !== "undefined" && column2 !== null) ? column2 : ""
+//                            text: ""
                         }
 
                         MouseArea {

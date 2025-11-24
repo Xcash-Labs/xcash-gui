@@ -31,8 +31,10 @@ import QtQuick 2.9
 import QtQuick.Layouts 1.1
 import QtQuick.Dialogs 1.2
 import QtQuick.Controls 2.3 as Controls
-import "../components"
+import QtGraphicalEffects 1.0
+import FontAwesome 1.0
 import "../components" as MoneroComponents
+import "../components/effects/" as MoneroEffects
 import moneroComponents.Wallet 1.0
 
 Rectangle {
@@ -47,15 +49,14 @@ Rectangle {
     property bool revoteInProgress: false
     property bool sweepInProgress: false
     property bool loadingStakingData: false
+    property bool voteInProgress: false
     
     ListModel {
         id: delegatesModel
-        ListElement { column1: qsTr("Pick delegate") ; column2: ""; delegateIndx: 0}
     }
 
     function resetDelegatesModelToPlaceholder() {
         delegatesModel.clear();
-        delegatesModel.append({column1: qsTr("Pick delegate"), column2: "", delegateIndx: 0});
     }
 
     ColumnLayout {
@@ -165,7 +166,7 @@ Rectangle {
             }
 
             MoneroComponents.TextPlain {
-                text: qsTr("Send all unlocked funds back to this wallet") + translationManager.emptyString
+                text: qsTr("Send all unlocked funds back to this wallet. Swept funds will unlock after about 20 blocks (~20 minutes).") + translationManager.emptyString
                 wrapMode: Text.Wrap
                 Layout.fillWidth: true
                 Layout.alignment: Qt.AlignVCenter
@@ -181,100 +182,108 @@ Rectangle {
             visible: !persistentSettings.useRemoteNode && !appWindow.daemonSynced
         }
 
-//        MoneroComponents.TextPlain {
-//            id: soloMainLabel
-//            text: qsTr("Pick a delegate for your stake:") + translationManager.emptyString
-//            wrapMode: Text.Wrap
-//            Layout.fillWidth: true
-//            font.family: MoneroComponents.Style.fontRegular.name
-//            font.pixelSize: 14
-//            color: MoneroComponents.Style.defaultFontColor
-//        }
-
         GridLayout {
             columns: 1
             Layout.fillWidth: true
             rowSpacing: 8
-
-            // Title
-            MoneroComponents.Label {
-                id: delegatesTitleLabel
-                color: MoneroComponents.Style.defaultFontColor
-                text: qsTr("Available Delegates") + translationManager.emptyString
-                fontSize: 16
-            }
-
             // Delegate selector (drop-down)
             RowLayout {
-                Layout.topMargin: 5
+                Layout.topMargin: 1
                 spacing: 10
-
-                Controls.ComboBox {
-                    id: delegateCombo
-                    Layout.maximumWidth: 420        // we’ll tweak this more below
-                    Layout.minimumWidth: 320
-                    font.pixelSize: 16
-                    model: delegatesModel
-                    textRole: "column1"             // what shows in the closed box
-                    currentIndex: 0
-
-                    onCurrentIndexChanged: {
-                        if (!delegatesModel || currentIndex < 0 || currentIndex >= delegatesModel.count) {
-                            selectedDelegate = null;
-                            return;
-                        }
-
-                        if (currentIndex === 0) {   // "Pick delegate"
-                            selectedDelegate = null;
-                            return;
-                        }
-
-                        selectedDelegate = delegatesModel.get(currentIndex).column1;
-                    }
-
-                    delegate: Controls.ItemDelegate {
-                        width: parent.width
-                        font.pixelSize: 16   // bigger text in the popup rows
-
-                        contentItem: Column {
-                            anchors.fill: parent
-                            anchors.margins: 4
-
-                            Text {
-                                text: column1
-                                font.pixelSize: 16
-                                font.bold: true
-                                elide: Text.ElideRight
-                                color: MoneroComponents.Style.defaultFontColor
-                            }
-
-                            Text {
-                                text: column2          // "5% fee · 123 XCA votes"
-                                font.pixelSize: 15          // slightly smaller subline (optional)
-                                color: "#888"
-                                elide: Text.ElideRight
-                            }
-                        }
-
-                        onClicked: {
-                            delegateCombo.currentIndex = index;
-                            delegateCombo.popup.close();
-                        }
-                    }
-                }
-
-                MoneroComponents.TextPlain {
-                    text: selectedDelegate
-                        ? qsTr("Current: %1").arg(selectedDelegate)
-                        : qsTr("No delegate selected") + translationManager.emptyString
-
-                    wrapMode: Text.Wrap
+                MoneroComponents.StandardDropdown {
+                    id: delegateDropdown
                     Layout.fillWidth: true
-                    Layout.alignment: Qt.AlignVCenter
-                    font.family: MoneroComponents.Style.fontRegular.name
-                    font.pixelSize: 13
-                    color: MoneroComponents.Style.defaultFontColor
+                    Layout.maximumWidth: 420
+
+                    // hook up the model from your JSON parsing
+                    dataModel: delegatesModel
+
+                    // label above the box
+                    labelText: qsTr("Select the delegate for your vote") + translationManager.emptyString
+                    labelFontSize: 14
+                    labelFontBold: true
+
+                    // sizing / styling (these map to your StandardDropdown properties)
+                    dropdownHeight: 39
+                    fontSize: 14        // header text
+                    fontItemSize: 14    // items in the popup
+                    headerFontBold: false
+
+                    onChanged: {
+                        // currentIndex is the alias to columnid.currentIndex inside StandardDropdown
+                        if (!dataModel || dataModel.count === 0)
+                        {
+                            selectedDelegate = null;
+                            return;
+                        }
+
+                        if (currentIndex < 0 || currentIndex >= dataModel.count)
+                        {
+                            selectedDelegate = null;
+                            return;
+                        }
+
+                        var row = dataModel.get(currentIndex);
+                        selectedDelegate = row.column1;
+                    }
+
                 }
+            }
+        }
+
+        RowLayout {
+            id: voteRow
+            Layout.fillWidth: true
+            spacing: 10
+
+            MoneroComponents.StandardButton {
+                id: voteButton
+                text: qsTr("Vote") + translationManager.emptyString
+
+                // Only show when a wallet is open
+                visible: appWindow.currentWallet !== null && selectedDelegate !== null
+
+                // Enable only if not busy and a delegate is selected
+                enabled: !voteInProgress && selectedDelegate !== null
+
+                Layout.alignment: Qt.AlignVCenter
+
+                onClicked: {
+                    if (!appWindow.currentWallet) {
+                        appWindow.showStatusMessage(
+                            qsTr("No wallet is currently open.") + translationManager.emptyString,
+                            5
+                        );
+                        return;
+                    }
+
+                    if (!selectedDelegate) {
+                        appWindow.showStatusMessage(
+                            qsTr("Please select a delegate before voting.") + translationManager.emptyString,
+                            5
+                        );
+                        return;
+                    }
+
+                    voteInProgress = true;
+                    appWindow.showStatusMessage(
+                        qsTr("Submitting vote…") + translationManager.emptyString,
+                        5
+                    );
+
+                    voteTimer.start();
+                }
+            }
+
+            MoneroComponents.TextPlain {
+                text: qsTr("Vote all funds for the selected delegate") + translationManager.emptyString
+                wrapMode: Text.Wrap
+                Layout.fillWidth: true
+                Layout.alignment: Qt.AlignVCenter
+                font.family: MoneroComponents.Style.fontRegular.name
+                font.pixelSize: 13
+                color: MoneroComponents.Style.defaultFontColor
+                visible: voteButton.visible
             }
         }
     }
@@ -293,7 +302,7 @@ Rectangle {
         width: 32
         height: 32
 
-        running: revoteInProgress || sweepInProgress || loadingStakingData
+        running: revoteInProgress || sweepInProgress || loadingStakingData || voteInProgress
         visible: running
     }
 
@@ -308,9 +317,7 @@ Rectangle {
         try {
             // Calls libwalletqt: QString Wallet::voteStatus()
             status = appWindow.currentWallet.voteStatus();
-            console.log("DPOPS voteStatus() returned:", status);
         } catch (e) {
-            console.log("Error calling voteStatus():", e);
             stakingStatus = qsTr("Failed to load staking status.") + translationManager.emptyString;
             return;
         }
@@ -349,6 +356,9 @@ Rectangle {
         onTriggered: {
             refreshStakingStatus();
             fetchDelegates();
+            if (typeof delegateDropdown !== "undefined") {
+                delegateDropdown.currentIndex = 0;  // back to first entry
+            }
             loadingStakingData = false;
         }
     }
@@ -361,9 +371,7 @@ Rectangle {
             var result = "";
             try {
                 result = appWindow.currentWallet.revote();
-                console.log("revote() result:", result);
             } catch (e) {
-                console.log("revote() error:", e);
                 appWindow.showStatusMessage(
                     qsTr("Revote failed.") + translationManager.emptyString,
                     5
@@ -394,8 +402,7 @@ Rectangle {
 
             try {
                 result = appWindow.currentWallet.sweepAllToSelf();
-            } catch (e) {
-                console.log("sweepAllToSelf() error:", e);
+            } catch (e) {;
                 sweepInProgress = false;
                 appWindow.showStatusMessage(
                     qsTr("Sweep failed.") + translationManager.emptyString,
@@ -415,7 +422,42 @@ Rectangle {
                 );
             }
 
-            // Optional: refresh balances / staking status afterwards
+            refreshStakingStatus();
+        }
+    }
+
+    Timer {
+        id: voteTimer
+        interval: 50    // small delay so UI updates
+        repeat: false
+        onTriggered: {
+            var result = "";
+
+            try {
+                // selectedDelegate is your column1 (delegateName) from the dropdown
+                var valueToSend = selectedDelegate + "|all";
+                result = appWindow.currentWallet.vote(valueToSend);
+            } catch (e) {;
+                voteInProgress = false;
+                appWindow.showStatusMessage(
+                    qsTr("Vote failed.") + translationManager.emptyString,
+                    5
+                );
+                return;
+            }
+
+            voteInProgress = false;
+
+            if (result && result.length > 0) {
+                appWindow.showStatusMessage(result, 8);
+            } else {
+                appWindow.showStatusMessage(
+                    qsTr("Vote request sent.") + translationManager.emptyString,
+                    5
+                );
+            }
+
+            // update status after voting
             refreshStakingStatus();
         }
     }
@@ -458,12 +500,11 @@ Rectangle {
 
         // start fresh with placeholder
         resetDelegatesModelToPlaceholder();
-        var sharedCount = 1;
+        var sharedCount = 0;
 
         for (var i = 0; i < data.length; i++) {
             var d = data[i];
-
-            if (d.DelegateType && d.DelegateType.toLowerCase() === "shared") {
+            if (d.DelegateType && d.DelegateType.toLowerCase() === "shared" && d.online) {
                 var votesXCA = formatVotesAtomicToXcash(d.votes);
                 delegatesModel.append({
                     column1: d.delegateName,
@@ -475,13 +516,8 @@ Rectangle {
         }
 
         selectedDelegate = null;
-        if (typeof delegateCombo !== "undefined") {
-            delegateCombo.currentIndex = 0;  // back to “Pick delegate”
-        }
-
-        selectedDelegate = null;
-        if (typeof delegateCombo !== "undefined") {
-            delegateCombo.currentIndex = 0;  // back to “Pick delegate”
+        if (typeof delegateDropdown !== "undefined") {
+            delegateDropdown.currentIndex = 0;  // back to “Pick delegate”
         }
 
     }

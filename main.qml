@@ -971,12 +971,13 @@ ApplicationWindow {
     }
 
     // called on "transfer"
-    function handlePayment(recipients, paymentId, mixinCount, priority, description, createFile) {
+    function handlePayment(recipients, paymentId, mixinCount, priority, flextype, description, createFile) {
         console.log("Creating transaction: ")
         console.log("\trecipients: ", recipients,
                     ", payment_id: ", paymentId,
                     ", mixins: ", mixinCount,
                     ", priority: ", priority,
+                    ", flextype: ", flextype,
                     ", description: ", description);
 
         const recipientAll = recipients.find(function (recipient) {
@@ -991,11 +992,12 @@ ApplicationWindow {
         txConfirmationPopup.recipients = recipients;
         txConfirmationPopup.transactionAmount = recipientAll ? "(all)" : getDisplayAmountTotal(recipients);
         txConfirmationPopup.transactionPriority = priority;
+        txConfirmationPopup.transactionFlexType = flextype;
         txConfirmationPopup.transactionDescription = description;
         txConfirmationPopup.open();
 
         if (recipientAll) {
-            currentWallet.createTransactionAllAsync(recipientAll.address, paymentId, mixinCount, priority);
+            currentWallet.createTransactionAllAsync(recipientAll.address, paymentId, mixinCount, priority, flextype);
         } else {
             const addresses = recipients.map(function (recipient) {
                 return recipient.address;
@@ -1003,7 +1005,7 @@ ApplicationWindow {
             const amountsxmr = recipients.map(function (recipient) {
                 return recipient.amount;
             });
-            currentWallet.createTransactionAsync(addresses, paymentId, amountsxmr, mixinCount, priority);
+            currentWallet.createTransactionAsync(addresses, paymentId, amountsxmr, mixinCount, priority, flextype);
         }
     }
 

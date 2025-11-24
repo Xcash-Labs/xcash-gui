@@ -94,12 +94,14 @@ void TransactionHistory::refresh(quint32 accountIndex)
             if (ti->timestamp() <= firstDateTime) {
                 firstDateTime = ti->timestamp();
             }
-            quint64 requiredConfirmations = (ti->blockHeight() < ti->unlockTime()) ? ti->unlockTime() - ti->blockHeight() : 10;
+
+            static const int BLOCK_TIME_MINUTES = 1;
+            quint64 requiredConfirmations = (ti->blockHeight() < ti->unlockTime()) ? ti->unlockTime() - ti->blockHeight() : 20;
             // store last tx height
             if (ti->confirmations() < requiredConfirmations && ti->blockHeight() >= lastTxHeight) {
                 lastTxHeight = ti->blockHeight();
                 // TODO: Fetch block time and confirmations needed from wallet2?
-                m_minutesToUnlock = (requiredConfirmations - ti->confirmations()) * 2;
+                m_minutesToUnlock = (requiredConfirmations - ti->confirmations()) * BLOCK_TIME_MINUTES;
                 m_locked = true;
             }
         }
