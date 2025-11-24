@@ -455,7 +455,8 @@ private:
         const QString &payment_id,
         const QVector<QString> &destinationAmounts,
         quint32 mixin_count,
-        PendingTransaction::Priority priority);
+        PendingTransaction::Priority priority,
+        int flextype);
 
     bool disconnected() const;
     bool refreshing() const;

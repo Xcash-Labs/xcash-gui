@@ -703,111 +703,7 @@ void Wallet::pauseRefresh()
     m_refreshEnabled = false;
 }
 
-PendingTransaction *Wallet::createTransaction(
-    const QVector<QString> &destinationAddresses,
-    const QString &payment_id,
-    const QVector<QString> &destinationAmounts,
-    quint32 mixin_count,
-    PendingTransaction::Priority priority,
-    int flextype)
-{
-    std::vector<std::string> destinations;
-    destinations.reserve(destinationAddresses.size());
-    for (const auto &address : destinationAddresses) {
-        destinations.push_back(address.toStdString());
-    }
-
-    std::vector<uint64_t> amounts;
-    amounts.reserve(destinationAmounts.size());
-    for (const auto &amount : destinationAmounts) {
-        amounts.push_back(Monero::Wallet::amountFromString(amount.toStdString()));
-    }
-
-    std::set<uint32_t> subaddr_indices;
-    Monero::PendingTransaction *ptImpl = m_walletImpl->createTransactionMultDest(
-        destinations,
-        payment_id.toStdString(),
-        amounts,
-        mixin_count,
-        static_cast<Monero::PendingTransaction::Priority>(priority),
-        currentSubaddressAccount(),
-        subaddr_indices,
-        static_cast<uint32_t>(flextype)); // <-- privacy_settings
-
-    PendingTransaction *result = new PendingTransaction(ptImpl, this);
-    return result;
-}
-
-void Wallet::createTransactionAsync(
-    const QVector<QString> &destinationAddresses,
-    const QString &payment_id,
-    const QVector<QString> &destinationAmounts,
-    quint32 mixin_count,
-    PendingTransaction::Priority priority,
-    int flextype)
-{
-    m_scheduler.run([this,
-                     destinationAddresses,
-                     payment_id,
-                     destinationAmounts,
-                     mixin_count,
-                     priority,
-                     flextype] {
-        PendingTransaction *tx = createTransaction(
-            destinationAddresses,
-            payment_id,
-            destinationAmounts,
-            mixin_count,
-            priority,
-            flextype);
-        emit transactionCreated(tx, destinationAddresses, payment_id, mixin_count);
-    });
-}
-
-PendingTransaction *Wallet::createTransactionAll(
-    const QString &dst_addr,
-    const QString &payment_id,
-    quint32 mixin_count,
-    PendingTransaction::Priority priority,
-    int flextype)
-{
-    std::set<uint32_t> subaddr_indices;
-    Monero::PendingTransaction *ptImpl = m_walletImpl->createTransaction(
-        dst_addr.toStdString(),
-        payment_id.toStdString(),
-        Monero::optional<uint64_t>(),
-        mixin_count,
-        static_cast<Monero::PendingTransaction::Priority>(priority),
-        currentSubaddressAccount(),
-        subaddr_indices,
-        static_cast<uint32_t>(flextype)); // <-- privacy_settings
-
-    PendingTransaction *result = new PendingTransaction(ptImpl, this);
-    return result;
-}
-
-void Wallet::createTransactionAllAsync(
-    const QString &dst_addr,
-    const QString &payment_id,
-    quint32 mixin_count,
-    PendingTransaction::Priority priority,
-    int flextype)
-{
-    m_scheduler.run([this,
-                     dst_addr,
-                     payment_id,
-                     mixin_count,
-                     priority,
-                     flextype] {
-        PendingTransaction *tx = createTransactionAll(
-            dst_addr,
-            payment_id,
-            mixin_count,
-            priority,
-            flextype);
-        emit transactionCreated(tx, { dst_addr }, payment_id, mixin_count);
-    });
-}
+// *
 
 PendingTransaction *Wallet::createTransaction(
     const QVector<QString> &destinationAddresses,
@@ -839,7 +735,7 @@ PendingTransaction *Wallet::createTransaction(
         static_cast<Monero::PendingTransaction::Priority>(priority),
         currentSubaddressAccount(),
         subaddr_indices,
-        static_cast<uint32_t>(flextype)); // privacy_settings
+        static_cast<uint32_t>(flextype));  // pass privacy_settings
 
     PendingTransaction *result = new PendingTransaction(ptImpl, this);
     return result;
@@ -853,13 +749,7 @@ void Wallet::createTransactionAsync(
     PendingTransaction::Priority priority,
     int flextype)
 {
-    m_scheduler.run([this,
-                     destinationAddresses,
-                     payment_id,
-                     destinationAmounts,
-                     mixin_count,
-                     priority,
-                     flextype] {
+    m_scheduler.run([this, destinationAddresses, payment_id, destinationAmounts, mixin_count, priority, flextype] {
         PendingTransaction *tx = createTransaction(
             destinationAddresses,
             payment_id,
@@ -879,15 +769,16 @@ PendingTransaction *Wallet::createTransactionAll(
     int flextype)
 {
     std::set<uint32_t> subaddr_indices;
+    optional<uint64_t> opt_amount;
     Monero::PendingTransaction *ptImpl = m_walletImpl->createTransaction(
         dst_addr.toStdString(),
         payment_id.toStdString(),
-        Monero::optional<uint64_t>(), // null => (all)
+        opt_amount,
         mixin_count,
         static_cast<Monero::PendingTransaction::Priority>(priority),
         currentSubaddressAccount(),
         subaddr_indices,
-        static_cast<uint32_t>(flextype)); // privacy_settings
+        static_cast<uint32_t>(flextype));  // pass privacy_settings
 
     PendingTransaction *result = new PendingTransaction(ptImpl, this);
     return result;
@@ -900,21 +791,17 @@ void Wallet::createTransactionAllAsync(
     PendingTransaction::Priority priority,
     int flextype)
 {
-    m_scheduler.run([this,
-                     dst_addr,
-                     payment_id,
-                     mixin_count,
-                     priority,
-                     flextype] {
+    m_scheduler.run([this, dst_addr, payment_id, mixin_count, priority, flextype] {
         PendingTransaction *tx = createTransactionAll(
             dst_addr,
             payment_id,
             mixin_count,
             priority,
             flextype);
-        emit transactionCreated(tx, { dst_addr }, payment_id, mixin_count);
+        emit transactionCreated(tx, {dst_addr}, payment_id, mixin_count);
     });
 }
+
 
 // **
 
