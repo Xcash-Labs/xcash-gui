@@ -62,6 +62,7 @@ Rectangle {
     property var transactionDescription: ""
     property var transactionFee: ""
     property var transactionPriority: ""
+    property var transactionFlexType: ""
     property bool sweepUnmixable: false
     property alias errorText: errorText
     property alias confirmButton: confirmButton
@@ -136,6 +137,7 @@ Rectangle {
         root.transactionDescription = "";
         root.transactionFee = "";
         root.transactionPriority = "";
+        root.transactionFlexType = "";
         root.sweepUnmixable = false;
     }
 

@@ -3089,72 +3089,72 @@ Actualiza o conectate a otro deamon</translation>
 <context>
     <name>TxConfirmationDialog</name>
     <message>
-        <location filename="../components/TxConfirmationDialog.qml" line="167"/>
+        <location filename="../components/TxConfirmationDialog.qml" line="169"/>
         <source>Create transaction file</source>
         <translation>Crear archivo de transacción</translation>
     </message>
     <message>
-        <location filename="../components/TxConfirmationDialog.qml" line="169"/>
+        <location filename="../components/TxConfirmationDialog.qml" line="171"/>
         <source>Sweep unmixable outputs</source>
         <translation>Borrar las salidas no mezclables</translation>
     </message>
     <message>
-        <location filename="../components/TxConfirmationDialog.qml" line="171"/>
+        <location filename="../components/TxConfirmationDialog.qml" line="173"/>
         <source>Confirm send</source>
         <translation>Confirmar envío</translation>
     </message>
     <message>
-        <location filename="../components/TxConfirmationDialog.qml" line="206"/>
+        <location filename="../components/TxConfirmationDialog.qml" line="208"/>
         <source>All unlocked balance</source>
         <translation>Balance total desbloqueado</translation>
     </message>
     <message>
-        <location filename="../components/TxConfirmationDialog.qml" line="232"/>
+        <location filename="../components/TxConfirmationDialog.qml" line="234"/>
         <source>From</source>
         <translation>Desde</translation>
     </message>
     <message>
-        <location filename="../components/TxConfirmationDialog.qml" line="252"/>
+        <location filename="../components/TxConfirmationDialog.qml" line="254"/>
         <source>My wallet</source>
         <translation>Mi cartera</translation>
     </message>
     <message>
-        <location filename="../components/TxConfirmationDialog.qml" line="259"/>
+        <location filename="../components/TxConfirmationDialog.qml" line="261"/>
         <source>Account #</source>
         <translation>Cuenta #</translation>
     </message>
     <message>
-        <location filename="../components/TxConfirmationDialog.qml" line="273"/>
+        <location filename="../components/TxConfirmationDialog.qml" line="275"/>
         <source>To</source>
         <translation>A</translation>
     </message>
     <message>
-        <location filename="../components/TxConfirmationDialog.qml" line="311"/>
+        <location filename="../components/TxConfirmationDialog.qml" line="313"/>
         <source>Monero address</source>
         <translation>Dirección de Monero</translation>
     </message>
     <message>
-        <location filename="../components/TxConfirmationDialog.qml" line="332"/>
+        <location filename="../components/TxConfirmationDialog.qml" line="334"/>
         <source>Fee</source>
         <translation>Comisión</translation>
     </message>
     <message>
-        <location filename="../components/TxConfirmationDialog.qml" line="348"/>
+        <location filename="../components/TxConfirmationDialog.qml" line="350"/>
         <source>See on device</source>
         <translation>Ver en dispositivo</translation>
     </message>
     <message>
-        <location filename="../components/TxConfirmationDialog.qml" line="350"/>
+        <location filename="../components/TxConfirmationDialog.qml" line="352"/>
         <source>Calculating fee</source>
         <translation>Calculando comisión</translation>
     </message>
     <message>
-        <location filename="../components/TxConfirmationDialog.qml" line="416"/>
+        <location filename="../components/TxConfirmationDialog.qml" line="418"/>
         <source>Back</source>
         <translation>Atras</translation>
     </message>
     <message>
-        <location filename="../components/TxConfirmationDialog.qml" line="429"/>
+        <location filename="../components/TxConfirmationDialog.qml" line="431"/>
         <source>Confirm</source>
         <translation>Confirmar</translation>
     </message>

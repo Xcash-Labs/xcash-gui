@@ -716,7 +716,7 @@ PendingTransaction *Wallet::createTransaction(
     std::vector<std::string> destinations;
     destinations.reserve(destinationAddresses.size());
     for (const auto &address : destinationAddresses) {
-        destinations.push_back(address.toStdString());
+        destinations.emplace_back(address.toStdString());
     }
 
     std::vector<uint64_t> amounts;
@@ -726,7 +726,7 @@ PendingTransaction *Wallet::createTransaction(
     }
 
     std::set<uint32_t> subaddr_indices;
-    optional<std::vector<uint64_t>> opt_amounts(amounts);
+    Monero::optional<std::vector<uint64_t>> opt_amounts(amounts);
     Monero::PendingTransaction *ptImpl = m_walletImpl->createTransactionMultDest(
         destinations,
         payment_id.toStdString(),
@@ -735,7 +735,7 @@ PendingTransaction *Wallet::createTransaction(
         static_cast<Monero::PendingTransaction::Priority>(priority),
         currentSubaddressAccount(),
         subaddr_indices,
-        static_cast<uint32_t>(flextype));  // pass privacy_settings
+        static_cast<uint32_t>(flextype));  // privacy_settings
 
     PendingTransaction *result = new PendingTransaction(ptImpl, this);
     return result;
@@ -749,7 +749,13 @@ void Wallet::createTransactionAsync(
     PendingTransaction::Priority priority,
     int flextype)
 {
-    m_scheduler.run([this, destinationAddresses, payment_id, destinationAmounts, mixin_count, priority, flextype] {
+    m_scheduler.run([this,
+                     destinationAddresses,
+                     payment_id,
+                     destinationAmounts,
+                     mixin_count,
+                     priority,
+                     flextype] {
         PendingTransaction *tx = createTransaction(
             destinationAddresses,
             payment_id,
@@ -769,7 +775,7 @@ PendingTransaction *Wallet::createTransactionAll(
     int flextype)
 {
     std::set<uint32_t> subaddr_indices;
-    optional<uint64_t> opt_amount;
+    Monero::optional<uint64_t> opt_amount;
     Monero::PendingTransaction *ptImpl = m_walletImpl->createTransaction(
         dst_addr.toStdString(),
         payment_id.toStdString(),
@@ -778,7 +784,7 @@ PendingTransaction *Wallet::createTransactionAll(
         static_cast<Monero::PendingTransaction::Priority>(priority),
         currentSubaddressAccount(),
         subaddr_indices,
-        static_cast<uint32_t>(flextype));  // pass privacy_settings
+        static_cast<uint32_t>(flextype));  // privacy_settings
 
     PendingTransaction *result = new PendingTransaction(ptImpl, this);
     return result;
@@ -791,16 +797,22 @@ void Wallet::createTransactionAllAsync(
     PendingTransaction::Priority priority,
     int flextype)
 {
-    m_scheduler.run([this, dst_addr, payment_id, mixin_count, priority, flextype] {
+    m_scheduler.run([this,
+                     dst_addr,
+                     payment_id,
+                     mixin_count,
+                     priority,
+                     flextype] {
         PendingTransaction *tx = createTransactionAll(
             dst_addr,
             payment_id,
             mixin_count,
             priority,
             flextype);
-        emit transactionCreated(tx, {dst_addr}, payment_id, mixin_count);
+        emit transactionCreated(tx, { dst_addr }, payment_id, mixin_count);
     });
 }
+
 
 
 // **
