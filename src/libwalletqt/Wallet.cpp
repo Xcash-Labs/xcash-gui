@@ -737,7 +737,7 @@ PendingTransaction *Wallet::createTransaction(
         subaddr_indices,
         static_cast<uint32_t>(flextype));  // privacy_settings
 
-    PendingTransaction *result = new PendingTransaction(ptImpl, this);
+    PendingTransaction *result = new PendingTransaction(ptImpl, nullptr);
     return result;
 }
 
