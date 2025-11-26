@@ -42,7 +42,7 @@
 #include "qt/TailsOS.h"
 
 // default log path by OS (should be writable)
-static const QString defaultLogName = "monero-wallet-gui.log";
+static const QString defaultLogName = "xcash-wallet-gui.log";
 #if defined(Q_OS_IOS)
     //AppDataLocation = "<APPROOT>/Library/Application Support"
     static const QString osPath = QStandardPaths::standardLocations(QStandardPaths::AppDataLocation).at(0);

@@ -868,6 +868,30 @@ void Wallet::disposeTransaction(UnsignedTransaction *t)
     delete t;
 }
 
+void Wallet::disposeTransactionQObject(QObject *tx)
+{
+    if (!tx)
+        return;
+
+    // Try PendingTransaction first
+    if (auto *pt = qobject_cast<PendingTransaction*>(tx)) {
+        if (pt->m_pimpl) {
+            m_walletImpl->disposeTransaction(pt->m_pimpl);
+        }
+        delete pt;
+        return;
+    }
+
+    // Then UnsignedTransaction
+    if (auto *ut = qobject_cast<UnsignedTransaction*>(tx)) {
+        delete ut;
+        return;
+    }
+
+    qWarning() << "disposeTransactionQObject called with unknown QObject type" << tx;
+}
+
+
 void Wallet::estimateTransactionFeeAsync(
     const QVector<QString> &destinationAddresses,
     const QVector<quint64> &amounts,

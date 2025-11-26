@@ -289,6 +289,8 @@ public:
     //! deletes unsigned transaction and frees memory
     Q_INVOKABLE void disposeTransaction(UnsignedTransaction * t);
 
+    Q_INVOKABLE void disposeTransactionQObject(QObject *tx);
+
     Q_INVOKABLE void estimateTransactionFeeAsync(
         const QVector<QString> &destinationAddresses,
         const QVector<quint64> &amounts,

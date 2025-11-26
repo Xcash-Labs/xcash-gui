@@ -943,13 +943,12 @@ ApplicationWindow {
                 txConfirmationPopup.errorText.text  = qsTr("Can't create transaction: ") + transaction.errorString
             }
             // deleting transaction object, we don't want memleaks
-            currentWallet.disposeTransaction(transaction);
-
+            currentWallet.disposeTransactionQObject(transaction);
         } else if (transaction.txCount == 0) {
             console.error("Can't create transaction: ", transaction.errorString);
             txConfirmationPopup.errorText.text   = qsTr("No unmixable outputs to sweep") + translationManager.emptyString
             // deleting transaction object, we don't want memleaks
-            currentWallet.disposeTransaction(transaction);
+            currentWallet.disposeTransactionQObject(transaction);
         } else {
             console.log("Transaction created, amount: " + walletManager.displayAmount(transaction.amount)
                     + ", fee: " + walletManager.displayAmount(transaction.fee));
@@ -995,7 +994,6 @@ ApplicationWindow {
         txConfirmationPopup.transactionFlexType = flextype;
         txConfirmationPopup.transactionDescription = description;
         txConfirmationPopup.open();
-
         if (recipientAll) {
             currentWallet.createTransactionAllAsync(recipientAll.address, paymentId, mixinCount, priority, flextype);
         } else {
@@ -1026,7 +1024,6 @@ ApplicationWindow {
 
     }
 
-
     function handleSweepUnmixable() {
         console.log("Creating transaction: ")
 
@@ -1036,13 +1033,13 @@ ApplicationWindow {
             console.error("Can't create transaction: ", transaction.errorString);
             txConfirmationPopup.errorText.text  = qsTr("Can't create transaction: ") + transaction.errorString + translationManager.emptyString
             // deleting transaction object, we don't want memleaks
-            currentWallet.disposeTransaction(transaction);
+            currentWallet.disposeTransactionQObject(transaction);
 
         } else if (transaction.txCount == 0) {
             console.error("No unmixable outputs to sweep");
             txConfirmationPopup.errorText.text  = qsTr("No unmixable outputs to sweep") + translationManager.emptyString
             // deleting transaction object, we don't want memleaks
-            currentWallet.disposeTransaction(transaction);
+            currentWallet.disposeTransactionQObject(transaction);
         } else {
             console.log("Transaction created, amount: " + walletManager.displayAmount(transaction.amount)
                     + ", fee: " + walletManager.displayAmount(transaction.fee));
@@ -1059,7 +1056,7 @@ ApplicationWindow {
         if(viewOnly){
             // No file specified - abort
             if(!saveTxDialog.fileUrl) {
-                currentWallet.disposeTransaction(transaction)
+                currentWallet.disposeTransactionQObject(transaction)
                 return;
             }
 
@@ -1093,7 +1090,7 @@ ApplicationWindow {
             successfulTxPopup.open(txid)
         }
         currentWallet.refresh()
-        currentWallet.disposeTransaction(transaction)
+        currentWallet.disposeTransactionQObject(transaction)
         currentWallet.storeAsync(function(success) {
             if (!success) {
                 appWindow.showStatusMessage(qsTr("Failed to store the wallet"), 3);
@@ -1274,11 +1271,11 @@ ApplicationWindow {
         // parse & validate incoming JSON
         if(url.startsWith("https://api.coingecko.com/api/v3/")){
             var key = currency === "xcaeur" ? "eur" : "usd";
-            if(!resp.hasOwnProperty("monero") || !resp["monero"].hasOwnProperty(key)){
+            if(!resp.hasOwnProperty("xcash") || !resp["xcash"].hasOwnProperty(key)){
                 appWindow.fiatApiError("Coingecko API has error(s)");
                 return;
             }
-            return resp["monero"][key];
+            return resp["xcash"][key];
         } else if(url.startsWith("https://min-api.cryptocompare.com/data/")){
             var key = currency === "xcaeur" ? "EUR" : "USD";
             if(!resp.hasOwnProperty(key)){
@@ -1401,7 +1398,7 @@ ApplicationWindow {
         console.log("fiatPriceError: " + msg);
     }
 
-    Component.onCompleted: {
+    Component.onCompleted: { 
         if (screenAvailableWidth > width) {
             x = (screenAvailableWidth - width) / 2;
         }
@@ -2199,7 +2196,6 @@ ApplicationWindow {
         }
     }
 
-    // jed
      Timer {
       id: simpleModeConnectionTimer
       interval: 2000
