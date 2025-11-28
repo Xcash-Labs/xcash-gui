@@ -55,7 +55,7 @@ import "version.js" as Version
 
 ApplicationWindow {
     id: appWindow
-    title: "Monero" +
+    title: "XCash" +
         (persistentSettings.displayWalletNameInTitleBar && walletName
         ? " - " + walletName
         : "")
@@ -125,6 +125,8 @@ ApplicationWindow {
     property var current_address
     property var current_address_label: "Primary"
     property int current_subaddress_table_index: 0
+
+    signal languageFieldsReset()
 
     function showPageRequest(page) {
         middlePanel.state = page
@@ -2365,6 +2367,9 @@ ApplicationWindow {
         if (currentWallet) {
             onWalletRefresh();
         }
+
+        // notify all pages (like Advanced.qml)
+        languageFieldsReset();
     }
 
     function userActivity() {

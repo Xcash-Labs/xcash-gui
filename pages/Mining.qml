@@ -93,7 +93,7 @@ Rectangle {
                 text: qsTr("Revote") + translationManager.emptyString
 
                 visible: stakingStatus.length > 0
-                        && stakingStatus.indexOf("Vote found:") === 0
+                  && stakingStatus.indexOf(qsTr("Vote found:")) === 0 
 
                 enabled: !revoteInProgress
 
@@ -324,9 +324,17 @@ Rectangle {
 
         if (!status || status.length === 0) {
             stakingStatus = qsTr("No staking information available.") + translationManager.emptyString;
-        } else {
-            stakingStatus = status;
+            return;
         }
+
+        // Localize known English prefixes from core
+        var voteFoundPrefixEn = "Vote found:";
+        if (status.indexOf(voteFoundPrefixEn) === 0) {
+            var voteFoundPrefixTr = qsTr("Vote found:");
+            status = voteFoundPrefixTr + status.substring(voteFoundPrefixEn.length);
+        }
+
+        stakingStatus = status;
     }
 
     Connections {
@@ -347,6 +355,19 @@ Rectangle {
                 loadingStakingData = false;
             }
         }
+
+        function onLanguageFieldsReset() {
+            // refresh staking-related UI when language changes
+            if (appWindow.currentWallet && root.visible) {
+                // either directly refresh:
+                refreshStakingStatus();
+
+                // or, if your normal path is via the timer, you could do:
+                // loadingStakingData = true;
+                // stakingStatusTimer.start();
+            }
+        }
+
     }
 
     Timer {

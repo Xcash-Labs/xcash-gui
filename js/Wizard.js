@@ -69,7 +69,7 @@ function walletPathExists(accountsDir, directory, filename, isIOS, walletManager
     if(!filename || filename === "") return false;
     if(!directory || directory === "") return false;
 
-    if (!directory.endsWith("/") && !directory.endsWith("\\"))
+    if (!directory.endsWith("/") && !directory.endsWith("\\"))
         directory += "/"
 
     if(isIOS)
