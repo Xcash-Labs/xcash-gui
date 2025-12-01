@@ -40,8 +40,10 @@ ColumnLayout {
     Layout.alignment: Qt.AlignHCenter
     spacing: 10
 
-    function save(){
-        persistentSettings.useRemoteNode = remoteNode.checked;
+    function save() {
+        // Force remote node usage, ignore any UI state
+        persistentSettings.useRemoteNode = true;
+
         if (bootstrapNodeEdit.daemonAddrText == "auto") {
             persistentSettings.bootstrapNodeAddress = "auto";
         } else {
@@ -49,22 +51,24 @@ ColumnLayout {
         }
     }
 
+    // Keep the localNode RadioButton, but hide and disable it so user can't change it
     MoneroComponents.RadioButton {
         id: localNode
         Layout.fillWidth: true
         text: qsTr("Start a node automatically in background (recommended)") + translationManager.emptyString
         fontSize: 16
-        checked: !appWindow.persistentSettings.useRemoteNode && !isAndroid && !isIOS
-        visible: !isAndroid && !isIOS
+        checked: false
+        visible: false      // <--- hide
+        enabled: false      // <--- lock
         onClicked: {
-            checked = true;
-            remoteNode.checked = false;
+            // no-op, locked out
+            checked = false;
         }
     }
 
     ColumnLayout {
         id: blockchainFolderRow
-        visible: localNode.checked
+        visible: false       // <--- completely hide local-node options
         spacing: 20
 
         Layout.topMargin: 8
@@ -94,7 +98,7 @@ ColumnLayout {
                 small: true
                 text: qsTr("Browse") + translationManager.emptyString
                 onClicked: {
-                    if(persistentSettings.blockchainDataDir != "");
+                    if (persistentSettings.blockchainDataDir != "")
                         blockchainFileDialog.folder = "file://" + persistentSettings.blockchainDataDir;
                     blockchainFileDialog.open();
                     blockchainFolder.focus = true;
@@ -109,7 +113,7 @@ ColumnLayout {
                 checked: !existingDbWarning.visible ? persistentSettings.pruneBlockchain : false
                 enabled: !existingDbWarning.visible
                 onClicked: {
-                    persistentSettings.pruneBlockchain =  !persistentSettings.pruneBlockchain
+                    persistentSettings.pruneBlockchain = !persistentSettings.pruneBlockchain
                     this.checked = persistentSettings.pruneBlockchain
                 }
                 text: qsTr("Prune blockchain") + translationManager.emptyString
@@ -135,7 +139,7 @@ ColumnLayout {
                 font.family: MoneroComponents.Style.fontRegular.name
                 color: MoneroComponents.Style.defaultFontColor
                 font.pixelSize: {
-                    if(wizardController.layoutScale === 2 ){
+                    if (wizardController.layoutScale === 2) {
                         return 22;
                     } else {
                         return 16;
@@ -149,7 +153,7 @@ ColumnLayout {
             }
 
             Text {
-                text: qsTr("Additionally, you may specify a bootstrap node to use Monero immediately.") + translationManager.emptyString
+                text: qsTr("Additionally, you may specify a bootstrap node to use xCash immediately.") + translationManager.emptyString
                 Layout.topMargin: 4
                 Layout.fillWidth: true
 
@@ -157,7 +161,7 @@ ColumnLayout {
                 color: MoneroComponents.Style.dimmedFontColor
 
                 font.pixelSize: {
-                    if(wizardController.layoutScale === 2 ){
+                    if (wizardController.layoutScale === 2) {
                         return 16;
                     } else {
                         return 14;
@@ -178,29 +182,30 @@ ColumnLayout {
             MoneroComponents.RemoteNodeEdit {
                 id: bootstrapNodeEdit
                 Layout.minimumWidth: 300
-                //labelText: qsTr("Bootstrap node (leave blank if not wanted)") + translationManager.emptyString
-
                 initialAddress: persistentSettings.bootstrapNodeAddress
             }
         }
     }
 
+    // Keep remoteNode RadioButton but hide & force-checked so other code can still refer to it
     MoneroComponents.RadioButton {
         id: remoteNode
         Layout.fillWidth: true
         Layout.topMargin: 8
         text: qsTr("Connect to a remote node") + translationManager.emptyString
         fontSize: 16
-        checked: appWindow.persistentSettings.useRemoteNode
+        checked: true          // <--- always remote
+        visible: false         // <--- hide toggle
+        enabled: false         // <--- user can't change
         onClicked: {
-            checked = true
-            localNode.checked = false
+            // locked: do nothing
+            checked = true;
         }
     }
 
     MoneroComponents.RemoteNodeList {
         Layout.fillWidth: true
         Layout.topMargin: 8
-        visible: remoteNode.checked
+        visible: true          // <--- always show remote-node list
     }
 }

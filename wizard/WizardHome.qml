@@ -63,7 +63,7 @@ Rectangle {
                 WizardHeader {
                     Layout.bottomMargin: 7
                     Layout.fillWidth: true
-                    title: qsTr("Welcome to Monero") + translationManager.emptyString
+                    title: qsTr("Welcome to xCash") + translationManager.emptyString
                     subtitle: ""
                 }
 
