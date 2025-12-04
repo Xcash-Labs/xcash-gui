@@ -1,4 +1,4 @@
-// Copyright (c) 2014-2024, The Monero Project6
+// Copyright (c) 2014-2024, xCash Forked from The Monero Project
 //
 // All rights reserved.
 //
@@ -465,8 +465,8 @@ ApplicationWindow {
     }
 
     function onUriHandler(uri){
-        if(uri.startsWith("monero://")){
-            var address = uri.substring("monero://".length);
+        if(uri.startsWith("xcash://")){
+            var address = uri.substring("xcash://".length);
 
             var params = {}
             if(address.length === 0) return;
@@ -915,7 +915,7 @@ ApplicationWindow {
 
     function onWalletMoneySent(txId, amount) {
         // refresh transaction history here
-        console.log("monero sent found")
+        console.log("xCash sent found")
         currentWallet.history.refresh(currentWallet.currentSubaddressAccount); // this will refresh model
 
         if(middlePanel.state == "History")
@@ -1174,10 +1174,10 @@ ApplicationWindow {
                 informationPopup.icon = StandardIcon.Critical;
             } else if (received > 0) {
                 if (in_pool) {
-                    informationPopup.text = qsTr("This address received %1 monero, but the transaction is not yet mined").arg(walletManager.displayAmount(received));
+                    informationPopup.text = qsTr("This address received %1 xcash, but the transaction is not yet mined").arg(walletManager.displayAmount(received));
                 }
                 else {
-                    informationPopup.text = qsTr("This address received %1 monero, with %2 confirmation(s).").arg(walletManager.displayAmount(received)).arg(confirmations);
+                    informationPopup.text = qsTr("This address received %1 xcash, with %2 confirmation(s).").arg(walletManager.displayAmount(received)).arg(confirmations);
                 }
             }
             else {
@@ -1463,7 +1463,7 @@ ApplicationWindow {
                 oshelper.createDesktopEntry();
             } else if (isLinux) {
                 confirmationDialog.title = qsTr("Desktop entry") + translationManager.emptyString;
-                confirmationDialog.text  = qsTr("Would you like to register Monero GUI Desktop entry?") + translationManager.emptyString;
+                confirmationDialog.text  = qsTr("Would you like to register xCash GUI Desktop entry?") + translationManager.emptyString;
                 confirmationDialog.icon = StandardIcon.Question;
                 confirmationDialog.cancelText = qsTr("No") + translationManager.emptyString;
                 confirmationDialog.okText = qsTr("Yes") + translationManager.emptyString;
@@ -2331,7 +2331,7 @@ ApplicationWindow {
     function checkUpdates() {
         const version = Version.GUI_VERSION.match(/\d+\.\d+\.\d+\.\d+/);
         if (version) {
-            walletManager.checkUpdatesAsync("monero-gui", "gui", getBuildTag(), version[0]);
+            walletManager.checkUpdatesAsync("xcash-gui", "gui", getBuildTag(), version[0]);
         } else {
             console.error("failed to parse version number", Version.GUI_VERSION);
         }

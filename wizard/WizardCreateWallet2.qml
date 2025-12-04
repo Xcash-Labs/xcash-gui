@@ -1,4 +1,4 @@
-// Copyright (c) 2014-2024, The Monero Project
+// Copyright (c) 2014-2024, xCash Forked from The Monero Project
 // 
 // All rights reserved.
 // 
@@ -89,7 +89,7 @@ Rectangle {
               qsTr("These words are a backup of your wallet. They are the only thing needed to access your funds and restore your xCash wallet, so keep this paper in a safe place and do not disclose it to anybody! It is strongly not recommended to store your recovery phrase digitally (in an email, online service, screenshot, photo, or any other type of computer file).") +
               qsTr("Wallet creation date") +
               qsTr("Wallet restore height") +
-              qsTr("For instructions on how to restore this wallet, visit www.getmonero.org and go to Resources > User Guides > \"How to restore a wallet from mnemonic seed\". Use only xCash wallets that are trusted and recommended by the xCash community (see a list of them in www.getmonero.org/downloads).") + translationManager.emptyString
+              qsTr("For instructions on how to restore this wallet, visit www.xcashlabs.org and go to Resources > User Guides > \"How to restore a wallet from mnemonic seed\". Use only xCash wallets that are trusted and recommended by the xCash community (list of them in www.xcashlabs.org/downloads).") + translationManager.emptyString
     }
 
     ColumnLayout {

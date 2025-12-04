@@ -1,4 +1,4 @@
-// Copyright (c) 2014-2024, The Monero Project
+// Copyright (c) 2014-2024, xCash Forked from The Monero Project
 // 
 // All rights reserved.
 // 
@@ -81,7 +81,7 @@ Rectangle {
                 }
 
                 MoneroComponents.TextPlain {
-                    text: qsTr("Temporary use of remote nodes is useful in order to use Monero immediately (hence the name bootstrap), however be aware that when using remote nodes (including with the bootstrap setting), nodes could track your IP address, track your \"restore height\" and associated block request data, and send you inaccurate information to learn more about transactions you make.") + translationManager.emptyString
+                    text: qsTr("Temporary use of remote nodes is useful in order to use xCash immediately (hence the name bootstrap), however be aware that when using remote nodes (including with the bootstrap setting), nodes could track your IP address, track your \"restore height\" and associated block request data, and send you inaccurate information to learn more about transactions you make.") + translationManager.emptyString
                     wrapMode: Text.Wrap
                     Layout.topMargin: 8
                     Layout.fillWidth: true

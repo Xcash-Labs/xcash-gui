@@ -1,4 +1,4 @@
-// Copyright (c) 2014-2024, The Monero Project
+// Copyright (c) 2014-2024, xCash Forked from The Monero Project
 //
 // All rights reserved.
 //
@@ -310,7 +310,7 @@ Rectangle {
                             if (addressBookName) {
                                 title = FontAwesome.addressBook + " " + addressBookName;
                             } else {
-                                title = qsTr("Monero address") + translationManager.emptyString;
+                                title = qsTr("xCash address") + translationManager.emptyString;
                             }
                             if (recipients.length > 1) {
                                 title = "%1. %2 - %3 XCA".arg(index + 1).arg(title).arg(recipient.amount);

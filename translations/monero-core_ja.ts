@@ -68,11 +68,6 @@
         <translation>よく使うアドレスを保存する</translation>
     </message>
     <message>
-        <location filename="../xcash-gui/pages/AddressBook.qml" line="93"/>
-        <source>This makes it easier to send or receive Monero and reduces errors when typing in addresses manually.</source>
-        <translation>Moneroを送ったり受け取ったりするのが簡単になり、アドレスを手で打ち間違えるのを避けられます。</translation>
-    </message>
-    <message>
         <location filename="../xcash-gui/pages/AddressBook.qml" line="102"/>
         <location filename="../xcash-gui/pages/AddressBook.qml" line="313"/>
         <source>Add an address</source>
@@ -102,6 +97,11 @@
         <location filename="../xcash-gui/pages/AddressBook.qml" line="323"/>
         <source>Address</source>
         <translation>アドレス</translation>
+    </message>
+    <message>
+        <location filename="../xcash-gui/pages/AddressBook.qml" line="93"/>
+        <source>This makes it easier to send or receive xCash and reduces errors when typing in addresses manually.</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../xcash-gui/pages/AddressBook.qml" line="232"/>
@@ -624,16 +624,6 @@ It is recommended to enter passphrase on the hardware wallet for better security
         <translation>ニーモニックシード</translation>
     </message>
     <message>
-        <location filename="../xcash-gui/pages/Keys.qml" line="62"/>
-        <source>WARNING: Do not reuse your Monero keys on another fork, UNLESS this fork has key reuse mitigations built in. Doing so will harm your privacy.</source>
-        <translation>警告: キーの再利用に関する対策が組み込まれていない限り、Moneroのキーを別のフォークで使い回さないでください。あなたのプライバシーが損なわれます。</translation>
-    </message>
-    <message>
-        <location filename="../xcash-gui/pages/Keys.qml" line="85"/>
-        <source>WARNING: Copying your seed to clipboard can expose you to malicious software, which may record your seed and steal your Monero. Please write down your seed manually.</source>
-        <translation>警告: シードをクリップボードにコピーすると、シードを記録しMoneroを盗む悪意あるソフトウェアに晒される可能性があります。シードは手で書き留めてください。</translation>
-    </message>
-    <message>
         <location filename="../xcash-gui/pages/Keys.qml" line="106"/>
         <source>Wallet restore height</source>
         <translation>ウォレットを復元するブロック高</translation>
@@ -699,6 +689,16 @@ It is recommended to enter passphrase on the hardware wallet for better security
         <location filename="../xcash-gui/pages/Keys.qml" line="158"/>
         <source>Secret view key</source>
         <translation>ビューキー (秘密)</translation>
+    </message>
+    <message>
+        <location filename="../xcash-gui/pages/Keys.qml" line="62"/>
+        <source>WARNING: Do not reuse your xCash keys on another fork, UNLESS this fork has key reuse mitigations built in. Doing so will harm your privacy.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../xcash-gui/pages/Keys.qml" line="85"/>
+        <source>WARNING: Copying your seed to clipboard can expose you to malicious software, which may record your seed and steal your xCash. Please write down your seed manually.</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../xcash-gui/pages/Keys.qml" line="167"/>
@@ -1009,37 +1009,37 @@ It is recommended to enter passphrase on the hardware wallet for better security
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../xcash-gui/pages/Mining.qml" line="384"/>
+        <location filename="../xcash-gui/pages/Mining.qml" line="397"/>
         <source>Revote failed.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../xcash-gui/pages/Mining.qml" line="395"/>
+        <location filename="../xcash-gui/pages/Mining.qml" line="408"/>
         <source>Revote request sent.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../xcash-gui/pages/Mining.qml" line="416"/>
+        <location filename="../xcash-gui/pages/Mining.qml" line="429"/>
         <source>Sweep failed.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../xcash-gui/pages/Mining.qml" line="428"/>
+        <location filename="../xcash-gui/pages/Mining.qml" line="441"/>
         <source>Sweep request sent.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../xcash-gui/pages/Mining.qml" line="451"/>
+        <location filename="../xcash-gui/pages/Mining.qml" line="464"/>
         <source>Vote failed.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../xcash-gui/pages/Mining.qml" line="463"/>
+        <location filename="../xcash-gui/pages/Mining.qml" line="476"/>
         <source>Vote request sent.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../xcash-gui/pages/Mining.qml" line="519"/>
+        <location filename="../xcash-gui/pages/Mining.qml" line="532"/>
         <source>%1% fee · %2 XCA votes</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1223,7 +1223,7 @@ It is recommended to enter passphrase on the hardware wallet for better security
     </message>
     <message>
         <location filename="../xcash-gui/src/qt/TailsOS.cpp" line="45"/>
-        <source>Monero GUI has detected that Tails persistence is currently disabled. Any configurations you make inside the Monero GUI will not be saved.
+        <source>xCash GUI has detected that Tails persistence is currently disabled. Any configurations you make inside the xCash GUI will not be saved.
 
 In addition, make sure to not save your wallet on the filesystem, as it will be lost at shutdown.
 
@@ -1232,7 +1232,7 @@ To enable Tails persistence, setup an encrypted volume and restart Tails. To gai
     </message>
     <message>
         <location filename="../xcash-gui/src/qt/TailsOS.cpp" line="65"/>
-        <source>Monero GUI</source>
+        <source>xCash GUI</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -1587,7 +1587,7 @@ In addition, you can enable Tails dotfiles persistence to gain a start menu entr
     </message>
     <message>
         <location filename="../xcash-gui/pages/settings/SettingsInfo.qml" line="102"/>
-        <source>Embedded Monero version: </source>
+        <source>Embedded xCash version: </source>
         <translation>組み込まれているMoneroのバージョン: </translation>
     </message>
     <message>
@@ -1698,12 +1698,12 @@ The old wallet cache file will be renamed and can be restored later.
     </message>
     <message>
         <location filename="../xcash-gui/pages/settings/SettingsInfo.qml" line="410"/>
-        <source>Donate to Monero</source>
-        <translation>Moneroに寄付</translation>
+        <source>Donate to xCash</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../xcash-gui/pages/settings/SettingsInfo.qml" line="412"/>
-        <source>Donation to Monero Core Team</source>
+        <source>Donation to xCash Core Team</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -1891,16 +1891,6 @@ The old wallet cache file will be renamed and can be restored later.
         <translation>リモートノード</translation>
     </message>
     <message>
-        <location filename="../xcash-gui/pages/settings/SettingsNode.qml" line="228"/>
-        <source>Uses a third-party server to connect to the Monero network. Less secure, but easier on your computer.</source>
-        <translation>サードパーティーのサーバを使ってMoneroネットワークに接続します。セキュリティは低くなりますがより簡単です。</translation>
-    </message>
-    <message>
-        <location filename="../xcash-gui/pages/settings/SettingsNode.qml" line="257"/>
-        <source>To find a remote node, type &apos;Monero remote node&apos; into your favorite search engine. Please ensure the node is run by a trusted third-party.</source>
-        <translation>リモートノードを見つけるには、お好きな検索エンジンで&apos;Monero remote node&apos;と検索してください。ノードが信頼できるサードパーティーによって運営されていることを確認してください。</translation>
-    </message>
-    <message>
         <location filename="../xcash-gui/pages/settings/SettingsNode.qml" line="321"/>
         <source>(optional)</source>
         <translation>(オプショナル)</translation>
@@ -1913,6 +1903,16 @@ The old wallet cache file will be renamed and can be restored later.
     <message>
         <location filename="../xcash-gui/pages/settings/SettingsNode.qml" line="143"/>
         <source>Local node is disabled in this X-Cash build. Please use a remote node.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../xcash-gui/pages/settings/SettingsNode.qml" line="228"/>
+        <source>Uses a third-party server to connect to the xCash network. Less secure, but easier on your computer.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../xcash-gui/pages/settings/SettingsNode.qml" line="257"/>
+        <source>To find a remote node, type &apos;xCash remote node&apos; into your favorite search engine. Please ensure the node is run by a trusted third-party.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -2095,8 +2095,8 @@ In order to rescan the transaction, you can re-sync your wallet by resetting the
     </message>
     <message>
         <location filename="../xcash-gui/pages/settings/SettingsWallet.qml" line="187"/>
-        <source>Receive Monero for your business, easily.</source>
-        <translation>あなたのビジネスでモネロを簡単に受け取りましょう。</translation>
+        <source>Receive xCash for your business, easily.</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../xcash-gui/pages/settings/SettingsWallet.qml" line="188"/>
@@ -2122,24 +2122,24 @@ In order to rescan the transaction, you can re-sync your wallet by resetting the
         <translation>共有リングDB</translation>
     </message>
     <message>
-        <location filename="../xcash-gui/pages/SharedRingDB.qml" line="94"/>
-        <source>This page allows you to interact with the shared ring database. This database is meant for use by Monero wallets as well as wallets from Monero clones which reuse the Monero keys.</source>
-        <translation>このページでは共有リングデータベースを操作できます。このデータベースはMoneroウォレットおよびMoneroのキーを再利用するMoneroクローンのウォレットで利用するためのものです。</translation>
-    </message>
-    <message>
         <location filename="../xcash-gui/pages/SharedRingDB.qml" line="107"/>
         <source>Rings</source>
         <translation>リング</translation>
     </message>
     <message>
+        <location filename="../xcash-gui/pages/SharedRingDB.qml" line="94"/>
+        <source>This page allows you to interact with the shared ring database. This database is meant for use by xCash wallets as well as wallets from xCash clones which reuse the xCash keys.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <location filename="../xcash-gui/pages/SharedRingDB.qml" line="108"/>
-        <source>In order to avoid nullifying the protection afforded by Monero&apos;s ring signatures, an output should not be spent with different rings on different blockchains. While this is normally not a concern, it can become one when a key-reusing Monero clone allows you to spend existing outputs. In this case, you need to ensure this existing outputs uses the same ring on both chains.&lt;br&gt;This will be done automatically by Monero and any key-reusing software which is not trying to actively strip you of your privacy.&lt;br&gt;If you are using a key-reusing Monero clone too, and this clone does not include this protection, you can still ensure your transactions are protected by spending on the clone first, then manually adding the ring on this page, which allows you to then spend your Monero safely.&lt;br&gt;If you do not use a key-reusing Monero clone without these safety features, then you do not need to do anything as it is all automated.&lt;br&gt;</source>
-        <translation>Moneroのリング署名による保護を無効化しないため、あるアウトプットを使う際に異なるブロックチェーンで異なるリングを使うことは避けなければなりません。これは通常問題になりませんが、キーを再利用するMoneroクローンが既存のアウトプットの使用を許している場合問題になります。この場合、既存のアウトプットは両方のチェーンで同じリングを使わなくてはなりません。&lt;br&gt;これはキーを再利用するソフトウェアが積極的にプライバシーを侵害しようとしない限り自動的に行われます。&lt;br&gt;もしキーを再利用するMoneroクローンを使っていてそのクローンがこの保護を含んでいない場合も、まずクローンの方でアウトプットを使用しその後リングをこのページに手動で追加することで、トランザクションは保護されMoneroを安全に使用できるようになります。&lt;br&gt;これらの機能を提供しないキーを再利用するMoneroクローンを使用していない場合、すべては自動化されているので何もする必要はありません。&lt;br&gt;</translation>
+        <source>In order to avoid nullifying the protection afforded by xCash&apos;s ring signatures, an output should not be spent with different rings on different blockchains. While this is normally not a concern, it can become one when a key-reusing xCash clone allows you to spend existing outputs. In this case, you need to ensure this existing outputs uses the same ring on both chains.&lt;br&gt;This will be done automatically by xCash and any key-reusing software which is not trying to actively strip you of your privacy.&lt;br&gt;If you are using a key-reusing xCash clone too, and this clone does not include this protection, you can still ensure your transactions are protected by spending on the clone first, then manually adding the ring on this page, which allows you to then spend your xCash safely.&lt;br&gt;If you do not use a key-reusing xCash clone without these safety features, then you do not need to do anything as it is all automated.&lt;br&gt;</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../xcash-gui/pages/SharedRingDB.qml" line="127"/>
-        <source>This records rings used by outputs spent on Monero on a key reusing chain, so that the same ring may be reused to avoid privacy issues.</source>
-        <translation>キーを再利用するチェーンでアウトプットに使用されたリングを記録し、プライバシーの問題を避けるためMoneroでも同じリングを使うようにします。</translation>
+        <source>This records rings used by outputs spent on xCash on a key reusing chain, so that the same ring may be reused to avoid privacy issues.</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../xcash-gui/pages/SharedRingDB.qml" line="138"/>
@@ -2323,8 +2323,8 @@ In order to rescan the transaction, you can re-sync your wallet by resetting the
     </message>
     <message>
         <location filename="../xcash-gui/pages/Sign.qml" line="341"/>
-        <source>Enter the Monero Address (example: 44AFFq5kSiGBoZ...)</source>
-        <translation>Moneroアドレス (例: 44AFFq5kSiGBoZ...)</translation>
+        <source>Enter the xCash Address (example: XCAFFq5kSiGBoZ...)</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../xcash-gui/pages/Sign.qml" line="351"/>
@@ -2946,7 +2946,7 @@ Please upgrade or connect to another daemon</source>
     </message>
     <message>
         <location filename="../xcash-gui/components/TxConfirmationDialog.qml" line="313"/>
-        <source>Monero address</source>
+        <source>xCash address</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -3127,13 +3127,13 @@ Spend Proofの場合、宛先アドレスを指定する必要はありません
     <name>UpdateDialog</name>
     <message>
         <location filename="../xcash-gui/components/UpdateDialog.qml" line="77"/>
-        <source>New Monero version v%1 is available.</source>
-        <translation>新しいモネロのバージョンv%1が利用可能です。</translation>
+        <source>New xCash version v%1 is available.</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../xcash-gui/components/UpdateDialog.qml" line="98"/>
-        <source>Please visit getmonero.org for details</source>
-        <translation>getmonero.orgを訪問して詳細を確認してください</translation>
+        <source>Please visit www.xcashlabs.org for details</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../xcash-gui/components/UpdateDialog.qml" line="102"/>
@@ -3486,147 +3486,6 @@ your input may be required.</source>
     </message>
 </context>
 <context>
-    <name>WizardCreateWallet2</name>
-    <message>
-        <location filename="../xcash-gui/wizard/WizardCreateWallet2.qml" line="59"/>
-        <source>Verify your recovery phrase</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../xcash-gui/wizard/WizardCreateWallet2.qml" line="61"/>
-        <source>Please confirm that you have written down your recover phrase by filling in the five blank fields with the correct words. If you have not written down your recovery phrase on a piece of paper, click on the Previous button and write it down right now!</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../xcash-gui/wizard/WizardCreateWallet2.qml" line="87"/>
-        <source>Print this paper, fill it out, and keep it in a safe location. Never share your recovery phrase with anybody, especially with strangers offering technical support.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../xcash-gui/wizard/WizardCreateWallet2.qml" line="88"/>
-        <location filename="../xcash-gui/wizard/WizardCreateWallet2.qml" line="234"/>
-        <location filename="../xcash-gui/wizard/WizardCreateWallet2.qml" line="239"/>
-        <source>Recovery phrase (mnemonic seed)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../xcash-gui/wizard/WizardCreateWallet2.qml" line="89"/>
-        <source>These words are a backup of your wallet. They are the only thing needed to access your funds and restore your Monero wallet, so keep this paper in a safe place and do not disclose it to anybody! It is strongly not recommended to store your recovery phrase digitally (in an email, online service, screenshot, photo, or any other type of computer file).</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../xcash-gui/wizard/WizardCreateWallet2.qml" line="90"/>
-        <source>Wallet creation date</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../xcash-gui/wizard/WizardCreateWallet2.qml" line="91"/>
-        <source>Wallet restore height</source>
-        <translation type="unfinished">ウォレットを復元するブロック高</translation>
-    </message>
-    <message>
-        <location filename="../xcash-gui/wizard/WizardCreateWallet2.qml" line="92"/>
-        <source>For instructions on how to restore this wallet, visit www.getmonero.org and go to Resources &gt; User Guides &gt; &quot;How to restore a wallet from mnemonic seed&quot;. Use only Monero wallets that are trusted and recommended by the Monero community (see a list of them in www.getmonero.org/downloads).</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../xcash-gui/wizard/WizardCreateWallet2.qml" line="117"/>
-        <location filename="../xcash-gui/wizard/WizardCreateWallet2.qml" line="119"/>
-        <location filename="../xcash-gui/wizard/WizardCreateWallet2.qml" line="202"/>
-        <source>Write down your recovery phrase</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../xcash-gui/wizard/WizardCreateWallet2.qml" line="136"/>
-        <source>A pencil writing on a piece of paper</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../xcash-gui/wizard/WizardCreateWallet2.qml" line="154"/>
-        <location filename="../xcash-gui/wizard/WizardCreateWallet2.qml" line="162"/>
-        <source>The next page will display your recovery phrase, also known as mnemonic seed.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../xcash-gui/wizard/WizardCreateWallet2.qml" line="154"/>
-        <location filename="../xcash-gui/wizard/WizardCreateWallet2.qml" line="162"/>
-        <location filename="../xcash-gui/wizard/WizardCreateWallet2.qml" line="182"/>
-        <location filename="../xcash-gui/wizard/WizardCreateWallet2.qml" line="204"/>
-        <source>These words are a backup of your wallet. Write these words down now on a piece of paper in the same order displayed. Keep this paper in a safe place and do not disclose it to anybody! Do not store these words digitally, always use a paper!</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../xcash-gui/wizard/WizardCreateWallet2.qml" line="177"/>
-        <source>Display recovery phrase</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../xcash-gui/wizard/WizardCreateWallet2.qml" line="182"/>
-        <source>The next page will display your recovery phrase, also known as mnemonic seed. </source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../xcash-gui/wizard/WizardCreateWallet2.qml" line="236"/>
-        <source>These words encode your private spend key in a human readable format.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../xcash-gui/wizard/WizardCreateWallet2.qml" line="236"/>
-        <source>It is expected that some words may be repeated.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../xcash-gui/wizard/WizardCreateWallet2.qml" line="269"/>
-        <source>New seed generated</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../xcash-gui/wizard/WizardCreateWallet2.qml" line="281"/>
-        <location filename="../xcash-gui/wizard/WizardCreateWallet2.qml" line="290"/>
-        <source>Create new seed</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../xcash-gui/wizard/WizardCreateWallet2.qml" line="302"/>
-        <location filename="../xcash-gui/wizard/WizardCreateWallet2.qml" line="308"/>
-        <source>Copy to clipboard</source>
-        <translation type="unfinished">クリップボードにコピー</translation>
-    </message>
-    <message>
-        <location filename="../xcash-gui/wizard/WizardCreateWallet2.qml" line="305"/>
-        <source>Recovery phrase copied to clipboard</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../xcash-gui/wizard/WizardCreateWallet2.qml" line="319"/>
-        <source>Print a template</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../xcash-gui/wizard/WizardCreateWallet2.qml" line="320"/>
-        <location filename="../xcash-gui/wizard/WizardCreateWallet2.qml" line="325"/>
-        <source>Print a template to write down your seed</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../xcash-gui/wizard/WizardCreateWallet2.qml" line="350"/>
-        <location filename="../xcash-gui/wizard/WizardCreateWallet2.qml" line="353"/>
-        <source>Creation date</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../xcash-gui/wizard/WizardCreateWallet2.qml" line="384"/>
-        <location filename="../xcash-gui/wizard/WizardCreateWallet2.qml" line="389"/>
-        <source>Restore height</source>
-        <translation type="unfinished">復元するブロック高</translation>
-    </message>
-    <message>
-        <location filename="../xcash-gui/wizard/WizardCreateWallet2.qml" line="385"/>
-        <source>Enter this number when restoring the wallet to make your initial wallet synchronization faster.</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
     <name>WizardCreateWallet4</name>
     <message>
         <location filename="../xcash-gui/wizard/WizardCreateWallet4.qml" line="59"/>
@@ -3635,8 +3494,8 @@ your input may be required.</source>
     </message>
     <message>
         <location filename="../xcash-gui/wizard/WizardCreateWallet4.qml" line="60"/>
-        <source>To be able to communicate with the Monero network your wallet needs to be connected to a Monero node. For best privacy it&apos;s recommended to run your own node.</source>
-        <translation type="unfinished">MoneroネットワークとやりとりするにはウォレットをMoneroノードに接続する必要があります。プライバシーのためにはあなた自身がノードを走らせることを推奨します。</translation>
+        <source>To be able to communicate with the xCash network your wallet needs to be connected to a xCash node.</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -3660,58 +3519,53 @@ your input may be required.</source>
 <context>
     <name>WizardDaemonSettings</name>
     <message>
-        <location filename="../xcash-gui/wizard/WizardDaemonSettings.qml" line="55"/>
+        <location filename="../xcash-gui/wizard/WizardDaemonSettings.qml" line="58"/>
         <source>Start a node automatically in background (recommended)</source>
         <translation>ノードをバックグラウンドで自動的に開始する (推奨)</translation>
     </message>
     <message>
-        <location filename="../xcash-gui/wizard/WizardDaemonSettings.qml" line="79"/>
+        <location filename="../xcash-gui/wizard/WizardDaemonSettings.qml" line="83"/>
         <source>Blockchain location (optional)</source>
         <translation>ブロックチェーンの位置 (オプション)</translation>
     </message>
     <message>
-        <location filename="../xcash-gui/wizard/WizardDaemonSettings.qml" line="82"/>
+        <location filename="../xcash-gui/wizard/WizardDaemonSettings.qml" line="86"/>
         <source>Reset</source>
         <translation type="unfinished">リセット</translation>
     </message>
     <message>
-        <location filename="../xcash-gui/wizard/WizardDaemonSettings.qml" line="88"/>
+        <location filename="../xcash-gui/wizard/WizardDaemonSettings.qml" line="92"/>
         <source>Default</source>
         <translation>デフォルト</translation>
     </message>
     <message>
-        <location filename="../xcash-gui/wizard/WizardDaemonSettings.qml" line="95"/>
+        <location filename="../xcash-gui/wizard/WizardDaemonSettings.qml" line="99"/>
         <source>Browse</source>
         <translation>選択</translation>
     </message>
     <message>
-        <location filename="../xcash-gui/wizard/WizardDaemonSettings.qml" line="115"/>
+        <location filename="../xcash-gui/wizard/WizardDaemonSettings.qml" line="119"/>
         <source>Prune blockchain</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../xcash-gui/wizard/WizardDaemonSettings.qml" line="132"/>
+        <location filename="../xcash-gui/wizard/WizardDaemonSettings.qml" line="136"/>
         <source>Bootstrap node</source>
         <translation>ブートストラップノード</translation>
     </message>
     <message>
-        <location filename="../xcash-gui/wizard/WizardDaemonSettings.qml" line="152"/>
-        <source>Additionally, you may specify a bootstrap node to use Monero immediately.</source>
+        <location filename="../xcash-gui/wizard/WizardDaemonSettings.qml" line="156"/>
+        <source>Additionally, you may specify a bootstrap node to use xCash immediately.</source>
         <translation>Moneroをすぐに使いたい場合ブートストラップノードを指定できます。</translation>
     </message>
     <message>
-        <location filename="../xcash-gui/wizard/WizardDaemonSettings.qml" line="192"/>
+        <location filename="../xcash-gui/wizard/WizardDaemonSettings.qml" line="195"/>
         <source>Connect to a remote node</source>
         <translation>リモートノードへ接続</translation>
     </message>
 </context>
 <context>
     <name>WizardHome</name>
-    <message>
-        <location filename="../xcash-gui/wizard/WizardHome.qml" line="66"/>
-        <source>Welcome to Monero</source>
-        <translation>モネロへようこそ</translation>
-    </message>
     <message>
         <location filename="../xcash-gui/wizard/WizardHome.qml" line="78"/>
         <source>Create a new wallet</source>
@@ -3730,19 +3584,24 @@ your input may be required.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../xcash-gui/wizard/WizardHome.qml" line="82"/>
-        <source>Choose this option if this is your first time using Monero.</source>
-        <translation>もしMoneroを使うのが初めてならこのオプションを選んでください。</translation>
-    </message>
-    <message>
         <location filename="../xcash-gui/wizard/WizardHome.qml" line="105"/>
         <source>Create a new wallet from hardware</source>
         <translation>ハードウェアから新しいウォレットを作成</translation>
     </message>
     <message>
+        <location filename="../xcash-gui/wizard/WizardHome.qml" line="66"/>
+        <source>Welcome to xCash</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../xcash-gui/wizard/WizardHome.qml" line="82"/>
+        <source>Choose this option if this is your first time using xCash.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <location filename="../xcash-gui/wizard/WizardHome.qml" line="109"/>
-        <source>Connect your hardware wallet to create a new Monero wallet.</source>
-        <translation>ハードウェアウォレットを接続して新しいMoneroウォレットを作成。</translation>
+        <source>Connect your hardware wallet to create a new xCash wallet.</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../xcash-gui/wizard/WizardHome.qml" line="128"/>
@@ -3807,8 +3666,8 @@ your input may be required.</source>
     </message>
     <message>
         <location filename="../xcash-gui/wizard/WizardModeBootstrap.qml" line="84"/>
-        <source>Temporary use of remote nodes is useful in order to use Monero immediately (hence the name bootstrap), however be aware that when using remote nodes (including with the bootstrap setting), nodes could track your IP address, track your &quot;restore height&quot; and associated block request data, and send you inaccurate information to learn more about transactions you make.</source>
-        <translation>Moneroをもうすぐ使いに初めにリモートノードの利用はいいですがリモートノードの使う時に他の人はアドレスを追跡し、復元を開始するブロック高を洞察し、不正確な情報を送信することで、あなたの取引の詳細をもっと洞察できますよ。</translation>
+        <source>Temporary use of remote nodes is useful in order to use xCash immediately (hence the name bootstrap), however be aware that when using remote nodes (including with the bootstrap setting), nodes could track your IP address, track your &quot;restore height&quot; and associated block request data, and send you inaccurate information to learn more about transactions you make.</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../xcash-gui/wizard/WizardModeBootstrap.qml" line="97"/>
@@ -3830,8 +3689,8 @@ your input may be required.</source>
     </message>
     <message>
         <location filename="../xcash-gui/wizard/WizardModeRemoteNodeWarning.qml" line="72"/>
-        <source>This mode is ideal for managing small amounts of Monero. You have access to basic features for making and managing transactions. It will automatically connect to the Monero network so you can start using Monero immediately.</source>
-        <translation>このモードは少額のMoneroを扱う場合に適しています。取引を作成したり管理したりする基本的な機能にアクセスできます。Moneroネットワークに自動的に接続するためMoneroをすぐに使い始めることができます。</translation>
+        <source>This mode is ideal for managing small amounts of xCash. You have access to basic features for making and managing transactions. It will automatically connect to the xCash network so you can start using xCash immediately.</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../xcash-gui/wizard/WizardModeRemoteNodeWarning.qml" line="85"/>
@@ -3921,7 +3780,7 @@ your input may be required.</source>
     </message>
     <message>
         <location filename="../xcash-gui/wizard/WizardModeSelection.qml" line="166"/>
-        <source>Create portable wallets and use them on any PC. Enable if you installed Monero on a USB stick, an external drive, or any other portable storage medium.</source>
+        <source>Create portable wallets and use them on any PC. Enable if you installed xCash on a USB stick, an external drive, or any other portable storage medium.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -4098,12 +3957,8 @@ your input may be required.</source>
     </message>
     <message>
         <location filename="../xcash-gui/wizard/WizardRestoreWallet3.qml" line="63"/>
-        <source>To be able to communicate with the Monero network your wallet needs to be connected to a Monero node. For best privacy it&apos;s recommended to run your own node.
-
-If you don&apos;t have the option to run your own node, there&apos;s an option to connect to a remote node.</source>
-        <translation>MoneroネットワークとやりとりするためウォレットはMoneroノードに接続する必要があります。プライバシーのため自分自身でノードを走らせることを推奨します。
-
-もし自分自身でノードを走らせることができない場合、リモートノードに接続するオプションがあります。</translation>
+        <source>To be able to communicate with the xCash network your wallet needs to be connected to a xCash node.</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -4294,333 +4149,333 @@ If you don&apos;t have the option to run your own node, there&apos;s an option t
 <context>
     <name>main</name>
     <message>
-        <location filename="../xcash-gui/main.qml" line="1076"/>
-        <location filename="../xcash-gui/main.qml" line="1198"/>
-        <location filename="../xcash-gui/main.qml" line="1842"/>
+        <location filename="../xcash-gui/main.qml" line="1078"/>
+        <location filename="../xcash-gui/main.qml" line="1200"/>
+        <location filename="../xcash-gui/main.qml" line="1844"/>
         <source>Error</source>
         <translation>エラー</translation>
     </message>
     <message>
-        <location filename="../xcash-gui/main.qml" line="582"/>
+        <location filename="../xcash-gui/main.qml" line="584"/>
         <source>Couldn&apos;t open wallet: </source>
         <translation>ウォレットを開けませんでした: </translation>
     </message>
     <message>
-        <location filename="../xcash-gui/main.qml" line="536"/>
+        <location filename="../xcash-gui/main.qml" line="538"/>
         <source>Please confirm transaction on the device...</source>
         <translation>デバイスでトランザクションを確認してください...</translation>
     </message>
     <message>
-        <location filename="../xcash-gui/main.qml" line="550"/>
+        <location filename="../xcash-gui/main.qml" line="552"/>
         <source>Signing transaction in the device...</source>
         <translation>デバイスでトランザクションに署名しています...</translation>
     </message>
     <message>
-        <location filename="../xcash-gui/main.qml" line="778"/>
+        <location filename="../xcash-gui/main.qml" line="780"/>
         <source>Waiting for daemon to sync</source>
         <translation>デーモンの同期を待っています</translation>
     </message>
     <message>
-        <location filename="../xcash-gui/main.qml" line="780"/>
+        <location filename="../xcash-gui/main.qml" line="782"/>
         <source>Daemon is synchronized (%1)</source>
         <translation>デーモンは同期されています (%1)</translation>
     </message>
     <message>
-        <location filename="../xcash-gui/main.qml" line="782"/>
+        <location filename="../xcash-gui/main.qml" line="784"/>
         <source>Wallet is synchronized</source>
         <translation>ウォレットは同期されています</translation>
     </message>
     <message>
-        <location filename="../xcash-gui/main.qml" line="959"/>
+        <location filename="../xcash-gui/main.qml" line="961"/>
         <source>Save as file</source>
         <translation>ファイルとして保存</translation>
     </message>
     <message>
-        <location filename="../xcash-gui/main.qml" line="959"/>
+        <location filename="../xcash-gui/main.qml" line="961"/>
         <source>Confirm</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../xcash-gui/main.qml" line="943"/>
-        <location filename="../xcash-gui/main.qml" line="1034"/>
+        <location filename="../xcash-gui/main.qml" line="945"/>
+        <location filename="../xcash-gui/main.qml" line="1036"/>
         <source>Can&apos;t create transaction: </source>
         <translation>取引データを作成できません: </translation>
     </message>
     <message>
-        <location filename="../xcash-gui/main.qml" line="538"/>
-        <location filename="../xcash-gui/main.qml" line="543"/>
+        <location filename="../xcash-gui/main.qml" line="540"/>
+        <location filename="../xcash-gui/main.qml" line="545"/>
         <source>Please proceed to the device...</source>
         <translation>デバイスで続行してください。。。</translation>
     </message>
     <message>
-        <location filename="../xcash-gui/main.qml" line="561"/>
+        <location filename="../xcash-gui/main.qml" line="563"/>
         <source>Opening wallet ...</source>
         <translation>ウォレットを開いています。。。</translation>
     </message>
     <message>
-        <location filename="../xcash-gui/main.qml" line="577"/>
+        <location filename="../xcash-gui/main.qml" line="579"/>
         <source>Repairing incompatible wallet cache. Resyncing wallet.</source>
         <translation>ウォレットのキャッシュを修復します。ウォレットを再同期しています。</translation>
     </message>
     <message>
-        <location filename="../xcash-gui/main.qml" line="832"/>
+        <location filename="../xcash-gui/main.qml" line="834"/>
         <source>Waiting for daemon to stop...</source>
         <translation>デーモンが停止するのを待っています...</translation>
     </message>
     <message>
-        <location filename="../xcash-gui/main.qml" line="866"/>
+        <location filename="../xcash-gui/main.qml" line="868"/>
         <source>Daemon failed to start</source>
         <translation>デーモンの起動に失敗しました</translation>
     </message>
     <message>
-        <location filename="../xcash-gui/main.qml" line="867"/>
+        <location filename="../xcash-gui/main.qml" line="869"/>
         <source>Please check your wallet and daemon log for errors. You can also try to start %1 manually.</source>
         <translation>ウォレットとデーモンのログを参照してエラーを確認してください。手動で%1を起動することもできます。</translation>
     </message>
     <message>
-        <location filename="../xcash-gui/main.qml" line="889"/>
+        <location filename="../xcash-gui/main.qml" line="891"/>
         <source>Daemon is synchronized</source>
         <translation>デーモンは同期されています</translation>
     </message>
     <message>
-        <location filename="../xcash-gui/main.qml" line="941"/>
+        <location filename="../xcash-gui/main.qml" line="943"/>
         <source>Can&apos;t create transaction: Wrong daemon version: </source>
         <translation>デーモンのバージョンが不正なため、取引を作成できません: </translation>
     </message>
     <message>
-        <location filename="../xcash-gui/main.qml" line="949"/>
-        <location filename="../xcash-gui/main.qml" line="1040"/>
+        <location filename="../xcash-gui/main.qml" line="951"/>
+        <location filename="../xcash-gui/main.qml" line="1042"/>
         <source>No unmixable outputs to sweep</source>
         <translation>スイープするミックス不能なアウトプットがありません</translation>
     </message>
     <message>
-        <location filename="../xcash-gui/main.qml" line="1175"/>
-        <source>This address received %1 monero, but the transaction is not yet mined</source>
-        <translation>このアドレスは%1XMRを受け取りましたが、取引はまだ承認されていません</translation>
-    </message>
-    <message>
-        <location filename="../xcash-gui/main.qml" line="1178"/>
-        <source>This address received %1 monero, with %2 confirmation(s).</source>
-        <translation>このアドレスは%1XMRを受け取り、その取引は%2回承認されました。</translation>
-    </message>
-    <message>
-        <location filename="../xcash-gui/main.qml" line="1182"/>
+        <location filename="../xcash-gui/main.qml" line="1184"/>
         <source>This address received nothing</source>
         <translation>このアドレスはこの取引において何も受け取っていません</translation>
     </message>
     <message>
-        <location filename="../xcash-gui/main.qml" line="2267"/>
+        <location filename="../xcash-gui/main.qml" line="1466"/>
+        <source>Would you like to register xCash GUI Desktop entry?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../xcash-gui/main.qml" line="2269"/>
         <source>Tap again to close...</source>
         <translation>もう一度クリックすると閉じます...</translation>
     </message>
     <message>
-        <location filename="../xcash-gui/main.qml" line="340"/>
+        <location filename="../xcash-gui/main.qml" line="342"/>
         <source>Closing wallet...</source>
         <translation>ウォレットを閉じています。。。</translation>
     </message>
     <message>
-        <location filename="../xcash-gui/main.qml" line="990"/>
+        <location filename="../xcash-gui/main.qml" line="992"/>
         <source>Creating transaction...</source>
         <translation>トランザクションを作成しています。。。</translation>
     </message>
     <message>
-        <location filename="../xcash-gui/main.qml" line="1068"/>
+        <location filename="../xcash-gui/main.qml" line="1070"/>
         <source>Sending transaction ...</source>
         <translation>トランザクションを送信しています。。。</translation>
     </message>
     <message>
-        <location filename="../xcash-gui/main.qml" line="1077"/>
+        <location filename="../xcash-gui/main.qml" line="1079"/>
         <source>Couldn&apos;t send the money: </source>
         <translation>送金できませんでした: </translation>
     </message>
     <message>
-        <location filename="../xcash-gui/main.qml" line="1838"/>
+        <location filename="../xcash-gui/main.qml" line="1840"/>
         <source>Information</source>
         <translation>情報</translation>
     </message>
     <message>
-        <location filename="../xcash-gui/main.qml" line="1096"/>
+        <location filename="../xcash-gui/main.qml" line="1098"/>
         <source>Failed to store the wallet</source>
         <translation>ウォレットの保存に失敗しました</translation>
     </message>
     <message>
-        <location filename="../xcash-gui/main.qml" line="1134"/>
+        <location filename="../xcash-gui/main.qml" line="1136"/>
         <source>Couldn&apos;t generate a proof because of the following reason: 
 </source>
         <translation>以下の理由により支払いの証明を生成できませんでした:
 </translation>
     </message>
     <message>
-        <location filename="../xcash-gui/main.qml" line="1168"/>
-        <location filename="../xcash-gui/main.qml" line="1187"/>
+        <location filename="../xcash-gui/main.qml" line="1170"/>
+        <location filename="../xcash-gui/main.qml" line="1189"/>
         <source>Payment proof check</source>
         <translation>支払いの証明を検証</translation>
     </message>
     <message>
-        <location filename="../xcash-gui/main.qml" line="1171"/>
-        <location filename="../xcash-gui/main.qml" line="1189"/>
-        <location filename="../xcash-gui/main.qml" line="1195"/>
+        <location filename="../xcash-gui/main.qml" line="1173"/>
+        <location filename="../xcash-gui/main.qml" line="1191"/>
+        <location filename="../xcash-gui/main.qml" line="1197"/>
         <source>Bad signature</source>
         <translation>不正な署名</translation>
     </message>
     <message>
-        <location filename="../xcash-gui/main.qml" line="1189"/>
+        <location filename="../xcash-gui/main.qml" line="1191"/>
         <source>Good signature</source>
         <translation>正しい署名</translation>
     </message>
     <message>
-        <location filename="../xcash-gui/main.qml" line="1463"/>
+        <location filename="../xcash-gui/main.qml" line="1465"/>
         <source>Desktop entry</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../xcash-gui/main.qml" line="1464"/>
-        <source>Would you like to register Monero GUI Desktop entry?</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../xcash-gui/main.qml" line="1466"/>
+        <location filename="../xcash-gui/main.qml" line="1468"/>
         <source>No</source>
         <translation>いいえ</translation>
     </message>
     <message>
-        <location filename="../xcash-gui/main.qml" line="1467"/>
+        <location filename="../xcash-gui/main.qml" line="1469"/>
         <source>Yes</source>
         <translation>はい</translation>
     </message>
     <message>
-        <location filename="../xcash-gui/main.qml" line="146"/>
-        <location filename="../xcash-gui/main.qml" line="687"/>
-        <location filename="../xcash-gui/main.qml" line="1725"/>
-        <location filename="../xcash-gui/main.qml" line="2408"/>
+        <location filename="../xcash-gui/main.qml" line="148"/>
+        <location filename="../xcash-gui/main.qml" line="689"/>
+        <location filename="../xcash-gui/main.qml" line="1727"/>
+        <location filename="../xcash-gui/main.qml" line="2413"/>
         <source>Wrong password</source>
         <translation>パスワードが間違っています</translation>
     </message>
     <message>
-        <location filename="../xcash-gui/main.qml" line="136"/>
-        <location filename="../xcash-gui/main.qml" line="2396"/>
+        <location filename="../xcash-gui/main.qml" line="138"/>
+        <location filename="../xcash-gui/main.qml" line="2401"/>
         <source>Locking...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../xcash-gui/main.qml" line="592"/>
+        <location filename="../xcash-gui/main.qml" line="594"/>
         <source>Can&apos;t open background wallets in the GUI</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../xcash-gui/main.qml" line="681"/>
+        <location filename="../xcash-gui/main.qml" line="683"/>
         <source>Unlocking...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../xcash-gui/main.qml" line="703"/>
+        <location filename="../xcash-gui/main.qml" line="705"/>
         <source>Error stopping background sync: </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../xcash-gui/main.qml" line="872"/>
+        <location filename="../xcash-gui/main.qml" line="874"/>
         <source>
 
 Exiting p2pool. Please check that port 18083 is available.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../xcash-gui/main.qml" line="1193"/>
-        <source>Reserve proof check</source>
+        <location filename="../xcash-gui/main.qml" line="1177"/>
+        <source>This address received %1 xcash, but the transaction is not yet mined</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../xcash-gui/main.qml" line="1180"/>
+        <source>This address received %1 xcash, with %2 confirmation(s).</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../xcash-gui/main.qml" line="1195"/>
+        <source>Reserve proof check</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../xcash-gui/main.qml" line="1197"/>
         <source>Good signature on %1 total and %2 spent.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../xcash-gui/main.qml" line="1735"/>
+        <location filename="../xcash-gui/main.qml" line="1737"/>
         <source>Save transaction file</source>
         <translation>トランザクションファイルを保存します</translation>
     </message>
     <message>
-        <location filename="../xcash-gui/main.qml" line="1735"/>
+        <location filename="../xcash-gui/main.qml" line="1737"/>
         <source>Send transaction</source>
         <translation>トランザクションを送信</translation>
     </message>
     <message>
-        <location filename="../xcash-gui/main.qml" line="1792"/>
+        <location filename="../xcash-gui/main.qml" line="1794"/>
         <source>Warning</source>
         <translation>警告</translation>
     </message>
     <message>
-        <location filename="../xcash-gui/main.qml" line="1795"/>
+        <location filename="../xcash-gui/main.qml" line="1797"/>
         <source>Error: Filesystem is read only</source>
         <translation>エラー: ファイルシステムは読み取り専用です</translation>
     </message>
     <message>
-        <location filename="../xcash-gui/main.qml" line="1797"/>
+        <location filename="../xcash-gui/main.qml" line="1799"/>
         <source>Warning: There&apos;s only %1 GB available on the device. Blockchain requires ~%2 GB of data.</source>
         <translation>警告: デバイスには%1 GBしか空きがありません。ブロックチェーンには%2 GBほどのデータが必要です。</translation>
     </message>
     <message>
-        <location filename="../xcash-gui/main.qml" line="1799"/>
+        <location filename="../xcash-gui/main.qml" line="1801"/>
         <source>Note: There&apos;s %1 GB available on the device. Blockchain requires ~%2 GB of data.</source>
         <translation>備考: デバイスには%1 GBしか空きがありません。ブロックチェーンには%2 GBほどのデータが必要です。</translation>
     </message>
     <message>
-        <location filename="../xcash-gui/main.qml" line="1801"/>
+        <location filename="../xcash-gui/main.qml" line="1803"/>
         <source>Note: lmdb folder not found. A new folder will be created.</source>
         <translation>備考: lmdbフォルダが見つかりませんでした。新しいフォルダが作られます。</translation>
     </message>
     <message>
-        <location filename="../xcash-gui/main.qml" line="1839"/>
+        <location filename="../xcash-gui/main.qml" line="1841"/>
         <source>Password changed successfully</source>
         <translation>パスワードの変更に成功しました</translation>
     </message>
     <message>
-        <location filename="../xcash-gui/main.qml" line="1843"/>
+        <location filename="../xcash-gui/main.qml" line="1845"/>
         <source>Error: </source>
         <translation>エラー: </translation>
     </message>
     <message>
-        <location filename="../xcash-gui/main.qml" line="1894"/>
+        <location filename="../xcash-gui/main.qml" line="1896"/>
         <source>Please wait...</source>
         <translation>お待ちください...</translation>
     </message>
     <message>
-        <location filename="../xcash-gui/main.qml" line="1934"/>
+        <location filename="../xcash-gui/main.qml" line="1936"/>
         <source>Primary account</source>
         <translation>プライマリアカウント</translation>
     </message>
     <message>
-        <location filename="../xcash-gui/main.qml" line="2126"/>
+        <location filename="../xcash-gui/main.qml" line="2128"/>
         <source>Autosaved the wallet</source>
         <translation>ウォレットを自動保存しました</translation>
     </message>
     <message>
-        <location filename="../xcash-gui/main.qml" line="2128"/>
+        <location filename="../xcash-gui/main.qml" line="2130"/>
         <source>Failed to autosave the wallet</source>
         <translation>ウォレットの自動保存に失敗しました</translation>
     </message>
     <message>
-        <location filename="../xcash-gui/main.qml" line="2243"/>
+        <location filename="../xcash-gui/main.qml" line="2245"/>
         <source>Local node is running</source>
         <translation>ローカルノードが稼働中</translation>
     </message>
     <message>
-        <location filename="../xcash-gui/main.qml" line="2244"/>
+        <location filename="../xcash-gui/main.qml" line="2246"/>
         <source>Do you want to stop local node or keep it running in the background?</source>
         <translation>ローカルノードを停止させますか？それともバックグラウンドで稼働させ続けますか？</translation>
     </message>
     <message>
-        <location filename="../xcash-gui/main.qml" line="2246"/>
+        <location filename="../xcash-gui/main.qml" line="2248"/>
         <source>Force stop</source>
         <translation>強制停止</translation>
     </message>
     <message>
-        <location filename="../xcash-gui/main.qml" line="2247"/>
+        <location filename="../xcash-gui/main.qml" line="2249"/>
         <source>Keep it running</source>
         <translation>稼働させ続ける</translation>
     </message>
     <message>
-        <location filename="../xcash-gui/main.qml" line="2282"/>
+        <location filename="../xcash-gui/main.qml" line="2284"/>
         <source>Checking local node status...</source>
         <translation>ローカルノードの状態を確認中...</translation>
     </message>

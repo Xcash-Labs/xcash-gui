@@ -1,4 +1,4 @@
-// Copyright (c) 2014-2024, The Monero Project
+// Copyright (c) 2014-2024, xCash Forked from The Monero Project
 //
 // All rights reserved.
 //
@@ -338,7 +338,7 @@ Rectangle {
                 labelText: qsTr("Address") + translationManager.emptyString
                 addressValidation: true
                 placeholderFontSize: 16
-                placeholderText: qsTr("Enter the Monero Address (example: 44AFFq5kSiGBoZ...)") + translationManager.emptyString
+                placeholderText: qsTr("Enter the xCash Address (example: XCAFFq5kSiGBoZ...)") + translationManager.emptyString
                 wrapMode: Text.WrapAnywhere
                 text: ''
             }
