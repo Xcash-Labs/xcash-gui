@@ -33,7 +33,7 @@
         <file>components/TipItem.qml</file>
         <file>images/tip.png</file>
         <file>components/MenuButtonDivider.qml</file>
-        <file>images/monero-vector.svg</file>
+        <file>images/xcash-vector.svg</file>
         <file>components/StandardDropdown.qml</file>
         <file>images/whiteDropIndicator.png</file>
         <file>images/whiteDropIndicator@2x.png</file>
@@ -135,7 +135,7 @@
         <file>images/card-background-black7@2x.png</file>
         <file>images/card-background-white.png</file>
         <file>images/card-background-white@2x.png</file>
-        <file>images/moneroLogo_white.png</file>
+        <file>images/xcashLogo_white.png</file>
         <file>images/titlebarLogo.png</file>
         <file>images/titlebarLogo@2x.png</file>
         <file>pages/merchant/MerchantTitlebar.qml</file>
