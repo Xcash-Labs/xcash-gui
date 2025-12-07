@@ -172,7 +172,7 @@
     <message>
         <location filename="../xcash-gui/pages/AddressBook.qml" line="438"/>
         <source>Delete</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Изтрий</translation>
     </message>
     <message>
         <location filename="../xcash-gui/pages/AddressBook.qml" line="528"/>
@@ -238,7 +238,6 @@
         <source>executable is missing</source>
         <translation>изпълнимият файл липсва</translation>
     </message>
-
     <message>
         <location filename="../xcash-gui/src/daemon/DaemonManager.cpp" line="138"/>
         <source>Timed out, local node is not responding after %1 seconds</source>
@@ -473,7 +472,7 @@ It is recommended to enter passphrase on the hardware wallet for better security
     <message>
         <location filename="../xcash-gui/pages/History.qml" line="786"/>
         <source>To</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">До</translation>
     </message>
     <message>
         <location filename="../xcash-gui/pages/History.qml" line="786"/>
@@ -488,7 +487,7 @@ It is recommended to enter passphrase on the hardware wallet for better security
     <message>
         <location filename="../xcash-gui/pages/History.qml" line="811"/>
         <source>My wallet</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Моят портфейл</translation>
     </message>
     <message>
         <location filename="../xcash-gui/pages/History.qml" line="816"/>
@@ -591,7 +590,7 @@ It is recommended to enter passphrase on the hardware wallet for better security
     <message>
         <location filename="../xcash-gui/pages/History.qml" line="1773"/>
         <source>Open folder</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Отвори папката</translation>
     </message>
     <message>
         <location filename="../xcash-gui/pages/History.qml" line="1780"/>
@@ -654,7 +653,7 @@ It is recommended to enter passphrase on the hardware wallet for better security
     <message>
         <location filename="../xcash-gui/pages/Keys.qml" line="260"/>
         <source>Done</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Готово</translation>
     </message>
     <message>
         <location filename="../xcash-gui/pages/Keys.qml" line="281"/>
@@ -723,6 +722,91 @@ It is recommended to enter passphrase on the hardware wallet for better security
         <location filename="../xcash-gui/components/LanguageSidebar.qml" line="96"/>
         <source>Language changed.</source>
         <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>LeftPanel</name>
+    <message>
+        <location filename="../xcash-gui/LeftPanel.qml" line="141"/>
+        <source>Testnet</source>
+        <translation type="unfinished">Тестова мрежа</translation>
+    </message>
+    <message>
+        <location filename="../xcash-gui/LeftPanel.qml" line="141"/>
+        <source>Stagenet</source>
+        <translation type="unfinished">Стейджнет</translation>
+    </message>
+    <message>
+        <location filename="../xcash-gui/LeftPanel.qml" line="155"/>
+        <source>View Only</source>
+        <translation type="unfinished">Само за гледане</translation>
+    </message>
+    <message>
+        <location filename="../xcash-gui/LeftPanel.qml" line="178"/>
+        <location filename="../xcash-gui/LeftPanel.qml" line="362"/>
+        <source>Account</source>
+        <translation type="unfinished">Сметка</translation>
+    </message>
+    <message>
+        <location filename="../xcash-gui/LeftPanel.qml" line="217"/>
+        <source>Syncing...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../xcash-gui/LeftPanel.qml" line="287"/>
+        <source>Copied to clipboard</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../xcash-gui/LeftPanel.qml" line="363"/>
+        <location filename="../xcash-gui/LeftPanel.qml" line="385"/>
+        <location filename="../xcash-gui/LeftPanel.qml" line="407"/>
+        <location filename="../xcash-gui/LeftPanel.qml" line="429"/>
+        <location filename="../xcash-gui/LeftPanel.qml" line="451"/>
+        <location filename="../xcash-gui/LeftPanel.qml" line="473"/>
+        <location filename="../xcash-gui/LeftPanel.qml" line="494"/>
+        <source>Ctrl+</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../xcash-gui/LeftPanel.qml" line="384"/>
+        <source>Send</source>
+        <translation type="unfinished">Изпрати</translation>
+    </message>
+    <message>
+        <location filename="../xcash-gui/LeftPanel.qml" line="406"/>
+        <source>Address book</source>
+        <translation type="unfinished">Адресна книга</translation>
+    </message>
+    <message>
+        <location filename="../xcash-gui/LeftPanel.qml" line="428"/>
+        <source>Receive</source>
+        <translation type="unfinished">Получи</translation>
+    </message>
+    <message>
+        <location filename="../xcash-gui/LeftPanel.qml" line="450"/>
+        <source>Transactions</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../xcash-gui/LeftPanel.qml" line="472"/>
+        <source>Advanced</source>
+        <translation type="unfinished">За напреднали</translation>
+    </message>
+    <message>
+        <location filename="../xcash-gui/LeftPanel.qml" line="493"/>
+        <source>Settings</source>
+        <translation type="unfinished">Настройки</translation>
+    </message>
+    <message>
+        <location filename="../xcash-gui/LeftPanel.qml" line="530"/>
+        <source>Wallet</source>
+        <translation type="unfinished">Портфейл</translation>
+    </message>
+    <message>
+        <location filename="../xcash-gui/LeftPanel.qml" line="539"/>
+        <source>Daemon</source>
+        <translation type="unfinished">Демон</translation>
     </message>
 </context>
 <context>
@@ -869,7 +953,7 @@ It is recommended to enter passphrase on the hardware wallet for better security
         <translation>Тази страница изисква по-голям прозорец</translation>
     </message>
     <message>
-        <location filename="../xcash-gui/pages/merchant/merchant.qml" line="596"/>
+        <location filename="../xcash-gui/pages/merchant/Merchant.qml" line="596"/>
         <source>WARNING: no connection to daemon</source>
         <translation>ПРЕДУПРЕЖДЕНИЕ: няма връзка c демона</translation>
     </message>
@@ -2017,7 +2101,7 @@ You can change the password in the wallet settings.</source>
     <message>
         <location filename="../xcash-gui/pages/settings/SettingsWallet.qml" line="56"/>
         <source>Lock this wallet</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Заключи този портфейл</translation>
     </message>
     <message>
         <location filename="../xcash-gui/pages/settings/SettingsWallet.qml" line="57"/>
@@ -2498,6 +2582,399 @@ In order to rescan the transaction, you can re-sync your wallet by resetting the
         <location filename="../xcash-gui/src/model/TransactionHistoryModel.cpp" line="106"/>
         <source>Primary address</source>
         <translation>Главен адрес</translation>
+    </message>
+</context>
+<context>
+    <name>Transfer</name>
+    <message>
+        <location filename="../xcash-gui/pages/Transfer.qml" line="58"/>
+        <source>Wallet is view-only and sends are only possible by using offline transaction signing. Unless key images are imported, the balance reflects only incoming but not outgoing transactions.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../xcash-gui/pages/Transfer.qml" line="64"/>
+        <source>Amount is more than unlocked balance.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../xcash-gui/pages/Transfer.qml" line="70"/>
+        <source>Address is invalid.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../xcash-gui/pages/Transfer.qml" line="75"/>
+        <source>Enter an amount.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../xcash-gui/pages/Transfer.qml" line="81"/>
+        <source>Start daemon</source>
+        <translation type="unfinished">Стартирай клиента</translation>
+    </message>
+    <message>
+        <location filename="../xcash-gui/pages/Transfer.qml" line="87"/>
+        <source>OpenAlias error</source>
+        <translation type="unfinished">OpenAlias грешка</translation>
+    </message>
+    <message>
+        <location filename="../xcash-gui/pages/Transfer.qml" line="169"/>
+        <source>Spendable funds: %1 XCA. Please wait ~%2 minutes for your whole balance to become spendable.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../xcash-gui/pages/Transfer.qml" line="271"/>
+        <source>Address</source>
+        <translation type="unfinished">Адрес</translation>
+    </message>
+    <message>
+        <location filename="../xcash-gui/pages/Transfer.qml" line="279"/>
+        <source>Grab QR code from screen</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../xcash-gui/pages/Transfer.qml" line="301"/>
+        <source>Scan QR code</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../xcash-gui/pages/Transfer.qml" line="311"/>
+        <source>Import from address book</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../xcash-gui/pages/Transfer.qml" line="333"/>
+        <source>Amount</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../xcash-gui/pages/Transfer.qml" line="342"/>
+        <source>Send all unlocked balance of this account</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../xcash-gui/pages/Transfer.qml" line="415"/>
+        <source>Resolve</source>
+        <translation type="unfinished">Разкрий</translation>
+    </message>
+    <message>
+        <location filename="../xcash-gui/pages/Transfer.qml" line="496"/>
+        <source>Remove recipient</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../xcash-gui/pages/Transfer.qml" line="553"/>
+        <source>Add recipient</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../xcash-gui/pages/Transfer.qml" line="566"/>
+        <source>Total</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../xcash-gui/pages/Transfer.qml" line="665"/>
+        <source>Private</source>
+        <translation type="unfinished">Поверителна</translation>
+    </message>
+    <message>
+        <location filename="../xcash-gui/pages/Transfer.qml" line="666"/>
+        <source>Public</source>
+        <translation type="unfinished">Публична</translation>
+    </message>
+    <message>
+        <location filename="../xcash-gui/pages/Transfer.qml" line="673"/>
+        <source>Automatic</source>
+        <translation type="unfinished">Автоматично</translation>
+    </message>
+    <message>
+        <location filename="../xcash-gui/pages/Transfer.qml" line="674"/>
+        <source>Slow (x0.2 fee)</source>
+        <translation type="unfinished">Бавна (такса x0.2)</translation>
+    </message>
+    <message>
+        <location filename="../xcash-gui/pages/Transfer.qml" line="675"/>
+        <source>Normal (x1 fee)</source>
+        <translation type="unfinished">Нормална (такса x1)</translation>
+    </message>
+    <message>
+        <location filename="../xcash-gui/pages/Transfer.qml" line="676"/>
+        <source>Fast (x5 fee)</source>
+        <translation type="unfinished">Бърза (такса x5)</translation>
+    </message>
+    <message>
+        <location filename="../xcash-gui/pages/Transfer.qml" line="677"/>
+        <source>Fastest (x200 fee)</source>
+        <translation type="unfinished">Най-бърза (такса x200)</translation>
+    </message>
+    <message>
+        <location filename="../xcash-gui/pages/Transfer.qml" line="689"/>
+        <source>Flex Transaction Type</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../xcash-gui/pages/Transfer.qml" line="703"/>
+        <source>Transaction priority</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../xcash-gui/pages/Transfer.qml" line="754"/>
+        <source>fee</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../xcash-gui/pages/Transfer.qml" line="768"/>
+        <source>Description field contents match long payment ID format.           Please don&apos;t paste long payment ID into description field, your funds might be lost.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../xcash-gui/pages/Transfer.qml" line="786"/>
+        <source>Add description</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../xcash-gui/pages/Transfer.qml" line="798"/>
+        <source>Saved to local wallet history</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../xcash-gui/pages/Transfer.qml" line="798"/>
+        <source>only visible to you</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../xcash-gui/pages/Transfer.qml" line="815"/>
+        <source>Add payment ID</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../xcash-gui/pages/Transfer.qml" line="827"/>
+        <source>64 hexadecimal characters</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../xcash-gui/pages/Transfer.qml" line="840"/>
+        <source>Long payment IDs are obsolete.           Long payment IDs were not encrypted on the blockchain and would harm your privacy.           If the party you&apos;re sending to still requires a long payment ID, please notify them.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../xcash-gui/pages/Transfer.qml" line="857"/>
+        <source>Send</source>
+        <translation type="unfinished">Изпрати</translation>
+    </message>
+    <message>
+        <location filename="../xcash-gui/pages/Transfer.qml" line="898"/>
+        <source>Advanced options</source>
+        <translation type="unfinished">Настройки за напреднали</translation>
+    </message>
+    <message>
+        <location filename="../xcash-gui/pages/Transfer.qml" line="904"/>
+        <source>Outputs</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../xcash-gui/pages/Transfer.qml" line="905"/>
+        <location filename="../xcash-gui/pages/Transfer.qml" line="931"/>
+        <source>Export</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../xcash-gui/pages/Transfer.qml" line="911"/>
+        <location filename="../xcash-gui/pages/Transfer.qml" line="937"/>
+        <source>Import</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../xcash-gui/pages/Transfer.qml" line="918"/>
+        <source>Required for cold wallets to sign their corresponding key images</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../xcash-gui/pages/Transfer.qml" line="922"/>
+        <location filename="../xcash-gui/pages/Transfer.qml" line="992"/>
+        <source>1. Using view-only wallet, export the outputs into a file</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../xcash-gui/pages/Transfer.qml" line="923"/>
+        <source>2. Using cold wallet, import the outputs file</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../xcash-gui/pages/Transfer.qml" line="930"/>
+        <source>Key images</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../xcash-gui/pages/Transfer.qml" line="946"/>
+        <source>* To import, you must connect to a local node or a trusted remote node</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../xcash-gui/pages/Transfer.qml" line="948"/>
+        <source>Required for view-only wallets to display the real balance</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../xcash-gui/pages/Transfer.qml" line="952"/>
+        <source>1. Using cold wallet, export the key images into a file</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../xcash-gui/pages/Transfer.qml" line="953"/>
+        <source>2. Using view-only wallet, import the key images file</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../xcash-gui/pages/Transfer.qml" line="960"/>
+        <source>Offline transaction signing</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../xcash-gui/pages/Transfer.qml" line="961"/>
+        <source>Create</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../xcash-gui/pages/Transfer.qml" line="971"/>
+        <source>Sign (offline)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../xcash-gui/pages/Transfer.qml" line="977"/>
+        <source>Submit</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../xcash-gui/pages/Transfer.qml" line="986"/>
+        <source>* To create a transaction file, please enter address and amount above</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../xcash-gui/pages/Transfer.qml" line="988"/>
+        <source>Spend XCA from a cold (offline) wallet</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../xcash-gui/pages/Transfer.qml" line="993"/>
+        <source>2. Using cold wallet, import the outputs file and export the key images</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../xcash-gui/pages/Transfer.qml" line="994"/>
+        <source>3. Using view-only wallet, import the key images file and create a transaction file</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../xcash-gui/pages/Transfer.qml" line="996"/>
+        <source>4. Using cold wallet, sign your transaction file</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../xcash-gui/pages/Transfer.qml" line="997"/>
+        <source>5. Using view-only wallet, submit your signed transaction</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../xcash-gui/pages/Transfer.qml" line="1003"/>
+        <source>Unmixable outputs</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../xcash-gui/pages/Transfer.qml" line="1004"/>
+        <source>Sweep</source>
+        <translation type="unfinished">Изчисти</translation>
+    </message>
+    <message>
+        <location filename="../xcash-gui/pages/Transfer.qml" line="1010"/>
+        <source>Create a transaction that spends old unmovable outputs</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../xcash-gui/pages/Transfer.qml" line="1017"/>
+        <location filename="../xcash-gui/pages/Transfer.qml" line="1061"/>
+        <location filename="../xcash-gui/pages/Transfer.qml" line="1107"/>
+        <location filename="../xcash-gui/pages/Transfer.qml" line="1144"/>
+        <source>Please choose a file</source>
+        <translation type="unfinished">Моля изберете файл</translation>
+    </message>
+    <message>
+        <location filename="../xcash-gui/pages/Transfer.qml" line="1028"/>
+        <location filename="../xcash-gui/pages/Transfer.qml" line="1067"/>
+        <source>Error</source>
+        <translation type="unfinished">Грешка</translation>
+    </message>
+    <message>
+        <location filename="../xcash-gui/pages/Transfer.qml" line="1029"/>
+        <source>Can&apos;t load unsigned transaction: </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../xcash-gui/pages/Transfer.qml" line="1036"/>
+        <source>
+Confirmation message:
+ </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../xcash-gui/pages/Transfer.qml" line="1040"/>
+        <source>Confirmation</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../xcash-gui/pages/Transfer.qml" line="1068"/>
+        <source>Can&apos;t submit transaction: </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../xcash-gui/pages/Transfer.qml" line="1073"/>
+        <source>Information</source>
+        <translation type="unfinished">Информация</translation>
+    </message>
+    <message>
+        <location filename="../xcash-gui/pages/Transfer.qml" line="1074"/>
+        <source>XCash sent successfully</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../xcash-gui/pages/Transfer.qml" line="1093"/>
+        <source>Outputs successfully exported to file</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../xcash-gui/pages/Transfer.qml" line="1111"/>
+        <source>Outputs successfully imported to wallet</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../xcash-gui/pages/Transfer.qml" line="1129"/>
+        <source>Key images successfully exported to file</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../xcash-gui/pages/Transfer.qml" line="1148"/>
+        <source>Key images successfully imported to wallet</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../xcash-gui/pages/Transfer.qml" line="1175"/>
+        <source>Wallet is not connected to daemon.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../xcash-gui/pages/Transfer.qml" line="1191"/>
+        <source>Wallet is connecting to daemon.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../xcash-gui/pages/Transfer.qml" line="1197"/>
+        <source>Connected daemon is not compatible with GUI. 
+Please upgrade or connect to another daemon</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../xcash-gui/pages/Transfer.qml" line="1202"/>
+        <source>Waiting on daemon synchronization to finish.</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -3085,6 +3562,147 @@ your input may be required.</source>
     </message>
 </context>
 <context>
+    <name>WizardCreateWallet2</name>
+    <message>
+        <location filename="../xcash-gui/wizard/WizardCreateWallet2.qml" line="59"/>
+        <source>Verify your recovery phrase</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../xcash-gui/wizard/WizardCreateWallet2.qml" line="61"/>
+        <source>Please confirm that you have written down your recover phrase by filling in the five blank fields with the correct words. If you have not written down your recovery phrase on a piece of paper, click on the Previous button and write it down right now!</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../xcash-gui/wizard/WizardCreateWallet2.qml" line="87"/>
+        <source>Print this paper, fill it out, and keep it in a safe location. Never share your recovery phrase with anybody, especially with strangers offering technical support.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../xcash-gui/wizard/WizardCreateWallet2.qml" line="88"/>
+        <location filename="../xcash-gui/wizard/WizardCreateWallet2.qml" line="234"/>
+        <location filename="../xcash-gui/wizard/WizardCreateWallet2.qml" line="239"/>
+        <source>Recovery phrase (mnemonic seed)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../xcash-gui/wizard/WizardCreateWallet2.qml" line="89"/>
+        <source>These words are a backup of your wallet. They are the only thing needed to access your funds and restore your xCash wallet, so keep this paper in a safe place and do not disclose it to anybody! It is strongly not recommended to store your recovery phrase digitally (in an email, online service, screenshot, photo, or any other type of computer file).</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../xcash-gui/wizard/WizardCreateWallet2.qml" line="90"/>
+        <source>Wallet creation date</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../xcash-gui/wizard/WizardCreateWallet2.qml" line="91"/>
+        <source>Wallet restore height</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../xcash-gui/wizard/WizardCreateWallet2.qml" line="92"/>
+        <source>For instructions on how to restore this wallet, visit www.xcashlabs.org and go to Resources &gt; User Guides &gt; &quot;How to restore a wallet from mnemonic seed&quot;. Use only xCash wallets that are trusted and recommended by the xCash community (list of them in www.xcashlabs.org/downloads).</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../xcash-gui/wizard/WizardCreateWallet2.qml" line="117"/>
+        <location filename="../xcash-gui/wizard/WizardCreateWallet2.qml" line="119"/>
+        <location filename="../xcash-gui/wizard/WizardCreateWallet2.qml" line="202"/>
+        <source>Write down your recovery phrase</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../xcash-gui/wizard/WizardCreateWallet2.qml" line="136"/>
+        <source>A pencil writing on a piece of paper</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../xcash-gui/wizard/WizardCreateWallet2.qml" line="154"/>
+        <location filename="../xcash-gui/wizard/WizardCreateWallet2.qml" line="162"/>
+        <source>The next page will display your recovery phrase, also known as mnemonic seed.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../xcash-gui/wizard/WizardCreateWallet2.qml" line="154"/>
+        <location filename="../xcash-gui/wizard/WizardCreateWallet2.qml" line="162"/>
+        <location filename="../xcash-gui/wizard/WizardCreateWallet2.qml" line="182"/>
+        <location filename="../xcash-gui/wizard/WizardCreateWallet2.qml" line="204"/>
+        <source>These words are a backup of your wallet. Write these words down now on a piece of paper in the same order displayed. Keep this paper in a safe place and do not disclose it to anybody! Do not store these words digitally, always use a paper!</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../xcash-gui/wizard/WizardCreateWallet2.qml" line="177"/>
+        <source>Display recovery phrase</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../xcash-gui/wizard/WizardCreateWallet2.qml" line="182"/>
+        <source>The next page will display your recovery phrase, also known as mnemonic seed. </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../xcash-gui/wizard/WizardCreateWallet2.qml" line="236"/>
+        <source>These words encode your private spend key in a human readable format.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../xcash-gui/wizard/WizardCreateWallet2.qml" line="236"/>
+        <source>It is expected that some words may be repeated.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../xcash-gui/wizard/WizardCreateWallet2.qml" line="269"/>
+        <source>New seed generated</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../xcash-gui/wizard/WizardCreateWallet2.qml" line="281"/>
+        <location filename="../xcash-gui/wizard/WizardCreateWallet2.qml" line="290"/>
+        <source>Create new seed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../xcash-gui/wizard/WizardCreateWallet2.qml" line="302"/>
+        <location filename="../xcash-gui/wizard/WizardCreateWallet2.qml" line="308"/>
+        <source>Copy to clipboard</source>
+        <translation type="unfinished">Копирай в клипборда</translation>
+    </message>
+    <message>
+        <location filename="../xcash-gui/wizard/WizardCreateWallet2.qml" line="305"/>
+        <source>Recovery phrase copied to clipboard</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../xcash-gui/wizard/WizardCreateWallet2.qml" line="319"/>
+        <source>Print a template</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../xcash-gui/wizard/WizardCreateWallet2.qml" line="320"/>
+        <location filename="../xcash-gui/wizard/WizardCreateWallet2.qml" line="325"/>
+        <source>Print a template to write down your seed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../xcash-gui/wizard/WizardCreateWallet2.qml" line="350"/>
+        <location filename="../xcash-gui/wizard/WizardCreateWallet2.qml" line="353"/>
+        <source>Creation date</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../xcash-gui/wizard/WizardCreateWallet2.qml" line="384"/>
+        <location filename="../xcash-gui/wizard/WizardCreateWallet2.qml" line="389"/>
+        <source>Restore height</source>
+        <translation type="unfinished">Височина за възстановяване</translation>
+    </message>
+    <message>
+        <location filename="../xcash-gui/wizard/WizardCreateWallet2.qml" line="385"/>
+        <source>Enter this number when restoring the wallet to make your initial wallet synchronization faster.</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>WizardCreateWallet4</name>
     <message>
         <location filename="../xcash-gui/wizard/WizardCreateWallet4.qml" line="59"/>
@@ -3661,91 +4279,6 @@ your input may be required.</source>
     </message>
 </context>
 <context>
-    <name>leftPanel</name>
-    <message>
-        <location filename="../xcash-gui/leftPanel.qml" line="141"/>
-        <source>Testnet</source>
-        <translation type="unfinished">Тестова мрежа</translation>
-    </message>
-    <message>
-        <location filename="../xcash-gui/leftPanel.qml" line="141"/>
-        <source>Stagenet</source>
-        <translation type="unfinished">Стейджнет</translation>
-    </message>
-    <message>
-        <location filename="../xcash-gui/leftPanel.qml" line="155"/>
-        <source>View Only</source>
-        <translation type="unfinished">Само за гледане</translation>
-    </message>
-    <message>
-        <location filename="../xcash-gui/leftPanel.qml" line="178"/>
-        <location filename="../xcash-gui/leftPanel.qml" line="362"/>
-        <source>Account</source>
-        <translation type="unfinished">Сметка</translation>
-    </message>
-    <message>
-        <location filename="../xcash-gui/leftPanel.qml" line="217"/>
-        <source>Syncing...</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../xcash-gui/leftPanel.qml" line="287"/>
-        <source>Copied to clipboard</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../xcash-gui/leftPanel.qml" line="363"/>
-        <location filename="../xcash-gui/leftPanel.qml" line="385"/>
-        <location filename="../xcash-gui/leftPanel.qml" line="407"/>
-        <location filename="../xcash-gui/leftPanel.qml" line="429"/>
-        <location filename="../xcash-gui/leftPanel.qml" line="451"/>
-        <location filename="../xcash-gui/leftPanel.qml" line="473"/>
-        <location filename="../xcash-gui/leftPanel.qml" line="494"/>
-        <source>Ctrl+</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../xcash-gui/leftPanel.qml" line="384"/>
-        <source>Send</source>
-        <translation type="unfinished">Изпрати</translation>
-    </message>
-    <message>
-        <location filename="../xcash-gui/leftPanel.qml" line="406"/>
-        <source>Address book</source>
-        <translation type="unfinished">Адресна книга</translation>
-    </message>
-    <message>
-        <location filename="../xcash-gui/leftPanel.qml" line="428"/>
-        <source>Receive</source>
-        <translation type="unfinished">Получи</translation>
-    </message>
-    <message>
-        <location filename="../xcash-gui/leftPanel.qml" line="450"/>
-        <source>Transactions</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../xcash-gui/leftPanel.qml" line="472"/>
-        <source>Advanced</source>
-        <translation type="unfinished">За напреднали</translation>
-    </message>
-    <message>
-        <location filename="../xcash-gui/leftPanel.qml" line="493"/>
-        <source>Settings</source>
-        <translation type="unfinished">Настройки</translation>
-    </message>
-    <message>
-        <location filename="../xcash-gui/leftPanel.qml" line="530"/>
-        <source>Wallet</source>
-        <translation type="unfinished">Портфейл</translation>
-    </message>
-    <message>
-        <location filename="../xcash-gui/leftPanel.qml" line="539"/>
-        <source>Daemon</source>
-        <translation type="unfinished">Демон</translation>
-    </message>
-</context>
-<context>
     <name>main</name>
     <message>
         <location filename="../xcash-gui/main.qml" line="1078"/>
@@ -4055,7 +4588,7 @@ Exiting p2pool. Please check that port 18083 is available.</source>
     <message>
         <location filename="../xcash-gui/main.qml" line="961"/>
         <source>Confirm</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Потвърди</translation>
     </message>
     <message>
         <location filename="../xcash-gui/main.qml" line="1079"/>

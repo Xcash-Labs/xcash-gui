@@ -725,6 +725,91 @@ It is recommended to enter passphrase on the hardware wallet for better security
     </message>
 </context>
 <context>
+    <name>LeftPanel</name>
+    <message>
+        <location filename="../xcash-gui/LeftPanel.qml" line="141"/>
+        <source>Testnet</source>
+        <translation type="unfinished">टेस्टनेट</translation>
+    </message>
+    <message>
+        <location filename="../xcash-gui/LeftPanel.qml" line="141"/>
+        <source>Stagenet</source>
+        <translation type="unfinished">स्टेजनेट</translation>
+    </message>
+    <message>
+        <location filename="../xcash-gui/LeftPanel.qml" line="155"/>
+        <source>View Only</source>
+        <translation type="unfinished">केवल देखने योग्य</translation>
+    </message>
+    <message>
+        <location filename="../xcash-gui/LeftPanel.qml" line="178"/>
+        <location filename="../xcash-gui/LeftPanel.qml" line="362"/>
+        <source>Account</source>
+        <translation type="unfinished">खाता</translation>
+    </message>
+    <message>
+        <location filename="../xcash-gui/LeftPanel.qml" line="217"/>
+        <source>Syncing...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../xcash-gui/LeftPanel.qml" line="287"/>
+        <source>Copied to clipboard</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../xcash-gui/LeftPanel.qml" line="363"/>
+        <location filename="../xcash-gui/LeftPanel.qml" line="385"/>
+        <location filename="../xcash-gui/LeftPanel.qml" line="407"/>
+        <location filename="../xcash-gui/LeftPanel.qml" line="429"/>
+        <location filename="../xcash-gui/LeftPanel.qml" line="451"/>
+        <location filename="../xcash-gui/LeftPanel.qml" line="473"/>
+        <location filename="../xcash-gui/LeftPanel.qml" line="494"/>
+        <source>Ctrl+</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../xcash-gui/LeftPanel.qml" line="384"/>
+        <source>Send</source>
+        <translation type="unfinished">भेजें</translation>
+    </message>
+    <message>
+        <location filename="../xcash-gui/LeftPanel.qml" line="406"/>
+        <source>Address book</source>
+        <translation type="unfinished">पता पुस्तिका</translation>
+    </message>
+    <message>
+        <location filename="../xcash-gui/LeftPanel.qml" line="428"/>
+        <source>Receive</source>
+        <translation type="unfinished">प्राप्त करें</translation>
+    </message>
+    <message>
+        <location filename="../xcash-gui/LeftPanel.qml" line="450"/>
+        <source>Transactions</source>
+        <translation type="unfinished">लेन-देन</translation>
+    </message>
+    <message>
+        <location filename="../xcash-gui/LeftPanel.qml" line="472"/>
+        <source>Advanced</source>
+        <translation type="unfinished">उन्नत</translation>
+    </message>
+    <message>
+        <location filename="../xcash-gui/LeftPanel.qml" line="493"/>
+        <source>Settings</source>
+        <translation type="unfinished">सेटिंग्स</translation>
+    </message>
+    <message>
+        <location filename="../xcash-gui/LeftPanel.qml" line="530"/>
+        <source>Wallet</source>
+        <translation type="unfinished">बटुआ</translation>
+    </message>
+    <message>
+        <location filename="../xcash-gui/LeftPanel.qml" line="539"/>
+        <source>Daemon</source>
+        <translation type="unfinished">डीमन</translation>
+    </message>
+</context>
+<context>
     <name>LineEdit</name>
     <message>
         <location filename="../xcash-gui/components/LineEdit.qml" line="194"/>
@@ -3484,6 +3569,147 @@ your input may be required.</source>
     </message>
 </context>
 <context>
+    <name>WizardCreateWallet2</name>
+    <message>
+        <location filename="../xcash-gui/wizard/WizardCreateWallet2.qml" line="59"/>
+        <source>Verify your recovery phrase</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../xcash-gui/wizard/WizardCreateWallet2.qml" line="61"/>
+        <source>Please confirm that you have written down your recover phrase by filling in the five blank fields with the correct words. If you have not written down your recovery phrase on a piece of paper, click on the Previous button and write it down right now!</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../xcash-gui/wizard/WizardCreateWallet2.qml" line="87"/>
+        <source>Print this paper, fill it out, and keep it in a safe location. Never share your recovery phrase with anybody, especially with strangers offering technical support.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../xcash-gui/wizard/WizardCreateWallet2.qml" line="88"/>
+        <location filename="../xcash-gui/wizard/WizardCreateWallet2.qml" line="234"/>
+        <location filename="../xcash-gui/wizard/WizardCreateWallet2.qml" line="239"/>
+        <source>Recovery phrase (mnemonic seed)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../xcash-gui/wizard/WizardCreateWallet2.qml" line="89"/>
+        <source>These words are a backup of your wallet. They are the only thing needed to access your funds and restore your xCash wallet, so keep this paper in a safe place and do not disclose it to anybody! It is strongly not recommended to store your recovery phrase digitally (in an email, online service, screenshot, photo, or any other type of computer file).</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../xcash-gui/wizard/WizardCreateWallet2.qml" line="90"/>
+        <source>Wallet creation date</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../xcash-gui/wizard/WizardCreateWallet2.qml" line="91"/>
+        <source>Wallet restore height</source>
+        <translation type="unfinished">बटुआ इस ऊंचाई से बहाल करें</translation>
+    </message>
+    <message>
+        <location filename="../xcash-gui/wizard/WizardCreateWallet2.qml" line="92"/>
+        <source>For instructions on how to restore this wallet, visit www.xcashlabs.org and go to Resources &gt; User Guides &gt; &quot;How to restore a wallet from mnemonic seed&quot;. Use only xCash wallets that are trusted and recommended by the xCash community (list of them in www.xcashlabs.org/downloads).</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../xcash-gui/wizard/WizardCreateWallet2.qml" line="117"/>
+        <location filename="../xcash-gui/wizard/WizardCreateWallet2.qml" line="119"/>
+        <location filename="../xcash-gui/wizard/WizardCreateWallet2.qml" line="202"/>
+        <source>Write down your recovery phrase</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../xcash-gui/wizard/WizardCreateWallet2.qml" line="136"/>
+        <source>A pencil writing on a piece of paper</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../xcash-gui/wizard/WizardCreateWallet2.qml" line="154"/>
+        <location filename="../xcash-gui/wizard/WizardCreateWallet2.qml" line="162"/>
+        <source>The next page will display your recovery phrase, also known as mnemonic seed.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../xcash-gui/wizard/WizardCreateWallet2.qml" line="154"/>
+        <location filename="../xcash-gui/wizard/WizardCreateWallet2.qml" line="162"/>
+        <location filename="../xcash-gui/wizard/WizardCreateWallet2.qml" line="182"/>
+        <location filename="../xcash-gui/wizard/WizardCreateWallet2.qml" line="204"/>
+        <source>These words are a backup of your wallet. Write these words down now on a piece of paper in the same order displayed. Keep this paper in a safe place and do not disclose it to anybody! Do not store these words digitally, always use a paper!</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../xcash-gui/wizard/WizardCreateWallet2.qml" line="177"/>
+        <source>Display recovery phrase</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../xcash-gui/wizard/WizardCreateWallet2.qml" line="182"/>
+        <source>The next page will display your recovery phrase, also known as mnemonic seed. </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../xcash-gui/wizard/WizardCreateWallet2.qml" line="236"/>
+        <source>These words encode your private spend key in a human readable format.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../xcash-gui/wizard/WizardCreateWallet2.qml" line="236"/>
+        <source>It is expected that some words may be repeated.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../xcash-gui/wizard/WizardCreateWallet2.qml" line="269"/>
+        <source>New seed generated</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../xcash-gui/wizard/WizardCreateWallet2.qml" line="281"/>
+        <location filename="../xcash-gui/wizard/WizardCreateWallet2.qml" line="290"/>
+        <source>Create new seed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../xcash-gui/wizard/WizardCreateWallet2.qml" line="302"/>
+        <location filename="../xcash-gui/wizard/WizardCreateWallet2.qml" line="308"/>
+        <source>Copy to clipboard</source>
+        <translation type="unfinished">क्लिपबोर्ड पर कॉपी करें</translation>
+    </message>
+    <message>
+        <location filename="../xcash-gui/wizard/WizardCreateWallet2.qml" line="305"/>
+        <source>Recovery phrase copied to clipboard</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../xcash-gui/wizard/WizardCreateWallet2.qml" line="319"/>
+        <source>Print a template</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../xcash-gui/wizard/WizardCreateWallet2.qml" line="320"/>
+        <location filename="../xcash-gui/wizard/WizardCreateWallet2.qml" line="325"/>
+        <source>Print a template to write down your seed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../xcash-gui/wizard/WizardCreateWallet2.qml" line="350"/>
+        <location filename="../xcash-gui/wizard/WizardCreateWallet2.qml" line="353"/>
+        <source>Creation date</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../xcash-gui/wizard/WizardCreateWallet2.qml" line="384"/>
+        <location filename="../xcash-gui/wizard/WizardCreateWallet2.qml" line="389"/>
+        <source>Restore height</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../xcash-gui/wizard/WizardCreateWallet2.qml" line="385"/>
+        <source>Enter this number when restoring the wallet to make your initial wallet synchronization faster.</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>WizardCreateWallet4</name>
     <message>
         <location filename="../xcash-gui/wizard/WizardCreateWallet4.qml" line="59"/>
@@ -4057,91 +4283,6 @@ your input may be required.</source>
         <location filename="../xcash-gui/wizard/WizardWalletInput.qml" line="236"/>
         <source>Please choose a directory</source>
         <translation>कृपया निर्देशिका चुनें</translation>
-    </message>
-</context>
-<context>
-    <name>leftPanel</name>
-    <message>
-        <location filename="../xcash-gui/leftPanel.qml" line="141"/>
-        <source>Testnet</source>
-        <translation type="unfinished">टेस्टनेट</translation>
-    </message>
-    <message>
-        <location filename="../xcash-gui/leftPanel.qml" line="141"/>
-        <source>Stagenet</source>
-        <translation type="unfinished">स्टेजनेट</translation>
-    </message>
-    <message>
-        <location filename="../xcash-gui/leftPanel.qml" line="155"/>
-        <source>View Only</source>
-        <translation type="unfinished">केवल देखने योग्य</translation>
-    </message>
-    <message>
-        <location filename="../xcash-gui/leftPanel.qml" line="178"/>
-        <location filename="../xcash-gui/leftPanel.qml" line="362"/>
-        <source>Account</source>
-        <translation type="unfinished">खाता</translation>
-    </message>
-    <message>
-        <location filename="../xcash-gui/leftPanel.qml" line="217"/>
-        <source>Syncing...</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../xcash-gui/leftPanel.qml" line="287"/>
-        <source>Copied to clipboard</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../xcash-gui/leftPanel.qml" line="363"/>
-        <location filename="../xcash-gui/leftPanel.qml" line="385"/>
-        <location filename="../xcash-gui/leftPanel.qml" line="407"/>
-        <location filename="../xcash-gui/leftPanel.qml" line="429"/>
-        <location filename="../xcash-gui/leftPanel.qml" line="451"/>
-        <location filename="../xcash-gui/leftPanel.qml" line="473"/>
-        <location filename="../xcash-gui/leftPanel.qml" line="494"/>
-        <source>Ctrl+</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../xcash-gui/leftPanel.qml" line="384"/>
-        <source>Send</source>
-        <translation type="unfinished">भेजें</translation>
-    </message>
-    <message>
-        <location filename="../xcash-gui/leftPanel.qml" line="406"/>
-        <source>Address book</source>
-        <translation type="unfinished">पता पुस्तिका</translation>
-    </message>
-    <message>
-        <location filename="../xcash-gui/leftPanel.qml" line="428"/>
-        <source>Receive</source>
-        <translation type="unfinished">प्राप्त करें</translation>
-    </message>
-    <message>
-        <location filename="../xcash-gui/leftPanel.qml" line="450"/>
-        <source>Transactions</source>
-        <translation type="unfinished">लेन-देन</translation>
-    </message>
-    <message>
-        <location filename="../xcash-gui/leftPanel.qml" line="472"/>
-        <source>Advanced</source>
-        <translation type="unfinished">उन्नत</translation>
-    </message>
-    <message>
-        <location filename="../xcash-gui/leftPanel.qml" line="493"/>
-        <source>Settings</source>
-        <translation type="unfinished">सेटिंग्स</translation>
-    </message>
-    <message>
-        <location filename="../xcash-gui/leftPanel.qml" line="530"/>
-        <source>Wallet</source>
-        <translation type="unfinished">बटुआ</translation>
-    </message>
-    <message>
-        <location filename="../xcash-gui/leftPanel.qml" line="539"/>
-        <source>Daemon</source>
-        <translation type="unfinished">डीमन</translation>
     </message>
 </context>
 <context>
