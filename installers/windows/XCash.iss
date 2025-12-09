@@ -4,7 +4,7 @@
 ; X-Cash modifications (c) 2025, X-Cash contributors
 ; See LICENSE
 
-#define GuiVersion GetFileVersion("bin\\xcash-wallet-gui.exe")
+#define GuiVersion GetFileVersion("bin\xcash-wallet-gui.exe")
 
 [Setup]
 AppName=xCash GUI Wallet
@@ -51,7 +51,7 @@ Source: "LICENSE"; DestDir: "{app}"; Flags: ignoreversion
 
 ; xCash GUI wallet exe and guide
 Source: "bin\xcash-wallet-gui.exe"; DestDir: "{app}"; Flags: ignoreversion
-Source: "bin\xcash-gui-wallet-guide.pdf"; DestDir: "{app}"; DestName: "xcash-gui-wallet-guide.pdf"; Flags: ignoreversion
+; Source: "bin\xcash-gui-wallet-guide.pdf"; DestDir: "{app}"; DestName: "xcash-gui-wallet-guide.pdf"; Flags: ignoreversion
 
 ; xCash CLI wallet
 Source: "bin\extras\xcash-wallet-cli.exe"; DestDir: "{app}"; DestName: "xcash-wallet-cli.exe"; Flags: ignoreversion
@@ -160,7 +160,7 @@ end;
 [Icons]
 ; Icons in the "xCash GUI Wallet" program group
 Name: "{group}\GUI Wallet"; Filename: "{app}\xcash-wallet-gui.exe";
-Name: "{group}\GUI Wallet Guide"; Filename: "{app}\xcash-gui-wallet-guide.pdf"; IconFilename: "{app}\xcash-wallet-gui.exe"
+; Name: "{group}\GUI Wallet Guide"; Filename: "{app}\xcash-gui-wallet-guide.pdf"; IconFilename: "{app}\xcash-wallet-gui.exe"
 Name: "{group}\Uninstall GUI Wallet"; Filename: "{uninstallexe}"
 
 ; Sub-folder "Utilities" (Windows 10+ usually flattens this)
