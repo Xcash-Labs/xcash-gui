@@ -4,7 +4,8 @@
 ; X-Cash modifications (c) 2025, X-Cash contributors
 ; See LICENSE
 
-#define GuiVersion GetFileVersion("bin\xcash-wallet-gui.exe")
+; fix this later
+#define GuiVersion "0.18.4.4"
 
 [Setup]
 AppName=xCash GUI Wallet
