@@ -103,23 +103,25 @@ Packaging for your favorite distribution would be a welcome contribution!
 1. Install Docker [https://docs.docker.com/engine/install/](https://docs.docker.com/engine/install/)
 2. Clone the repository
    ```
-   git clone --branch master --recursive https://github.com/monero-project/monero-gui.git
+   git clone --branch master --recursive https://github.com/Xcash-Labs/xcash-gui.git
    ```
    \* `master` - replace with the desired version tag (e.g. `v0.18.4.3`) to build the release binaries.
+
 3. Prepare build environment
    ```
-   cd monero-gui
-   docker build --tag monero:build-env-windows --build-arg THREADS=4 --file Dockerfile.windows .
+   cd xcash-gui
+   docker build --tag xcash:build-env-windows --build-arg THREADS=4 --file Dockerfile.windows .
    ```
    \* `4` - number of CPU threads to use
 
 4. Build
    ```
-   docker run --rm -it -v <MONERO_GUI_DIR_FULL_PATH>:/monero-gui -w /monero-gui monero:build-env-windows sh -c 'make depends root=/depends target=x86_64-w64-mingw32 tag=win-x64 -j4'
+   docker run --rm -it -v <XCASH_GUI_DIR_FULL_PATH>:/xcash-gui -w /xcash-gui xcash:build-env-windows sh -c 'make depends root=/depends target=x86_64-w64-mingw32 tag=win-x64 -j4'
    ```
-   \* `<MONERO_GUI_DIR_FULL_PATH>` - absolute path to `monero-gui` directory  
+   \* `<XCASH_GUI_DIR_FULL_PATH>` - absolute path to `xcash-gui` directory  
    \* `4` - number of CPU threads to use
-5. Monero GUI Windows static binaries will be placed in  `monero-gui/build/x86_64-w64-mingw32/release/bin` directory
+
+5. xCash GUI Windows static binaries will be placed in `xcash-gui/build/x86_64-w64-mingw32/release/bin` directory
 
 ### Building Reproducible Linux static binaries with Docker (any OS)
 

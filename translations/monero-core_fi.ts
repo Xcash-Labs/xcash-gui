@@ -3300,6 +3300,7 @@ For the case with Spend Proof, you don't need to specify the recipient address.<
         <location filename="../xcash-gui/js/Utils.js" line="42" />
         <source>Wrong password</source>
         <translation>Väärä salasana</translation>
+    </message>
     <message numerus="yes">
         <location filename="../xcash-gui/js/Utils.js" line="59"/>
         <source>%n second(s) ago</source>
