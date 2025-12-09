@@ -1,6 +1,10 @@
 cmake_minimum_required(VERSION 3.12)
 project(xcash-gui)
 
+if (POLICY CMP0077)
+  cmake_policy(SET CMP0077 NEW)
+endif()
+
 message(STATUS "Initiating compile using CMake ${CMAKE_VERSION}")
 
 set(VERSION_MAJOR "18")
@@ -11,8 +15,24 @@ set(VERSION "0.${VERSION_MAJOR}.${VERSION_MINOR}.${VERSION_REVISION}")
 option(STATIC "Link libraries statically, requires static Qt")
 
 if (MINGW)
-  set(Boost_USE_STATIC_LIBS OFF)
-  find_package(Boost REQUIRED COMPONENTS filesystem thread date_time chrono serialization program_options locale)
+  # When building with the depends toolchain / STATIC=ON, Boost is static-only.
+  if (STATIC)
+    set(Boost_USE_STATIC_LIBS ON  CACHE BOOL "Use static Boost libs" FORCE)
+    set(Boost_USE_STATIC_RUNTIME ON CACHE BOOL "Use static Boost runtime" FORCE)
+  else()
+    set(Boost_USE_STATIC_LIBS OFF CACHE BOOL "Use static Boost libs" FORCE)
+  endif()
+  set(Boost_USE_MULTITHREADED ON CACHE BOOL "Use multithreaded Boost" FORCE)
+
+  find_package(Boost REQUIRED COMPONENTS
+    filesystem
+    thread
+    date_time
+    chrono
+    serialization
+    program_options
+    locale
+  )
 endif()
 
 option(USE_DEVICE_TREZOR "Trezor support compilation" ON)
