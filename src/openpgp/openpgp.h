@@ -34,9 +34,6 @@
 #include <string_tools.h>
 #include <string_coding.h>
 #include <gcrypt.h>
-
-#include <span>
-
 #include "s_expression.h"
 
 namespace openpgp
