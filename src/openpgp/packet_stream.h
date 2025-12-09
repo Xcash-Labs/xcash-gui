@@ -29,9 +29,7 @@
 #pragma once
 
 #include <vector>
-
-#include <span>
-
+#include <span.h>
 #include "serialization.h"
 
 namespace openpgp
