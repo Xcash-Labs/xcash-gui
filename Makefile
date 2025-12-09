@@ -65,8 +65,25 @@ debug-static-mac64:
 	mkdir -p $(builddir)/debug
 	cd $(builddir)/debug && cmake -D STATIC=ON -D DEV_MODE=$(or ${DEV_MODE},ON) -DMANUAL_SUBMODULES=${MANUAL_SUBMODULES} -D ARCH="x86-64" -D BUILD_64=ON -D CMAKE_BUILD_TYPE=Debug -D BUILD_TAG="mac-x64" $(topdir) && $(MAKE)
 
+#release-static-win64:
+#	mkdir -p $(builddir)/release && cd $(builddir)/release && cmake -D STATIC=ON -G "MSYS Makefiles" -D DEV_MODE=$(or ${DEV_MODE},OFF) -DMANUAL_SUBMODULES=${MANUAL_SUBMODULES} -D ARCH="x86-64" -D BUILD_64=ON -D CMAKE_BUILD_TYPE=Release -D BUILD_TAG="win-x64" -D CMAKE_TOOLCHAIN_FILE=$(topdir)/cmake/64-bit-toolchain.cmake -D MSYS2_FOLDER=$(shell cd ${MINGW_PREFIX}/.. && pwd -W) -D MINGW=ON $(topdir) && $(MAKE)
+
 release-static-win64:
-	mkdir -p $(builddir)/release && cd $(builddir)/release && cmake -D STATIC=ON -G "MSYS Makefiles" -D DEV_MODE=$(or ${DEV_MODE},OFF) -DMANUAL_SUBMODULES=${MANUAL_SUBMODULES} -D ARCH="x86-64" -D BUILD_64=ON -D CMAKE_BUILD_TYPE=Release -D BUILD_TAG="win-x64" -D CMAKE_TOOLCHAIN_FILE=$(topdir)/cmake/64-bit-toolchain.cmake -D MSYS2_FOLDER=$(shell cd ${MINGW_PREFIX}/.. && pwd -W) -D MINGW=ON $(topdir) && $(MAKE)
+	# Clean and recreate build/release-static
+	rm -rf $(builddir)/release-static
+	mkdir -p $(builddir)/release-static
+
+	# Configure static build with CMake using MinGW Makefiles and your Qt prefix
+	cd $(builddir)/release-static && cmake $(topdir) \
+	  -G "MinGW Makefiles" \
+	  -DCMAKE_PREFIX_PATH="/c/Qt/5.15.2/mingw81_64" \
+	  -DCMAKE_BUILD_TYPE=Release \
+	  -DSTATIC=ON \
+	  -DDEV_MODE=$(or ${DEV_MODE},OFF) \
+	  -DMANUAL_SUBMODULES=${MANUAL_SUBMODULES}
+
+	# Build
+	cd $(builddir)/release-static && $(MINGW_MAKE) -j$(JOBS)
 
 #release-win64:
 #	mkdir -p $(builddir)/release && cd $(builddir)/release && cmake -D STATIC=OFF -G "MSYS Makefiles" -D DEV_MODE=$(or ${DEV_MODE},OFF) -DMANUAL_SUBMODULES=${MANUAL_SUBMODULES} -D ARCH="x86-64" -D BUILD_64=ON -D CMAKE_BUILD_TYPE=Release -D BUILD_TAG="win-x64" -D CMAKE_TOOLCHAIN_FILE=$(topdir)/cmake/64-bit-toolchain.cmake -D MSYS2_FOLDER=$(shell cd ${MINGW_PREFIX}/.. && pwd -W) -D MINGW=ON $(topdir) && $(MAKE)

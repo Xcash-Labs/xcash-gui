@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<TS version="2.1" language="kmr">
+<TS version="2.1" language="ku">
 <context>
     <name>Account</name>
     <message>
@@ -722,6 +722,91 @@ Ji bo ewlehiya herî baş, pêşniyar dike ku peyva şîfre li ser cîhazê hard
         <location filename="../xcash-gui/components/LanguageSidebar.qml" line="96" />
         <source>Language changed.</source>
         <translation>Ziman hate guhertin.</translation>
+    </message>
+</context>
+<context>
+    <name>LeftPanel</name>
+    <message>
+        <location filename="../xcash-gui/LeftPanel.qml" line="141" />
+        <source>Testnet</source>
+        <translation>Torê testê</translation>
+    </message>
+    <message>
+        <location filename="../xcash-gui/LeftPanel.qml" line="141" />
+        <source>Stagenet</source>
+        <translation>Stagenet</translation>
+    </message>
+    <message>
+        <location filename="../xcash-gui/LeftPanel.qml" line="155" />
+        <source>View Only</source>
+        <translation>Tenê Temaşe</translation>
+    </message>
+    <message>
+        <location filename="../xcash-gui/LeftPanel.qml" line="178" />
+        <location filename="../xcash-gui/LeftPanel.qml" line="362" />
+        <source>Account</source>
+        <translation>Hesab</translation>
+    </message>
+    <message>
+        <location filename="../xcash-gui/LeftPanel.qml" line="217" />
+        <source>Syncing...</source>
+        <translation>Tê sinkronkirin...</translation>
+    </message>
+    <message>
+        <location filename="../xcash-gui/LeftPanel.qml" line="287" />
+        <source>Copied to clipboard</source>
+        <translation>Di clipboardê de hate kopî kirin</translation>
+    </message>
+    <message>
+        <location filename="../xcash-gui/LeftPanel.qml" line="363" />
+        <location filename="../xcash-gui/LeftPanel.qml" line="385" />
+        <location filename="../xcash-gui/LeftPanel.qml" line="407" />
+        <location filename="../xcash-gui/LeftPanel.qml" line="429" />
+        <location filename="../xcash-gui/LeftPanel.qml" line="451" />
+        <location filename="../xcash-gui/LeftPanel.qml" line="473" />
+        <location filename="../xcash-gui/LeftPanel.qml" line="494" />
+        <source>Ctrl+</source>
+        <translation>Ctrl+</translation>
+    </message>
+    <message>
+        <location filename="../xcash-gui/LeftPanel.qml" line="384" />
+        <source>Send</source>
+        <translation>Bişîne</translation>
+    </message>
+    <message>
+        <location filename="../xcash-gui/LeftPanel.qml" line="406" />
+        <source>Address book</source>
+        <translation>Deftera navnîşan</translation>
+    </message>
+    <message>
+        <location filename="../xcash-gui/LeftPanel.qml" line="428" />
+        <source>Receive</source>
+        <translation>Wergirtin</translation>
+    </message>
+    <message>
+        <location filename="../xcash-gui/LeftPanel.qml" line="450" />
+        <source>Transactions</source>
+        <translation>Danûstendin</translation>
+    </message>
+    <message>
+        <location filename="../xcash-gui/LeftPanel.qml" line="472" />
+        <source>Advanced</source>
+        <translation>Pêşkeftî</translation>
+    </message>
+    <message>
+        <location filename="../xcash-gui/LeftPanel.qml" line="493" />
+        <source>Settings</source>
+        <translation>Mîhengan</translation>
+    </message>
+    <message>
+        <location filename="../xcash-gui/LeftPanel.qml" line="530" />
+        <source>Wallet</source>
+        <translation>Cuzdan</translation>
+    </message>
+    <message>
+        <location filename="../xcash-gui/LeftPanel.qml" line="539" />
+        <source>Daemon</source>
+        <translation>Daemon</translation>
     </message>
 </context>
 <context>
@@ -3222,10 +3307,6 @@ Di rewşa ku bi Spend Proof ve heye, hûn pêdivî nîne ku navnîşa wergirê d
         <translation>
             <numerusform>%n saniye berê</numerusform>
             <numerusform>%n saniye berê</numerusform>
-            <numerusform>%n saniye berê</numerusform>
-            <numerusform>%n saniye berê</numerusform>
-            <numerusform>%n saniye berê</numerusform>
-            <numerusform>%n saniye berê</numerusform>
         </translation>
     </message>
     <message numerus="yes">
@@ -3233,10 +3314,6 @@ Di rewşa ku bi Spend Proof ve heye, hûn pêdivî nîne ku navnîşa wergirê d
         <source>%n minute(s) ago</source>
         <comment>0</comment>
         <translation>
-            <numerusform>%n deqîqe berê</numerusform>
-            <numerusform>%n deqîqe berê</numerusform>
-            <numerusform>%n deqîqe berê</numerusform>
-            <numerusform>%n deqîqe berê</numerusform>
             <numerusform>%n deqîqe berê</numerusform>
             <numerusform>%n deqîqe berê</numerusform>
         </translation>
@@ -3248,10 +3325,6 @@ Di rewşa ku bi Spend Proof ve heye, hûn pêdivî nîne ku navnîşa wergirê d
         <translation>
             <numerusform>%n saet berê</numerusform>
             <numerusform>%n saet berê</numerusform>
-            <numerusform>%n saet berê</numerusform>
-            <numerusform>%n saet berê</numerusform>
-            <numerusform>%n saet berê</numerusform>
-            <numerusform>%n saet berê</numerusform>
         </translation>
     </message>
     <message numerus="yes">
@@ -3259,10 +3332,6 @@ Di rewşa ku bi Spend Proof ve heye, hûn pêdivî nîne ku navnîşa wergirê d
         <source>%n day(s) ago</source>
         <comment>0</comment>
         <translation>
-            <numerusform>%n roj berê</numerusform>
-            <numerusform>%n roj berê</numerusform>
-            <numerusform>%n roj berê</numerusform>
-            <numerusform>%n roj berê</numerusform>
             <numerusform>%n roj berê</numerusform>
             <numerusform>%n roj berê</numerusform>
         </translation>
@@ -3508,6 +3577,147 @@ têketina te dikare pêdivî be.</translation>
         <location filename="../xcash-gui/wizard/WizardCreateWallet1.qml" line="93" />
         <source>Back to menu</source>
         <translation>Vegere bo menû</translation>
+    </message>
+</context>
+<context>
+    <name>WizardCreateWallet2</name>
+    <message>
+        <location filename="../xcash-gui/wizard/WizardCreateWallet2.qml" line="59" />
+        <source>Verify your recovery phrase</source>
+        <translation>Peyama vegerê xwe piştrast bike</translation>
+    </message>
+    <message>
+        <location filename="../xcash-gui/wizard/WizardCreateWallet2.qml" line="61" />
+        <source>Please confirm that you have written down your recover phrase by filling in the five blank fields with the correct words. If you have not written down your recovery phrase on a piece of paper, click on the Previous button and write it down right now!</source>
+        <translation>Ji kerema xwe piştrast bikin ku hûn peyama vegerê xwe nivîsî ne, bi tije kirina pênc qadan vala bi peyvên rast. Ger hûn peyama vegerê xwe li ser parçeyek pelê nivîsî ne, li ser bişkojka Pêşî klik bikin û wê niha binivîsin!</translation>
+    </message>
+    <message>
+        <location filename="../xcash-gui/wizard/WizardCreateWallet2.qml" line="87" />
+        <source>Print this paper, fill it out, and keep it in a safe location. Never share your recovery phrase with anybody, especially with strangers offering technical support.</source>
+        <translation>Vê pelê çap bikin, tije bikin, û ew li cihê ewlehî bimînin. Hêç carî fraza vegerandinê xwe bi kesekî re nebeşînin, bi taybetî bi kesên ne nasîn ku piştgiriyê ya teknîkî pêşkêş dikin.</translation>
+    </message>
+    <message>
+        <location filename="../xcash-gui/wizard/WizardCreateWallet2.qml" line="88" />
+        <location filename="../xcash-gui/wizard/WizardCreateWallet2.qml" line="234" />
+        <location filename="../xcash-gui/wizard/WizardCreateWallet2.qml" line="239" />
+        <source>Recovery phrase (mnemonic seed)</source>
+        <translation>Gotina vegerandinê (daneha bîranînê)</translation>
+    </message>
+    <message>
+        <location filename="../xcash-gui/wizard/WizardCreateWallet2.qml" line="89" />
+        <source>These words are a backup of your wallet. They are the only thing needed to access your funds and restore your xCash wallet, so keep this paper in a safe place and do not disclose it to anybody! It is strongly not recommended to store your recovery phrase digitally (in an email, online service, screenshot, photo, or any other type of computer file).</source>
+        <translation>Ev peyvên parastinê yên domê we ne. Tenê wan peyv in ku pêdivî ne bo gihîştina sermayeya we û vegerandina domê xCash-ê we, ji ber vê yekê ev pelê li cihê ewle biparêzin û ne ji kesekî re vebêjin! Pirr ne pêşniyar e ku peyva vegerandinê xwe dijîtal tomarkirin (di e-nameyê de, di xizmeta online de, di wêneyên ekranê de, di wêneyên foto de, an di her cure pelê kompîterî de).</translation>
+    </message>
+    <message>
+        <location filename="../xcash-gui/wizard/WizardCreateWallet2.qml" line="90" />
+        <source>Wallet creation date</source>
+        <translation>Dîroka çêkirina cüzdanê</translation>
+    </message>
+    <message>
+        <location filename="../xcash-gui/wizard/WizardCreateWallet2.qml" line="91" />
+        <source>Wallet restore height</source>
+        <translation>Asta vegerandina cüzdanê</translation>
+    </message>
+    <message>
+        <location filename="../xcash-gui/wizard/WizardCreateWallet2.qml" line="92" />
+        <source>For instructions on how to restore this wallet, visit www.xcashlabs.org and go to Resources &gt; User Guides &gt; "How to restore a wallet from mnemonic seed". Use only xCash wallets that are trusted and recommended by the xCash community (list of them in www.xcashlabs.org/downloads).</source>
+        <translation>Ji bo rêberiyên ku nîşan dide çawa ev qutîya diravê vegerînin, serdana www.xcashlabs.org bikin û biçin Resources &gt; User Guides &gt; "How to restore a wallet from mnemonic seed". Tenê qutîyên xCash bikar bînin ku ji hêla civaka xCash ve hatine îtimadkirin û pêşniyar kirin (lîsteya wan li www.xcashlabs.org/downloads).</translation>
+    </message>
+    <message>
+        <location filename="../xcash-gui/wizard/WizardCreateWallet2.qml" line="117" />
+        <location filename="../xcash-gui/wizard/WizardCreateWallet2.qml" line="119" />
+        <location filename="../xcash-gui/wizard/WizardCreateWallet2.qml" line="202" />
+        <source>Write down your recovery phrase</source>
+        <translation>Peyama vegerandinê xwe binivîse</translation>
+    </message>
+    <message>
+        <location filename="../xcash-gui/wizard/WizardCreateWallet2.qml" line="136" />
+        <source>A pencil writing on a piece of paper</source>
+        <translation>Qelemek li ser pelêkek nivîs dike.</translation>
+    </message>
+    <message>
+        <location filename="../xcash-gui/wizard/WizardCreateWallet2.qml" line="154" />
+        <location filename="../xcash-gui/wizard/WizardCreateWallet2.qml" line="162" />
+        <source>The next page will display your recovery phrase, also known as mnemonic seed.</source>
+        <translation>Rûpela paşê frazeya vegerê ya te dê nîşan bide, ku herwisa tê zanîn wek mnemonic seed.</translation>
+    </message>
+    <message>
+        <location filename="../xcash-gui/wizard/WizardCreateWallet2.qml" line="154" />
+        <location filename="../xcash-gui/wizard/WizardCreateWallet2.qml" line="162" />
+        <location filename="../xcash-gui/wizard/WizardCreateWallet2.qml" line="182" />
+        <location filename="../xcash-gui/wizard/WizardCreateWallet2.qml" line="204" />
+        <source>These words are a backup of your wallet. Write these words down now on a piece of paper in the same order displayed. Keep this paper in a safe place and do not disclose it to anybody! Do not store these words digitally, always use a paper!</source>
+        <translation>Ev peyvên backup-ê cûzdana te ne. Ev peyvên niha li ser pelêkê bi heman rêzê ku xuya dibin binivîse. Ev pelêkê li cihê ewlehî biparêze û ji kesekî re ne nîşan bidin! Ev peyvên ne di şêwazên dijîtal de nehêlin, her dem pelêkekê bikar bînin!</translation>
+    </message>
+    <message>
+        <location filename="../xcash-gui/wizard/WizardCreateWallet2.qml" line="177" />
+        <source>Display recovery phrase</source>
+        <translation>Peyama vegerandinê nîşan bide</translation>
+    </message>
+    <message>
+        <location filename="../xcash-gui/wizard/WizardCreateWallet2.qml" line="182" />
+        <source>The next page will display your recovery phrase, also known as mnemonic seed. </source>
+        <translation>Rûpela paşê peyama vegerandinê ya te dê nîşan bide, ku jî tê zanîn wek bîna mnemonîk.</translation>
+    </message>
+    <message>
+        <location filename="../xcash-gui/wizard/WizardCreateWallet2.qml" line="236" />
+        <source>These words encode your private spend key in a human readable format.</source>
+        <translation>Ev peyvên mifteya xercê taybetî yê te di formata xwendinê ya mirovî de kod dikin.</translation>
+    </message>
+    <message>
+        <location filename="../xcash-gui/wizard/WizardCreateWallet2.qml" line="236" />
+        <source>It is expected that some words may be repeated.</source>
+        <translation>Tê hêvî kirin ku hin peyvên dikarin dîsa têne.</translation>
+    </message>
+    <message>
+        <location filename="../xcash-gui/wizard/WizardCreateWallet2.qml" line="269" />
+        <source>New seed generated</source>
+        <translation>Seedê nû hat çêkirin</translation>
+    </message>
+    <message>
+        <location filename="../xcash-gui/wizard/WizardCreateWallet2.qml" line="281" />
+        <location filename="../xcash-gui/wizard/WizardCreateWallet2.qml" line="290" />
+        <source>Create new seed</source>
+        <translation>Seedê nû biafirîne</translation>
+    </message>
+    <message>
+        <location filename="../xcash-gui/wizard/WizardCreateWallet2.qml" line="302" />
+        <location filename="../xcash-gui/wizard/WizardCreateWallet2.qml" line="308" />
+        <source>Copy to clipboard</source>
+        <translation>Bi clipboardê kopî bike</translation>
+    </message>
+    <message>
+        <location filename="../xcash-gui/wizard/WizardCreateWallet2.qml" line="305" />
+        <source>Recovery phrase copied to clipboard</source>
+        <translation>Peyama vegerandinê ser clipboardê hate kopîkirin</translation>
+    </message>
+    <message>
+        <location filename="../xcash-gui/wizard/WizardCreateWallet2.qml" line="319" />
+        <source>Print a template</source>
+        <translation>Şablonek çap bike</translation>
+    </message>
+    <message>
+        <location filename="../xcash-gui/wizard/WizardCreateWallet2.qml" line="320" />
+        <location filename="../xcash-gui/wizard/WizardCreateWallet2.qml" line="325" />
+        <source>Print a template to write down your seed</source>
+        <translation>Şablonek çap bike ji bo nivîsina seedê xwe</translation>
+    </message>
+    <message>
+        <location filename="../xcash-gui/wizard/WizardCreateWallet2.qml" line="350" />
+        <location filename="../xcash-gui/wizard/WizardCreateWallet2.qml" line="353" />
+        <source>Creation date</source>
+        <translation>Dîroka afirandinê</translation>
+    </message>
+    <message>
+        <location filename="../xcash-gui/wizard/WizardCreateWallet2.qml" line="384" />
+        <location filename="../xcash-gui/wizard/WizardCreateWallet2.qml" line="389" />
+        <source>Restore height</source>
+        <translation>Asta vegerandinê</translation>
+    </message>
+    <message>
+        <location filename="../xcash-gui/wizard/WizardCreateWallet2.qml" line="385" />
+        <source>Enter this number when restoring the wallet to make your initial wallet synchronization faster.</source>
+        <translation>Ev hejmar dema ku hûn cüzdanê vegerînin binivîsin, da sinkronîzekirina destpêkê ya cüzdanê zûtir be.</translation>
     </message>
 </context>
 <context>
@@ -4084,91 +4294,6 @@ têketina te dikare pêdivî be.</translation>
         <location filename="../xcash-gui/wizard/WizardWalletInput.qml" line="236" />
         <source>Please choose a directory</source>
         <translation>Ji kerema xwe pelgeyek hilbijêrin</translation>
-    </message>
-</context>
-<context>
-    <name>leftPanel</name>
-    <message>
-        <location filename="../xcash-gui/leftPanel.qml" line="141" />
-        <source>Testnet</source>
-        <translation>Torê ceribandinê</translation>
-    </message>
-    <message>
-        <location filename="../xcash-gui/leftPanel.qml" line="141" />
-        <source>Stagenet</source>
-        <translation>Stagenet</translation>
-    </message>
-    <message>
-        <location filename="../xcash-gui/leftPanel.qml" line="155" />
-        <source>View Only</source>
-        <translation>Tenê temaşe</translation>
-    </message>
-    <message>
-        <location filename="../xcash-gui/leftPanel.qml" line="178" />
-        <location filename="../xcash-gui/leftPanel.qml" line="362" />
-        <source>Account</source>
-        <translation>Hesab</translation>
-    </message>
-    <message>
-        <location filename="../xcash-gui/leftPanel.qml" line="217" />
-        <source>Syncing...</source>
-        <translation>Di sinkronîzasyonê de...</translation>
-    </message>
-    <message>
-        <location filename="../xcash-gui/leftPanel.qml" line="287" />
-        <source>Copied to clipboard</source>
-        <translation>Ji clipboardê hate kopîkirin.</translation>
-    </message>
-    <message>
-        <location filename="../xcash-gui/leftPanel.qml" line="363" />
-        <location filename="../xcash-gui/leftPanel.qml" line="385" />
-        <location filename="../xcash-gui/leftPanel.qml" line="407" />
-        <location filename="../xcash-gui/leftPanel.qml" line="429" />
-        <location filename="../xcash-gui/leftPanel.qml" line="451" />
-        <location filename="../xcash-gui/leftPanel.qml" line="473" />
-        <location filename="../xcash-gui/leftPanel.qml" line="494" />
-        <source>Ctrl+</source>
-        <translation>Ctrl+</translation>
-    </message>
-    <message>
-        <location filename="../xcash-gui/leftPanel.qml" line="384" />
-        <source>Send</source>
-        <translation>Şandin</translation>
-    </message>
-    <message>
-        <location filename="../xcash-gui/leftPanel.qml" line="406" />
-        <source>Address book</source>
-        <translation>Deftera navnîşan</translation>
-    </message>
-    <message>
-        <location filename="../xcash-gui/leftPanel.qml" line="428" />
-        <source>Receive</source>
-        <translation>Wergirtin</translation>
-    </message>
-    <message>
-        <location filename="../xcash-gui/leftPanel.qml" line="450" />
-        <source>Transactions</source>
-        <translation>Transaksiyonên</translation>
-    </message>
-    <message>
-        <location filename="../xcash-gui/leftPanel.qml" line="472" />
-        <source>Advanced</source>
-        <translation>Pêşkeftî</translation>
-    </message>
-    <message>
-        <location filename="../xcash-gui/leftPanel.qml" line="493" />
-        <source>Settings</source>
-        <translation>Mîhengên</translation>
-    </message>
-    <message>
-        <location filename="../xcash-gui/leftPanel.qml" line="530" />
-        <source>Wallet</source>
-        <translation>Cîzdan</translation>
-    </message>
-    <message>
-        <location filename="../xcash-gui/leftPanel.qml" line="539" />
-        <source>Daemon</source>
-        <translation>Xizmetkar</translation>
     </message>
 </context>
 <context>
