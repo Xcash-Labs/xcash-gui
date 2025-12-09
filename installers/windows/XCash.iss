@@ -5,7 +5,7 @@
 ; See LICENSE
 
 ; fix this later
-#define GuiVersion "0.18.4.4"
+#define GuiVersion "0.18.4.3"
 
 [Setup]
 AppName=xCash GUI Wallet
