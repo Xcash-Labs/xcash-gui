@@ -3305,7 +3305,8 @@ Spend Proofの場合、宛先アドレスを指定する必要はありません
         <location filename="../xcash-gui/js/Utils.js" line="59" />
         <source>%n second(s) ago</source>
         <comment>0</comment>
-        <translation>%n 秒前<numerusform>%s秒前</numerusform>
+        <translation>
+            <numerusform>%n 秒前</numerusform>
         </translation>
     </message>
     <message numerus="yes">
