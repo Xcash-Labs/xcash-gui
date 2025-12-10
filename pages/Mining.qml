@@ -361,10 +361,7 @@ Rectangle {
             if (appWindow.currentWallet && root.visible) {
                 // either directly refresh:
                 refreshStakingStatus();
-
-                // or, if your normal path is via the timer, you could do:
-                // loadingStakingData = true;
-                // stakingStatusTimer.start();
+                fetchDelegates();
             }
         }
 
