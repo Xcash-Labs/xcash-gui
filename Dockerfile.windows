@@ -23,10 +23,12 @@ RUN make -j$THREADS -C /depends HOST=x86_64-w64-mingw32 NO_QT=1
 # Build OpenSSL into the same /depends prefix (needed for Qt HTTPS)
 RUN make -j$THREADS -C /depends HOST=x86_64-w64-mingw32 openssl
 
-# Fail early if it didn't actually install
+# Fail early if it didn't actually install (and verify it's static archives)
 RUN test -f /depends/x86_64-w64-mingw32/include/openssl/ssl.h && \
     test -f /depends/x86_64-w64-mingw32/lib/libssl.a && \
-    test -f /depends/x86_64-w64-mingw32/lib/libcrypto.a
+    test -f /depends/x86_64-w64-mingw32/lib/libcrypto.a && \
+    test ! -f /depends/x86_64-w64-mingw32/lib/libssl.dll.a && \
+    test ! -f /depends/x86_64-w64-mingw32/lib/libcrypto.dll.a
 
 RUN git clone git://code.qt.io/qt/qt5.git -b ${QT_VERSION} --depth 1 && \
     cd qt5 && \
@@ -41,18 +43,17 @@ RUN git clone git://code.qt.io/qt/qt5.git -b ${QT_VERSION} --depth 1 && \
     git clone git://code.qt.io/qt/qttools.git -b ${QT_VERSION} --depth 1 && \
     git clone git://code.qt.io/qt/qttranslations.git -b ${QT_VERSION} --depth 1 && \
     git clone git://code.qt.io/qt/qtxmlpatterns.git -b ${QT_VERSION} --depth 1 && \
-    export OPENSSL_PREFIX="/depends/x86_64-w64-mingw32" && \
+    export CPPFLAGS="-I/depends/x86_64-w64-mingw32/include" && \
+    export LDFLAGS="-L/depends/x86_64-w64-mingw32/lib" && \
+    export OPENSSL_LIBS="-lssl -lcrypto -lws2_32 -lcrypt32 -lbcrypt -ladvapi32 -luser32 -lgdi32 -lz" && \
     export QMAKE_INCDIR_OPENSSL="/depends/x86_64-w64-mingw32/include" && \
     export QMAKE_LIBDIR_OPENSSL="/depends/x86_64-w64-mingw32/lib" && \
-    export QMAKE_CFLAGS="-I/depends/x86_64-w64-mingw32/include" && \
-    export QMAKE_CXXFLAGS="-I/depends/x86_64-w64-mingw32/include" && \
-    export QMAKE_LFLAGS="-L/depends/x86_64-w64-mingw32/lib" && \
+    export QMAKE_LIBS_OPENSSL="$OPENSSL_LIBS" && \
     export PKG_CONFIG_LIBDIR="/depends/x86_64-w64-mingw32/lib/pkgconfig" && \
     export PKG_CONFIG_SYSROOT_DIR="/depends/x86_64-w64-mingw32" && \
-    export QMAKE_LIBS_OPENSSL="/depends/x86_64-w64-mingw32/lib/libssl.a /depends/x86_64-w64-mingw32/lib/libcrypto.a -lws2_32 -lcrypt32 -lbcrypt -ladvapi32 -luser32 -lgdi32 -lz" && \
     ./configure --prefix=/depends/x86_64-w64-mingw32 -xplatform win32-g++ -pkg-config \
     -device-option CROSS_COMPILE=/usr/bin/x86_64-w64-mingw32- \
-    -I $(pwd)/qtbase/src/3rdparty/angle/include \
+    -I "$(pwd)/qtbase/src/3rdparty/angle/include" \
     -opensource -confirm-license -release -static -static-runtime -opengl dynamic -no-angle \
     -no-avx -openssl-linked -no-sql-sqlite -no-feature-qml-worker-script \
     -qt-freetype -qt-harfbuzz -qt-libjpeg -qt-libpng -qt-pcre -qt-zlib \
