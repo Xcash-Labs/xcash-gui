@@ -37,7 +37,6 @@
 #include <QList>
 #include <QJSValue>
 #include <QtConcurrent/QtConcurrent>
-#include <QSslError>
 
 #include "wallet/api/wallet2_api.h" // we need to have an access to the Monero::Wallet::Status enum here;
 #include "qt/FutureScheduler.h"
