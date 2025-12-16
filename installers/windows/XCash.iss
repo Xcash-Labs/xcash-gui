@@ -85,6 +85,10 @@ Source: "bin\start-low-graphics-mode.bat"; DestDir: "{app}"; Flags: ignoreversio
 ; Mesa, open-source OpenGL implementation; part of "low-level graphics" support
 Source: "bin\opengl32sw.dll"; DestDir: "{app}"; Flags: ignoreversion
 
+; SSL
+Source: "bin\libssl-3-x64.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "bin\libcrypto-3-x64.dll"; DestDir: "{app}"; Flags: ignoreversion
+
 [InstallDelete]
 Type: filesandordirs; Name: "{app}\translations"
 Type: files; Name: "{app}\Qt5*.dll"
@@ -136,8 +140,8 @@ Type: files; Name: "{app}\libtiff-5.dll"
 Type: files; Name: "{app}\libwinpthread-1.dll"
 Type: files; Name: "{app}\zlib1.dll"
 Type: files; Name: "{app}\libhidapi-0.dll"
-Type: files; Name: "{app}\libeay32.dll"
-Type: files; Name: "{app}\ssleay32.dll"
+Type: files; Name: "{app}\libssl-3-x64.dll"
+Type: files; Name: "{app}\libcrypto-3-x64.dll"
 Type: files; Name: "{app}\start-high-dpi.bat"
 
 [Tasks]
