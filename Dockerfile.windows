@@ -51,6 +51,16 @@ RUN git clone git://code.qt.io/qt/qt5.git -b ${QT_VERSION} --depth 1 && \
     export QMAKE_LIBS_OPENSSL="$OPENSSL_LIBS" && \
     export PKG_CONFIG_LIBDIR="/depends/x86_64-w64-mingw32/lib/pkgconfig" && \
     export PKG_CONFIG_SYSROOT_DIR="/depends/x86_64-w64-mingw32" && \
+echo "=== OPENSSL VERSION ===" && \
+strings /depends/x86_64-w64-mingw32/lib/libssl.a | grep -E "^OpenSSL " | head -n 1 || true && \
+echo "=== OPENSSL LINK TEST (mingw target) ===" && \
+printf '#include <openssl/ssl.h>\nint main(){return 0;}\n' > /tmp/t.c && \
+/usr/bin/x86_64-w64-mingw32-gcc /tmp/t.c \
+  -I/depends/x86_64-w64-mingw32/include \
+  -L/depends/x86_64-w64-mingw32/lib \
+  -lssl -lcrypto -lws2_32 -lcrypt32 -lbcrypt -ladvapi32 -luser32 -lgdi32 -lz \
+  -o /tmp/t.exe && \
+echo "OPENSSL LINK TEST OK" && \
     ./configure --prefix=/depends/x86_64-w64-mingw32 -xplatform win32-g++ -pkg-config \
     -device-option CROSS_COMPILE=/usr/bin/x86_64-w64-mingw32- \
     -I "$(pwd)/qtbase/src/3rdparty/angle/include" \
