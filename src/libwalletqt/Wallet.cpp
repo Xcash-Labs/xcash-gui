@@ -587,22 +587,64 @@ QString Wallet::getRegisteredDelegatesJson() const
     QNetworkAccessManager mgr;
     QNetworkRequest req(QUrl("https://api.xcashseeds.us/v2/xcash/dpops/unauthorized/delegates/registered/"));
 
-    QEventLoop loop;
-    QObject::connect(&mgr, &QNetworkAccessManager::finished, &loop, &QEventLoop::quit);
+    // Optional but helpful
+    req.setHeader(QNetworkRequest::UserAgentHeader, "xcash-wallet-gui");
+    req.setAttribute(QNetworkRequest::FollowRedirectsAttribute, true);
 
     QNetworkReply* reply = mgr.get(req);
+
+    // Log SSL errors (cert/TLS issues)
+    QObject::connect(reply, &QNetworkReply::sslErrors, reply,
+        [](const QList<QSslError>& errs) {
+            for (const auto& e : errs) {
+                qWarning() << "[delegates] sslError:" << int(e.error()) << e.errorString();
+            }
+        });
+
+    // Timeout so we don't hang forever
+    QTimer timer;
+    timer.setSingleShot(true);
+
+    QEventLoop loop;
+    QObject::connect(reply, &QNetworkReply::finished, &loop, &QEventLoop::quit);
+    QObject::connect(&timer, &QTimer::timeout, &loop, &QEventLoop::quit);
+
+    timer.start(15000); // 15s timeout
     loop.exec();
 
-    if (reply->error() != QNetworkReply::NoError) {
-        qWarning() << "Failed to fetch delegates:" << reply->errorString();
-        reply->deleteLater();
+    if (timer.isActive() == false && reply->isFinished() == false) {
+        qWarning() << "[delegates] TIMEOUT";
+        reply->abort();
+    }
+
+    const int httpStatus =
+        reply->attribute(QNetworkRequest::HttpStatusCodeAttribute).toInt();
+
+    const auto qtErr = reply->error();
+    const QString qtErrStr = reply->errorString();
+
+    QByteArray body = reply->readAll();
+
+    qWarning() << "[delegates] httpStatus=" << httpStatus
+               << "qtErr=" << int(qtErr)
+               << "errStr=" << qtErrStr
+               << "bytes=" << body.size();
+
+    // (Optional) print first 200 bytes to see if it's HTML, JSON, blocked page, etc.
+    qWarning() << "[delegates] body(head200)=" << QString::fromUtf8(body.left(200));
+
+    reply->deleteLater();
+
+    if (qtErr != QNetworkReply::NoError) {
+        return QString();
+    }
+    if (httpStatus != 200) {  // catches 301/302/403/404 etc.
         return QString();
     }
 
-    QByteArray data = reply->readAll();
-    reply->deleteLater();
-    return QString::fromUtf8(data);
+    return QString::fromUtf8(body);
 }
+
 
 void Wallet::setupBackgroundSync(const Wallet::BackgroundSyncType background_sync_type, const QString &wallet_password)
 {
