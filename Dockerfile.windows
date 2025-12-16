@@ -20,6 +20,10 @@ RUN git clone --depth 1 https://github.com/Xcash-Labs/xcash-labs-core && \
 
 RUN make -j$THREADS -C /depends HOST=x86_64-w64-mingw32 NO_QT=1
 
+# Build OpenSSL into depends for the Windows target
+RUN make -j$THREADS -C /depends HOST=x86_64-w64-mingw32 openssl && \
+    test -f /depends/x86_64-w64-mingw32/include/openssl/ssl.h
+
 RUN git clone git://code.qt.io/qt/qt5.git -b ${QT_VERSION} --depth 1 && \
     cd qt5 && \
     git clone git://code.qt.io/qt/qtbase.git -b ${QT_VERSION} --depth 1 && \
@@ -33,6 +37,9 @@ RUN git clone git://code.qt.io/qt/qt5.git -b ${QT_VERSION} --depth 1 && \
     git clone git://code.qt.io/qt/qttools.git -b ${QT_VERSION} --depth 1 && \
     git clone git://code.qt.io/qt/qttranslations.git -b ${QT_VERSION} --depth 1 && \
     git clone git://code.qt.io/qt/qtxmlpatterns.git -b ${QT_VERSION} --depth 1 && \
+    export CPPFLAGS="-I/depends/x86_64-w64-mingw32/include" && \
+    export LDFLAGS="-L/depends/x86_64-w64-mingw32/lib" && \
+    export LIBS="-lssl -lcrypto" && \
     ./configure --prefix=/depends/x86_64-w64-mingw32 -xplatform win32-g++ \
     -device-option CROSS_COMPILE=/usr/bin/x86_64-w64-mingw32- \
     -I $(pwd)/qtbase/src/3rdparty/angle/include \
