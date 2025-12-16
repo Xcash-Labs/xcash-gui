@@ -37,8 +37,8 @@ RUN git clone git://code.qt.io/qt/qt5.git -b ${QT_VERSION} --depth 1 && \
     -device-option CROSS_COMPILE=/usr/bin/x86_64-w64-mingw32- \
     -I $(pwd)/qtbase/src/3rdparty/angle/include \
     -opensource -confirm-license -release -static -static-runtime -opengl dynamic -no-angle \
-    -no-avx -no-openssl -no-sql-sqlite \
-    -no-feature-qml-worker-script -no-openssl -no-sql-sqlite \
+    -no-avx -openssl-linked -no-sql-sqlite \
+    -no-feature-qml-worker-script -no-sql-sqlite \
     -qt-freetype -qt-harfbuzz -qt-libjpeg -qt-libpng -qt-pcre -qt-zlib \
     -skip gamepad -skip location -skip qt3d -skip qtactiveqt -skip qtandroidextras \
     -skip qtcanvas3d -skip qtcharts -skip qtconnectivity -skip qtdatavis3d -skip qtdoc \
