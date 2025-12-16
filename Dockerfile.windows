@@ -44,12 +44,12 @@ RUN git clone git://code.qt.io/qt/qt5.git -b ${QT_VERSION} --depth 1 && \
     export OPENSSL_PREFIX="/depends/x86_64-w64-mingw32" && \
     export QMAKE_INCDIR_OPENSSL="/depends/x86_64-w64-mingw32/include" && \
     export QMAKE_LIBDIR_OPENSSL="/depends/x86_64-w64-mingw32/lib" && \
-    export QMAKE_LIBS_OPENSSL="-lssl -lcrypto" && \
     export QMAKE_CFLAGS="-I/depends/x86_64-w64-mingw32/include" && \
     export QMAKE_CXXFLAGS="-I/depends/x86_64-w64-mingw32/include" && \
     export QMAKE_LFLAGS="-L/depends/x86_64-w64-mingw32/lib" && \
     export PKG_CONFIG_LIBDIR="/depends/x86_64-w64-mingw32/lib/pkgconfig" && \
     export PKG_CONFIG_SYSROOT_DIR="/depends/x86_64-w64-mingw32" && \
+    export QMAKE_LIBS_OPENSSL="/depends/x86_64-w64-mingw32/lib/libssl.a /depends/x86_64-w64-mingw32/lib/libcrypto.a -lws2_32 -lcrypt32 -lbcrypt -ladvapi32 -luser32 -lgdi32 -lz" && \
     ./configure --prefix=/depends/x86_64-w64-mingw32 -xplatform win32-g++ -pkg-config \
     -device-option CROSS_COMPILE=/usr/bin/x86_64-w64-mingw32- \
     -I $(pwd)/qtbase/src/3rdparty/angle/include \
