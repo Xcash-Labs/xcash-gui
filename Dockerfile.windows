@@ -57,24 +57,15 @@ RUN git clone git://code.qt.io/qt/qt5.git -b ${QT_VERSION} --depth 1 && \
     export QMAKE_LIBS_OPENSSL="$OPENSSL_LIBS" && \
     export PKG_CONFIG_LIBDIR="/depends/x86_64-w64-mingw32/lib/pkgconfig" && \
     export PKG_CONFIG_SYSROOT_DIR="/depends/x86_64-w64-mingw32" && \
-echo "=== OPENSSL VERSION ===" && \
-strings /depends/x86_64-w64-mingw32/lib/libssl.a | grep -E "^OpenSSL " | head -n 1 || true && \
-echo "=== OPENSSL LINK TEST (mingw target) ===" && \
-printf '#include <openssl/ssl.h>\nint main(){return 0;}\n' > /tmp/t.c && \
-/usr/bin/x86_64-w64-mingw32-gcc /tmp/t.c \
-  -I/depends/x86_64-w64-mingw32/include \
-  -L/depends/x86_64-w64-mingw32/lib \
-#  -lssl -lcrypto -lws2_32 -lcrypt32 -lbcrypt -ladvapi32 -luser32 -lgdi32 \
-  OPENSSL_LIBS="-lssl -lcrypto -lcrypt32 -lgdi32 -lws2_32" \
-  -o /tmp/t.exe && \
-echo "OPENSSL LINK TEST OK" && \
     ./configure --prefix=/depends/x86_64-w64-mingw32 -xplatform win32-g++ -pkg-config \
     -device-option CROSS_COMPILE=/usr/bin/x86_64-w64-mingw32- \
+    -openssl-linked \
     -I "$(pwd)/qtbase/src/3rdparty/angle/include" \
     -I /depends/x86_64-w64-mingw32/include \
     -L /depends/x86_64-w64-mingw32/lib \
+    OPENSSL_LIBS="-lssl -lcrypto -lcrypt32 -lgdi32 -lws2_32" \
     -opensource -confirm-license -release -static -static-runtime -opengl dynamic -no-angle \
-    -no-avx -openssl-linked -no-sql-sqlite -no-feature-qml-worker-script \
+    -no-avx -no-sql-sqlite -no-feature-qml-worker-script \
     -qt-freetype -qt-harfbuzz -qt-libjpeg -qt-libpng -qt-pcre -qt-zlib \
     -skip gamepad -skip location -skip qt3d -skip qtactiveqt -skip qtandroidextras \
     -skip qtcanvas3d -skip qtcharts -skip qtconnectivity -skip qtdatavis3d -skip qtdoc \
