@@ -4,7 +4,7 @@
 ; X-Cash modifications (c) 2025, X-Cash contributors
 ; See LICENSE
 
-; fix this later
+; fix this later, should come from image
 #define GuiVersion "0.18.4.3"
 
 [Setup]
