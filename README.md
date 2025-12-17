@@ -128,29 +128,29 @@ Packaging for your favorite distribution would be a welcome contribution!
 1. Install Docker [https://docs.docker.com/engine/install/](https://docs.docker.com/engine/install/)
 2. Clone the repository
    ```
-   git clone --branch master --recursive https://github.com/monero-project/monero-gui.git
+   git clone --branch master --recursive https://github.com/Xcash-Labs/xcash-gui.git
    ```
    \* `master` - replace with the desired version tag (e.g. `v0.18.4.3`) to build the release binaries.
 3. Prepare build environment
    ```
-   cd monero-gui
-   docker build --tag monero:build-env-linux --build-arg THREADS=4 --file Dockerfile.linux .
+   cd xcash-gui
+   docker build --tag xcash:build-env-linux --build-arg THREADS=4 --file Dockerfile.linux .
    ```
    \* `4` - number of CPU threads to use
 
 4. Build
    ```
-   docker run --rm -it -v <MONERO_GUI_DIR_FULL_PATH>:/monero-gui -w /monero-gui monero:build-env-linux sh -c 'make release-static -j4'
+   docker run --rm -it -v <XCASH_GUI_DIR_FULL_PATH>:/xcash-gui -w /xcash-gui xcash:build-env-linux sh -c 'make release-static -j4'
    ```
-   \* `<MONERO_GUI_DIR_FULL_PATH>` - absolute path to `monero-gui` directory  
+   \* `<XCASH_GUI_DIR_FULL_PATH>` - absolute path to `xcash-gui` directory  
    \* `4` - number of CPU threads to use
-5. Monero GUI Linux static binary will be placed in  `monero-gui/build/release/bin` directory
-6. (*Note*) This process is only for building `monero-wallet-gui`, `monerod` has to be built separately according to the instructions in the `monero` repository.
+5. XCash GUI Linux static binary will be placed in  `xcash-gui/build/release/bin` directory
+6. (*Note*) This process is only for building `monero-wallet-gui`
 7. (*Optional*) Compare `monero-wallet-gui` SHA-256 hash to the one obtained from a trusted source
    ```
-   docker run --rm -it -v <MONERO_GUI_DIR_FULL_PATH>:/monero-gui -w /monero-gui monero:build-env-linux sh -c 'shasum -a 256 /monero-gui/build/release/bin/monero-wallet-gui'
+   docker run --rm -it -v <XCASH_GUI_DIR_FULL_PATH>:/xcash-gui -w /xcash-gui monero:build-env-linux sh -c 'shasum -a 256 /xcash-gui/build/release/bin/xcash-wallet-gui'
    ```
-   \* `<MONERO_GUI_DIR_FULL_PATH>` - absolute path to `monero-gui` directory  
+   \* `<XCASH_GUI_DIR_FULL_PATH>` - absolute path to `xcash-gui` directory  
 
 ### Building Android APK with Docker (any OS) *Experimental*
  - Minimum Android 9 Pie (API 28)
