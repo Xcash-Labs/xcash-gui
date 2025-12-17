@@ -64,12 +64,15 @@ printf '#include <openssl/ssl.h>\nint main(){return 0;}\n' > /tmp/t.c && \
 /usr/bin/x86_64-w64-mingw32-gcc /tmp/t.c \
   -I/depends/x86_64-w64-mingw32/include \
   -L/depends/x86_64-w64-mingw32/lib \
-  -lssl -lcrypto -lws2_32 -lcrypt32 -lbcrypt -ladvapi32 -luser32 -lgdi32 \
+#  -lssl -lcrypto -lws2_32 -lcrypt32 -lbcrypt -ladvapi32 -luser32 -lgdi32 \
+  OPENSSL_LIBS="-lssl -lcrypto -lcrypt32 -lgdi32 -lws2_32" \
   -o /tmp/t.exe && \
 echo "OPENSSL LINK TEST OK" && \
     ./configure --prefix=/depends/x86_64-w64-mingw32 -xplatform win32-g++ -pkg-config \
     -device-option CROSS_COMPILE=/usr/bin/x86_64-w64-mingw32- \
     -I "$(pwd)/qtbase/src/3rdparty/angle/include" \
+    -I /depends/x86_64-w64-mingw32/include \
+    -L /depends/x86_64-w64-mingw32/lib \
     -opensource -confirm-license -release -static -static-runtime -opengl dynamic -no-angle \
     -no-avx -openssl-linked -no-sql-sqlite -no-feature-qml-worker-script \
     -qt-freetype -qt-harfbuzz -qt-libjpeg -qt-libpng -qt-pcre -qt-zlib \
