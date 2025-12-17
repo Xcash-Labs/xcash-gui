@@ -148,7 +148,7 @@ Packaging for your favorite distribution would be a welcome contribution!
 6. (*Note*) This process is only for building `monero-wallet-gui`
 7. (*Optional*) Compare `monero-wallet-gui` SHA-256 hash to the one obtained from a trusted source
    ```
-   docker run --rm -it -v <XCASH_GUI_DIR_FULL_PATH>:/xcash-gui -w /xcash-gui monero:build-env-linux sh -c 'shasum -a 256 /xcash-gui/build/release/bin/xcash-wallet-gui'
+   docker run --rm -it -v <XCASH_GUI_DIR_FULL_PATH>:/xcash-gui -w /xcash-gui xcash:build-env-linux sh -c 'shasum -a 256 /xcash-gui/build/release/bin/xcash-wallet-gui'
    ```
    \* `<XCASH_GUI_DIR_FULL_PATH>` - absolute path to `xcash-gui` directory  
 
