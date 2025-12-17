@@ -49,15 +49,7 @@ RUN git clone git://code.qt.io/qt/qt5.git -b ${QT_VERSION} --depth 1 && \
     git clone git://code.qt.io/qt/qttools.git -b ${QT_VERSION} --depth 1 && \
     git clone git://code.qt.io/qt/qttranslations.git -b ${QT_VERSION} --depth 1 && \
     git clone git://code.qt.io/qt/qtxmlpatterns.git -b ${QT_VERSION} --depth 1 && \
-    export CPPFLAGS="-I/depends/x86_64-w64-mingw32/include" && \
-    export LDFLAGS="-L/depends/x86_64-w64-mingw32/lib" && \
-    export OPENSSL_LIBS="-lssl -lcrypto -lws2_32 -lcrypt32 -lbcrypt -ladvapi32 -luser32 -lgdi32" && \
-    export QMAKE_INCDIR_OPENSSL="/depends/x86_64-w64-mingw32/include" && \
-    export QMAKE_LIBDIR_OPENSSL="/depends/x86_64-w64-mingw32/lib" && \
-    export QMAKE_LIBS_OPENSSL="$OPENSSL_LIBS" && \
-    export PKG_CONFIG_LIBDIR="/depends/x86_64-w64-mingw32/lib/pkgconfig" && \
-    export PKG_CONFIG_SYSROOT_DIR="/depends/x86_64-w64-mingw32" && \
-    ./configure --prefix=/depends/x86_64-w64-mingw32 -xplatform win32-g++ -pkg-config \
+    ./configure --prefix=/depends/x86_64-w64-mingw32 -xplatform win32-g++ \
     -device-option CROSS_COMPILE=/usr/bin/x86_64-w64-mingw32- \
     -openssl-linked \
     -I "$(pwd)/qtbase/src/3rdparty/angle/include" \
