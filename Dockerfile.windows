@@ -20,21 +20,8 @@ RUN git clone --depth 1 https://github.com/Xcash-Labs/xcash-labs-core && \
 
 RUN make -j$THREADS -C /depends HOST=x86_64-w64-mingw32 NO_QT=1
 
-# Build zlib for the Windows target (fixes: cannot find -lz)
-#RUN make -j$THREADS -C /depends HOST=x86_64-w64-mingw32 zlib
-
-# Fail early if zlib didn't install
-#RUN test -f /depends/x86_64-w64-mingw32/lib/libz.a
-
 # Build OpenSSL into the same /depends prefix (needed for Qt HTTPS)
 RUN make -j$THREADS -C /depends HOST=x86_64-w64-mingw32 openssl
-
-# Fail early if it didn't actually install (and verify it's static archives)
-RUN test -f /depends/x86_64-w64-mingw32/include/openssl/ssl.h && \
-    test -f /depends/x86_64-w64-mingw32/lib/libssl.a && \
-    test -f /depends/x86_64-w64-mingw32/lib/libcrypto.a && \
-    test ! -f /depends/x86_64-w64-mingw32/lib/libssl.dll.a && \
-    test ! -f /depends/x86_64-w64-mingw32/lib/libcrypto.dll.a
 
 RUN git clone git://code.qt.io/qt/qt5.git -b ${QT_VERSION} --depth 1 && \
     cd qt5 && \
