@@ -15,7 +15,8 @@ RUN apt update && \
     build-essential \
     automake autopoint bison gettext git gperf libgl1-mesa-dev libglib2.0-dev \
     libpng-dev libpthread-stubs0-dev libsodium-dev libtool-bin libudev-dev libusb-1.0-0-dev mesa-common-dev \
-    pkg-config python wget xutils-dev libssl-dev ca-certificates tzdata \
+    pkg-config python wget xutils-dev \
+    libssl-dev ca-certificates tzdata \
     libx11-dev libxext-dev libx11-xcb-dev libxcb1-dev && \
     rm -rf /var/lib/apt/lists/*
 
