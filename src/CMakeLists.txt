@@ -140,11 +140,17 @@ target_link_libraries(monero-wallet-gui
 )
 
 if(LINUX AND NOT ANDROID)
-  target_link_libraries(monero-wallet-gui xcb-util)
+  target_link_libraries(monero-wallet-gui
+    -Wl,--start-group
+    -lxcb-image
+    -lxcb-util
+    -lxcb
+    -Wl,--end-group
+  )
 endif()
 
 if(X11_FOUND)
-    target_link_libraries(monero-wallet-gui ${X11_LIBRARIES})
+  target_link_libraries(monero-wallet-gui ${X11_LIBRARIES})
 endif()
 
 if(WITH_SCANNER)
