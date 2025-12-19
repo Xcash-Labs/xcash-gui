@@ -144,7 +144,10 @@ if(LINUX AND NOT ANDROID)
     -Wl,--start-group
     -lxcb-image
     -lxcb-util
+    -lxcb-shm
     -lxcb
+    -lXau
+    -lXdmcp
     -Wl,--end-group
   )
 endif()
