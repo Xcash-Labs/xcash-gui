@@ -139,8 +139,8 @@ target_link_libraries(monero-wallet-gui
     zxcvbn
 )
 
-if(UNIX AND NOT APPLE AND NOT ANDROID)
-  target_link_libraries(monero-wallet-gui PRIVATE xcb-util)
+if(LINUX AND NOT ANDROID)
+  target_link_libraries(monero-wallet-gui xcb-util)
 endif()
 
 if(X11_FOUND)
