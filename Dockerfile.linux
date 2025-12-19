@@ -11,16 +11,16 @@ ENV CXXFLAGS="-fPIC"
 ENV SOURCE_DATE_EPOCH=1397818193
 
 RUN apt update && DEBIAN_FRONTEND=noninteractive apt install -y \
-  build-essential automake autopoint bison gettext git gperf libtool-bin pkg-config \
-  python3 python-is-python3 python3-xcbgen wget xutils-dev ca-certificates tzdata \
-  libgl1-mesa-dev mesa-common-dev libglib2.0-dev libpng-dev libpthread-stubs0-dev \
-  libsodium-dev libudev-dev libusb-1.0-0-dev libssl-dev \
-  xcb-proto libx11-dev libxext-dev libx11-xcb-dev libxau-dev libxdmcp-dev \
-  libxcb1-dev libxcb-util0-dev libxcb-image0-dev libxcb-keysyms1-dev \
-  libxcb-render-util0-dev libxcb-icccm4-dev libxcb-ewmh-dev libxcb-xinerama0-dev \
-  libxcb-shape0-dev libxcb-randr0-dev libxcb-shm0-dev libxcb-sync-dev \
-  libxcb-xfixes0-dev libxcb-xkb-dev libxkbcommon-dev libxkbcommon-x11-dev \
-  && rm -rf /var/lib/apt/lists/*
+    build-essential automake autopoint bison gettext git gperf libtool-bin pkg-config \
+    python3 python-is-python3 python3-xcbgen wget xutils-dev ca-certificates tzdata \
+    libgl1-mesa-dev mesa-common-dev libglib2.0-dev libpng-dev libpthread-stubs0-dev \
+    libsodium-dev libudev-dev libusb-1.0-0-dev libssl-dev \
+    xcb-proto libx11-dev libxext-dev libx11-xcb-dev libxau-dev libxdmcp-dev \
+    libxcb1-dev libxcb-glx0-dev libxcb-util0-dev libxcb-image0-dev libxcb-keysyms1-dev \
+    libxcb-render-util0-dev libxcb-icccm4-dev libxcb-ewmh-dev libxcb-xinerama0-dev \
+    libxcb-shape0-dev libxcb-randr0-dev libxcb-shm0-dev libxcb-sync-dev \
+    libxcb-xfixes0-dev libxcb-xkb-dev libxkbcommon-dev libxkbcommon-x11-dev \
+    && rm -rf /var/lib/apt/lists/*
 
 RUN git clone -b xorgproto-2020.1 --depth 1 https://gitlab.freedesktop.org/xorg/proto/xorgproto && \
     cd xorgproto && \
