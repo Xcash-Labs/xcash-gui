@@ -73,6 +73,11 @@ set(monero_wallet_gui_sources
 
 if(NOT ANDROID)
     add_executable(monero-wallet-gui ${EXECUTABLE_FLAG} ${monero_wallet_gui_sources})
+    if(LINUX)
+        target_link_libraries(monero-wallet-gui PUBLIC
+            /usr/lib/x86_64-linux-gnu/libxcb-util.a
+        )
+    endif()
 else()
     add_library(monero-wallet-gui SHARED ${monero_wallet_gui_sources})
     set_target_properties(monero-wallet-gui PROPERTIES COMPILE_DEFINITIONS "ANDROID")
@@ -138,19 +143,6 @@ target_link_libraries(monero-wallet-gui
     translations
     zxcvbn
 )
-
-if(LINUX AND NOT ANDROID)
-  target_link_libraries(monero-wallet-gui
-    -Wl,--start-group
-    -lxcb-image
-    -lxcb-util
-    -lxcb-shm
-    -lxcb
-    -lXau
-    -lXdmcp
-    -Wl,--end-group
-  )
-endif()
 
 if(X11_FOUND)
   target_link_libraries(monero-wallet-gui ${X11_LIBRARIES})
