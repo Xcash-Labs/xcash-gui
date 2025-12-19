@@ -105,9 +105,10 @@ RUN wget https://archives.boost.io/release/1.80.0/source/boost_1_80_0.tar.gz && 
     rm -rf $(pwd)
 
 RUN wget -O openssl-3.0.13.tar.gz https://www.openssl.org/source/openssl-3.0.13.tar.gz && \
-    echo "3a3d8b86a2b8a6c7c2b0f5c3d6d87a6c7e9c7e9f4d5a1c3b9f0b9d8b2f5e6a7 openssl-3.0.13.tar.gz" | sha256sum -c && \
+    wget -O openssl-3.0.13.tar.gz.sha256 https://www.openssl.org/source/openssl-3.0.13.tar.gz.sha256 && \
+    sha256sum -c openssl-3.0.13.tar.gz.sha256 && \
     tar -xzf openssl-3.0.13.tar.gz && \
-    rm openssl-3.0.13.tar.gz && \
+    rm openssl-3.0.13.tar.gz openssl-3.0.13.tar.gz.sha256 && \
     cd openssl-3.0.13 && \
     ./Configure linux-x86_64 no-shared no-zlib --prefix=/usr --openssldir=/usr && \
     make -j$THREADS && \
