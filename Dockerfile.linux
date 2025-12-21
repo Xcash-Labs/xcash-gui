@@ -218,7 +218,7 @@ RUN git clone -b v21.5 --depth 1 https://github.com/protocolbuffers/protobuf && 
     make -j$THREADS && \
     make -j$THREADS install && \
     rm -rf $(pwd)
- 
+
 RUN git clone -b v3.24.0 --depth 1 https://github.com/Kitware/CMake && \
     cd CMake && \
     git reset --hard 4be24f031a4829db75b85062cc67125035d8831e && \
