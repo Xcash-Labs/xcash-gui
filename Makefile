@@ -101,4 +101,3 @@ release-win64:
 
 	# Build and then run the deploy target
 	cd $(builddir)/release && $(MINGW_MAKE) -j$(JOBS)
-	
