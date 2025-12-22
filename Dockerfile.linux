@@ -1,17 +1,26 @@
-FROM ubuntu:18.04
+FROM ubuntu:22.04
 
 ARG THREADS=1
 ARG QT_VERSION=v5.15.17-lts-lgpl
+ARG DEBIAN_FRONTEND=noninteractive
+ENV DEBIAN_FRONTEND=noninteractive
 
 ENV CFLAGS="-fPIC"
 ENV CPPFLAGS="-fPIC"
 ENV CXXFLAGS="-fPIC"
 ENV SOURCE_DATE_EPOCH=1397818193
 
-RUN apt update && \
-    apt install -y automake autopoint bison gettext git gperf libgl1-mesa-dev libglib2.0-dev libssl-dev \
-    libpng-dev libpthread-stubs0-dev libsodium-dev libtool-bin libudev-dev libusb-1.0-0-dev mesa-common-dev \
-    pkg-config python wget xutils-dev
+RUN apt update && DEBIAN_FRONTEND=noninteractive apt install -y \
+    build-essential automake autopoint bison gettext git gperf libtool-bin pkg-config \
+    python3 python-is-python3 python3-xcbgen wget xutils-dev ca-certificates tzdata \
+    libgl1-mesa-dev mesa-common-dev libglib2.0-dev libpng-dev libpthread-stubs0-dev \
+    libsodium-dev libudev-dev libusb-1.0-0-dev libssl-dev \
+    xcb-proto libx11-dev libxext-dev libx11-xcb-dev libxau-dev libxdmcp-dev \
+    libxcb1-dev libxcb-glx0-dev libxcb-util-dev libxcb-image0-dev libxcb-keysyms1-dev \
+    libxcb-render-util0-dev libxcb-icccm4-dev libxcb-ewmh-dev libxcb-xinerama0-dev \
+    libxcb-shape0-dev libxcb-randr0-dev libxcb-shm0-dev libxcb-sync-dev \
+    libxcb-xfixes0-dev libxcb-xkb-dev libxkbcommon-dev libxkbcommon-x11-dev \
+    && rm -rf /var/lib/apt/lists/*
 
 RUN git clone -b xorgproto-2020.1 --depth 1 https://gitlab.freedesktop.org/xorg/proto/xorgproto && \
     cd xorgproto && \
@@ -37,74 +46,6 @@ RUN git clone -b libXau-1.0.9 --depth 1 https://gitlab.freedesktop.org/xorg/lib/
     make -j$THREADS install && \
     rm -rf $(pwd)
 
-RUN git clone -b 1.12 --depth 1 https://gitlab.freedesktop.org/xorg/lib/libxcb && \
-    cd libxcb && \
-    git reset --hard d34785a34f28fa6a00f8ce00d87e3132ff0f6467 && \
-    ./autogen.sh --enable-shared --disable-static && \
-    make -j$THREADS && \
-    make -j$THREADS install && \
-    make -j$THREADS clean && \
-    rm /usr/local/lib/libxcb-xinerama.so && \
-    ./autogen.sh --disable-shared --enable-static && \
-    make -j$THREADS && \
-    cp src/.libs/libxcb-xinerama.a /usr/local/lib/ && \
-    rm -rf $(pwd)
-
-RUN git clone -b 0.4.0 --depth 1 https://gitlab.freedesktop.org/xorg/lib/libxcb-util && \
-    cd libxcb-util && \
-    git reset --hard acf790d7752f36e450d476ad79807d4012ec863b && \
-    git submodule init && \
-    git clone --depth 1 https://gitlab.freedesktop.org/xorg/util/xcb-util-m4 m4 && \
-    git -C m4 reset --hard c617eee22ae5c285e79e81ec39ce96862fd3262f && \
-    ./autogen.sh --enable-shared --disable-static && \
-    make -j$THREADS && \
-    make -j$THREADS install && \
-    rm -rf $(pwd)
-
-RUN git clone -b 0.4.0 --depth 1 https://gitlab.freedesktop.org/xorg/lib/libxcb-image && \
-    cd libxcb-image && \
-    git reset --hard d882052fb2ce439c6483fce944ba8f16f7294639 && \
-    git submodule init && \
-    git clone --depth 1 https://gitlab.freedesktop.org/xorg/util/xcb-util-m4 m4 && \
-    git -C m4 reset --hard c617eee22ae5c285e79e81ec39ce96862fd3262f && \
-    ./autogen.sh --enable-shared --disable-static && \
-    make -j$THREADS && \
-    make -j$THREADS install && \
-    rm -rf $(pwd)
-
-RUN git clone -b 0.4.0 --depth 1 https://gitlab.freedesktop.org/xorg/lib/libxcb-keysyms && \
-    cd libxcb-keysyms && \
-    git reset --hard 0e51ee5570a6a80bdf98770b975dfe8a57f4eeb1 && \
-    git submodule init && \
-    git clone --depth 1 https://gitlab.freedesktop.org/xorg/util/xcb-util-m4 m4 && \
-    git -C m4 reset --hard c617eee22ae5c285e79e81ec39ce96862fd3262f && \
-    ./autogen.sh --enable-shared --disable-static && \
-    make -j$THREADS && \
-    make -j$THREADS install && \
-    rm -rf $(pwd)
-
-RUN git clone -b 0.3.9 --depth 1 https://gitlab.freedesktop.org/xorg/lib/libxcb-render-util && \
-    cd libxcb-render-util && \
-    git reset --hard 0317caf63de532fd7a0493ed6afa871a67253747 && \
-    git submodule init && \
-    git clone --depth 1 https://gitlab.freedesktop.org/xorg/util/xcb-util-m4 m4 && \
-    git -C m4 reset --hard c617eee22ae5c285e79e81ec39ce96862fd3262f && \
-    ./autogen.sh --enable-shared --disable-static && \
-    make -j$THREADS && \
-    make -j$THREADS install && \
-    rm -rf $(pwd)
-
-RUN git clone -b 0.4.1 --depth 1 https://gitlab.freedesktop.org/xorg/lib/libxcb-wm && \
-    cd libxcb-wm && \
-    git reset --hard 24eb17df2e1245885e72c9d4bbb0a0f69f0700f2 && \
-    git submodule init && \
-    git clone --depth 1 https://gitlab.freedesktop.org/xorg/util/xcb-util-m4 m4 && \
-    git -C m4 reset --hard c617eee22ae5c285e79e81ec39ce96862fd3262f && \
-    ./autogen.sh --enable-shared --disable-static && \
-    make -j$THREADS && \
-    make -j$THREADS install && \
-    rm -rf $(pwd)
-
 RUN git clone -b xkbcommon-0.5.0 --depth 1 https://github.com/xkbcommon/libxkbcommon && \
     cd libxkbcommon && \
     git reset --hard c43c3c866eb9d52cd8f61e75cbef1c30d07f3a28 && \
@@ -121,14 +62,12 @@ RUN git clone -b v1.3 --depth 1 https://github.com/madler/zlib && \
     make -j$THREADS install && \
     rm -rf $(pwd)
 
-RUN git clone -b VER-2-10-2 --depth 1 https://gitlab.freedesktop.org/freetype/freetype.git && \
-    cd freetype && \
-    git reset --hard 132f19b779828b194b3fede187cee719785db4d8 && \
-    ./autogen.sh && \
+RUN wget -qO /tmp/freetype.tar.gz https://download.savannah.gnu.org/releases/freetype/freetype-2.10.2.tar.gz && \
+    cd /tmp && tar -xzf freetype.tar.gz && cd freetype-2.10.2 && \
     ./configure --disable-shared --enable-static --with-zlib=no && \
-    make -j$THREADS && \
-    make -j$THREADS install && \
-    rm -rf $(pwd)
+    make -j$THREADS && make install && \
+    ldconfig && \
+    cd / && rm -rf /tmp/freetype* 
 
 RUN wget https://github.com/libexpat/libexpat/releases/download/R_2_4_8/expat-2.4.8.tar.bz2 && \
     echo "a247a7f6bbb21cf2ca81ea4cbb916bfb9717ca523631675f99b3d4a5678dcd16 expat-2.4.8.tar.bz2" | sha256sum -c && \
@@ -165,15 +104,17 @@ RUN wget https://archives.boost.io/release/1.80.0/source/boost_1_80_0.tar.gz && 
     ./b2 --with-atomic --with-system --with-filesystem --with-thread --with-date_time --with-chrono --with-regex --with-serialization --with-program_options --with-locale variant=release link=static runtime-link=static cflags="${CFLAGS}" cxxflags="${CXXFLAGS}" install -a --prefix=/usr && \
     rm -rf $(pwd)
 
-RUN wget https://www.openssl.org/source/openssl-1.1.1u.tar.gz && \
-    echo "e2f8d84b523eecd06c7be7626830370300fbcc15386bf5142d72758f6963ebc6 openssl-1.1.1u.tar.gz" | sha256sum -c && \
-    tar -xzf openssl-1.1.1u.tar.gz && \
-    rm openssl-1.1.1u.tar.gz && \
-    cd openssl-1.1.1u && \
-    ./config no-shared no-zlib-dynamic --prefix=/usr --openssldir=/usr && \
+RUN wget --max-redirect=20 -O openssl-3.0.13.tar.gz \
+    https://github.com/openssl/openssl/releases/download/openssl-3.0.13/openssl-3.0.13.tar.gz && \
+    echo "88525753f79d3bec27d2fa7c66aa0b92b3aa9498dafd93d7cfa4b3780cdae313  openssl-3.0.13.tar.gz" | sha256sum -c - && \
+    tar -xzf openssl-3.0.13.tar.gz && \
+    rm openssl-3.0.13.tar.gz && \
+    cd openssl-3.0.13 && \
+    ./Configure linux-x86_64 no-shared no-zlib --prefix=/usr --openssldir=/usr && \
     make -j$THREADS && \
-    make -j$THREADS install && \
-    rm -rf $(pwd)
+    make install_sw install_ssldirs && \
+    ldconfig && \
+    cd / && rm -rf /openssl-3.0.13
 
 RUN wget https://www.nlnetlabs.nl/downloads/unbound/unbound-1.16.2.tar.gz && \
     echo "2e32f283820c24c51ca1dd8afecfdb747c7385a137abe865c99db4b257403581 unbound-1.16.2.tar.gz" | sha256sum -c && \
@@ -185,9 +126,9 @@ RUN wget https://www.nlnetlabs.nl/downloads/unbound/unbound-1.16.2.tar.gz && \
     make -j$THREADS install && \
     rm -rf $(pwd)
 
-RUN rm /usr/lib/x86_64-linux-gnu/libX11.a && \
-    rm /usr/lib/x86_64-linux-gnu/libXext.a && \
-    rm /usr/lib/x86_64-linux-gnu/libX11-xcb.a && \
+RUN rm -f /usr/lib/x86_64-linux-gnu/libX11.a && \
+    rm -f /usr/lib/x86_64-linux-gnu/libXext.a && \
+    rm -f /usr/lib/x86_64-linux-gnu/libX11-xcb.a && \
     git clone git://code.qt.io/qt/qt5.git -b ${QT_VERSION} --depth 1 && \
     cd qt5 && \
     git clone git://code.qt.io/qt/qtbase.git -b ${QT_VERSION} --depth 1 && \
@@ -204,7 +145,7 @@ RUN rm /usr/lib/x86_64-linux-gnu/libX11.a && \
     git clone git://code.qt.io/qt/qtxmlpatterns.git -b ${QT_VERSION} --depth 1 && \
     sed -ri s/\(Libs:.*\)/\\1\ -lexpat/ /usr/local/lib/pkgconfig/fontconfig.pc && \
     sed -ri s/\(Libs:.*\)/\\1\ -lz/ /usr/local/lib/pkgconfig/freetype2.pc && \
-    sed -ri s/\(Libs:.*\)/\\1\ -lXau/ /usr/local/lib/pkgconfig/xcb.pc && \
+    sed -ri 's/(Libs:.*)/\1 -lXau/' /usr/lib/x86_64-linux-gnu/pkgconfig/xcb.pc && \
     sed -i s/\\/usr\\/X11R6\\/lib64/\\/usr\\/local\\/lib/ qtbase/mkspecs/linux-g++-64/qmake.conf && \
     ./configure --prefix=/usr -platform linux-g++-64 -opensource -confirm-license -release -static -no-avx \
     -opengl desktop -qpa xcb -xcb -xcb-xlib -feature-xlib -system-freetype -fontconfig -glib \
@@ -212,7 +153,7 @@ RUN rm /usr/lib/x86_64-linux-gnu/libX11.a && \
     -qt-harfbuzz -qt-libjpeg -qt-libpng -qt-pcre -qt-zlib \
     -skip qt3d -skip qtandroidextras -skip qtcanvas3d -skip qtcharts -skip qtconnectivity -skip qtdatavis3d \
     -skip qtdoc -skip qtgamepad -skip qtlocation -skip qtmacextras -skip qtnetworkauth -skip qtpurchasing \
-    -skip qtscript -skip qtscxml -skip qtsensors -skip qtserialbus -skip qtserialport -skip qtspeech -skip qttools \
+    -skip qtscript -skip qtscxml -skip qtsensors -skip qtserialbus -skip qtserialport -skip qtspeech \
     -skip qtvirtualkeyboard -skip qtwayland -skip qtwebchannel -skip qtwebengine -skip qtwebsockets -skip qtwebview \
     -skip qtwinextras -skip qtx11extras -skip gamepad -skip serialbus -skip location -skip webengine \
     -nomake examples -nomake tests -nomake tools && \
@@ -233,9 +174,9 @@ RUN git clone -b v1.0.26 --depth 1 https://github.com/libusb/libusb && \
     make -j$THREADS install && \
     rm -rf $(pwd)
 
-RUN git clone -b hidapi-0.15.0 --depth 1 https://github.com/libusb/hidapi && \
+RUN git clone -b hidapi-0.13.1 --depth 1 https://github.com/libusb/hidapi && \
     cd hidapi && \
-    git reset --hard d6b2a974608dec3b76fb1e36c189f22b9cf3650c && \
+    git reset --hard 4ebce6b5059b086d05ca7e091ce04a5fd08ac3ac && \
     ./bootstrap && \
     ./configure --disable-shared --enable-static && \
     make -j$THREADS && \
