@@ -42,7 +42,7 @@ option(WITH_UPDATER "Regularly check for new updates" ON)
 option(DEV_MODE "Checkout latest xcash-labs-core master on build" OFF)
 
 # Always use C++17 regardless of DEV_MODE
- set(CMAKE_CXX_STANDARD 17)
+ set(CMAKE_CXX_STANDARD 20)
  set(CMAKE_CXX_STANDARD_REQUIRED ON)
  set(CMAKE_CXX_EXTENSIONS OFF)
 
