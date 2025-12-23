@@ -111,6 +111,7 @@ Rectangle {
             }
 
             WizardMenuItem {
+                visible: false
                 opacity: simpleModeAvailable ? 1.0 : 0.5
                 headerText: qsTr("Simple mode") + " (bootstrap)" + translationManager.emptyString
                 bodyText: {
@@ -144,6 +145,7 @@ Rectangle {
             }
 
             WizardMenuItem {
+                visible: false
                 headerText: qsTr("Advanced mode") + translationManager.emptyString
                 bodyText: qsTr("Includes extra features like mining and message verification. The blockchain is downloaded to your computer.") + translationManager.emptyString
                 imageIcon: "qrc:///images/local-node-full.png"
