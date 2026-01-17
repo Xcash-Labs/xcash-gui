@@ -323,11 +323,11 @@ Rectangle {
                     .arg(qsTr("Address")) + translationManager.emptyString
                 placeholderText: {
                     if(persistentSettings.nettype == NetworkType.MAINNET){
-                        return "XCK.. / 8.. / monero:.. / OpenAlias";
+                        return "XCK.. / 8.. / xcash:.. / OpenAlias";
                     } else if (persistentSettings.nettype == NetworkType.STAGENET){
-                        return "5.. / 7.. / monero:..";
+                        return "5.. / 7.. / xcash:..";
                     } else if(persistentSettings.nettype == NetworkType.TESTNET){
-                        return "9.. / B.. / monero:..";
+                        return "9.. / B.. / xcash:..";
                     }
                 }
                 wrapMode: Text.WrapAnywhere
