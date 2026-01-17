@@ -1125,8 +1125,8 @@ It is recommended to enter passphrase on the hardware wallet for better security
     </message>
     <message>
         <location filename="../xcash-gui/pages/Mining.qml" line="532" />
-        <source>%1% fee · %2 XCA votes</source>
-        <translation>%1% χρέωση · %2 XCA ψήφοι</translation>
+        <source>%1% fee · %2 XCK votes</source>
+        <translation>%1% χρέωση · %2 XCK ψήφοι</translation>
     </message>
 </context>
 <context>
@@ -2635,8 +2635,8 @@ In order to rescan the transaction, you can re-sync your wallet by resetting the
     </message>
     <message>
         <location filename="../xcash-gui/pages/Transfer.qml" line="169" />
-        <source>Spendable funds: %1 XCA. Please wait ~%2 minutes for your whole balance to become spendable.</source>
-        <translation>Διαθέσιμο κεφάλαιο: %1 XCA. Παρακαλώ περιμένετε ~%2 λεπτά για να γίνει διαθέσιμο ολόκληρο το υπόλοιπο σας.</translation>
+        <source>Spendable funds: %1 XCK. Please wait ~%2 minutes for your whole balance to become spendable.</source>
+        <translation>Διαθέσιμο κεφάλαιο: %1 XCK. Παρακαλώ περιμένετε ~%2 λεπτά για να γίνει διαθέσιμο ολόκληρο το υπόλοιπο σας.</translation>
     </message>
     <message>
         <location filename="../xcash-gui/pages/Transfer.qml" line="333" />
@@ -2793,7 +2793,7 @@ Confirmation message:
     </message>
     <message>
         <location filename="../xcash-gui/pages/Transfer.qml" line="988" />
-        <source>Spend XCA from a cold (offline) wallet</source>
+        <source>Spend XCK from a cold (offline) wallet</source>
         <translation>Δαπανήστε ΧMR από ένα πορτοφόλι εκτός σύνδεσης</translation>
     </message>
     <message>
@@ -3111,8 +3111,8 @@ For reserve proofs you don't need to specify tx id or address.</source>
     </message>
     <message>
         <location filename="../xcash-gui/pages/TxKey.qml" line="109" />
-        <source>Paste amount of XCA (reserve proof only)</source>
-        <translation>Επικολλήστε το ποσό σε XCA (μόνο για απόδειξη αποθεμάτων)</translation>
+        <source>Paste amount of XCK (reserve proof only)</source>
+        <translation>Επικολλήστε το ποσό σε XCK (μόνο για απόδειξη αποθεμάτων)</translation>
     </message>
     <message>
         <location filename="../xcash-gui/pages/TxKey.qml" line="138" />

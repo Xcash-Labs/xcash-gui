@@ -1125,8 +1125,8 @@ Daha iyi güvenlik için parolayı donanım cüzdanında girmeniz önerilir.</tr
     </message>
     <message>
         <location filename="../xcash-gui/pages/Mining.qml" line="532" />
-        <source>%1% fee · %2 XCA votes</source>
-        <translation>%1% ücret · %2 XCA oy</translation>
+        <source>%1% fee · %2 XCK votes</source>
+        <translation>%1% ücret · %2 XCK oy</translation>
     </message>
 </context>
 <context>
@@ -2631,8 +2631,8 @@ Bu veritabanı, xCash cüzdanları ile xCash anahtarlarını yeniden kullanan xC
     </message>
     <message>
         <location filename="../xcash-gui/pages/Transfer.qml" line="169" />
-        <source>Spendable funds: %1 XCA. Please wait ~%2 minutes for your whole balance to become spendable.</source>
-        <translation>Harcanabilir fonlar: %1 XCA. Lütfen tüm bakiyenizin harcanabilir hale gelmesi için yaklaşık ~%2 dakika bekleyin.</translation>
+        <source>Spendable funds: %1 XCK. Please wait ~%2 minutes for your whole balance to become spendable.</source>
+        <translation>Harcanabilir fonlar: %1 XCK. Lütfen tüm bakiyenizin harcanabilir hale gelmesi için yaklaşık ~%2 dakika bekleyin.</translation>
     </message>
     <message>
         <location filename="../xcash-gui/pages/Transfer.qml" line="333" />
@@ -2738,8 +2738,8 @@ Bu veritabanı, xCash cüzdanları ile xCash anahtarlarını yeniden kullanan xC
     </message>
     <message>
         <location filename="../xcash-gui/pages/Transfer.qml" line="988" />
-        <source>Spend XCA from a cold (offline) wallet</source>
-        <translation>Soğuk (çevrimdışı) bir cüzdandan XCA harcayın</translation>
+        <source>Spend XCK from a cold (offline) wallet</source>
+        <translation>Soğuk (çevrimdışı) bir cüzdandan XCK harcayın</translation>
     </message>
     <message>
         <location filename="../xcash-gui/pages/Transfer.qml" line="986" />
@@ -3112,8 +3112,8 @@ For reserve proofs you don't need to specify tx id or address.</source>
     </message>
     <message>
         <location filename="../xcash-gui/pages/TxKey.qml" line="109" />
-        <source>Paste amount of XCA (reserve proof only)</source>
-        <translation>XCA miktarını yapıştır (sadece rezerv kanıtı için)</translation>
+        <source>Paste amount of XCK (reserve proof only)</source>
+        <translation>XCK miktarını yapıştır (sadece rezerv kanıtı için)</translation>
     </message>
     <message>
         <location filename="../xcash-gui/pages/TxKey.qml" line="138" />

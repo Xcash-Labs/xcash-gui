@@ -1125,8 +1125,8 @@ It is recommended to enter passphrase on the hardware wallet for better security
     </message>
     <message>
         <location filename="../xcash-gui/pages/Mining.qml" line="532" />
-        <source>%1% fee · %2 XCA votes</source>
-        <translation>%1٪ رسوم · %2 أصوات XCA</translation>
+        <source>%1% fee · %2 XCK votes</source>
+        <translation>%1٪ رسوم · %2 أصوات XCK</translation>
     </message>
 </context>
 <context>
@@ -2629,8 +2629,8 @@ In order to rescan the transaction, you can re-sync your wallet by resetting the
     </message>
     <message>
         <location filename="../xcash-gui/pages/Transfer.qml" line="169" />
-        <source>Spendable funds: %1 XCA. Please wait ~%2 minutes for your whole balance to become spendable.</source>
-        <translation>الرصيد القابل للإنفاق: %1 XCA. يرجى الانتظار ~%2 دقائق حتى يصبح رصيدك بالكامل قابلاً للإنفاق.</translation>
+        <source>Spendable funds: %1 XCK. Please wait ~%2 minutes for your whole balance to become spendable.</source>
+        <translation>الرصيد القابل للإنفاق: %1 XCK. يرجى الانتظار ~%2 دقائق حتى يصبح رصيدك بالكامل قابلاً للإنفاق.</translation>
     </message>
     <message>
         <location filename="../xcash-gui/pages/Transfer.qml" line="333" />
@@ -2741,8 +2741,8 @@ In order to rescan the transaction, you can re-sync your wallet by resetting the
     </message>
     <message>
         <location filename="../xcash-gui/pages/Transfer.qml" line="988" />
-        <source>Spend XCA from a cold (offline) wallet</source>
-        <translation>إنفاق XCA من محفظة باردة (غير متصلة بالإنترنت)</translation>
+        <source>Spend XCK from a cold (offline) wallet</source>
+        <translation>إنفاق XCK من محفظة باردة (غير متصلة بالإنترنت)</translation>
     </message>
     <message>
         <location filename="../xcash-gui/pages/Transfer.qml" line="986" />
@@ -3117,8 +3117,8 @@ For reserve proofs you don't need to specify tx id or address.</source>
     </message>
     <message>
         <location filename="../xcash-gui/pages/TxKey.qml" line="109" />
-        <source>Paste amount of XCA (reserve proof only)</source>
-        <translation>الصق مقدار XCA (لإثبات الاحتياطي فقط)</translation>
+        <source>Paste amount of XCK (reserve proof only)</source>
+        <translation>الصق مقدار XCK (لإثبات الاحتياطي فقط)</translation>
     </message>
     <message>
         <location filename="../xcash-gui/pages/TxKey.qml" line="138" />

@@ -1125,8 +1125,8 @@ Zaleca się wprowadzenie hasła do portfela sprzętowego w celu zwiększenia bez
     </message>
     <message>
         <location filename="../xcash-gui/pages/Mining.qml" line="532" />
-        <source>%1% fee · %2 XCA votes</source>
-        <translation>%1% opłaty · %2 XCA głosów</translation>
+        <source>%1% fee · %2 XCK votes</source>
+        <translation>%1% opłaty · %2 XCK głosów</translation>
     </message>
 </context>
 <context>
@@ -2667,8 +2667,8 @@ Uaktualnij go lub podłącz się do innego demona</translation>
     </message>
     <message>
         <location filename="../xcash-gui/pages/Transfer.qml" line="169" />
-        <source>Spendable funds: %1 XCA. Please wait ~%2 minutes for your whole balance to become spendable.</source>
-        <translation>Środki do wydania: %1 XCA. Poczekaj ok. %2 minut, aż całe saldo będzie dostępne do wydania.</translation>
+        <source>Spendable funds: %1 XCK. Please wait ~%2 minutes for your whole balance to become spendable.</source>
+        <translation>Środki do wydania: %1 XCK. Poczekaj ok. %2 minut, aż całe saldo będzie dostępne do wydania.</translation>
     </message>
     <message>
         <location filename="../xcash-gui/pages/Transfer.qml" line="674" />
@@ -2759,8 +2759,8 @@ Uaktualnij go lub podłącz się do innego demona</translation>
     </message>
     <message>
         <location filename="../xcash-gui/pages/Transfer.qml" line="988" />
-        <source>Spend XCA from a cold (offline) wallet</source>
-        <translation>Wyślij XCA z portfela offline</translation>
+        <source>Spend XCK from a cold (offline) wallet</source>
+        <translation>Wyślij XCK z portfela offline</translation>
     </message>
     <message>
         <location filename="../xcash-gui/pages/Transfer.qml" line="986" />
@@ -3125,8 +3125,8 @@ For reserve proofs you don't need to specify tx id or address.</source>
     </message>
     <message>
         <location filename="../xcash-gui/pages/TxKey.qml" line="109" />
-        <source>Paste amount of XCA (reserve proof only)</source>
-        <translation>Wklej kwotę XCA (tylko dla dowodu rezerwy)</translation>
+        <source>Paste amount of XCK (reserve proof only)</source>
+        <translation>Wklej kwotę XCK (tylko dla dowodu rezerwy)</translation>
     </message>
     <message>
         <location filename="../xcash-gui/pages/TxKey.qml" line="138" />

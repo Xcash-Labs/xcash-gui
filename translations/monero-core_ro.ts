@@ -1125,8 +1125,8 @@ Pentru securitate sporită se recomandă să introduci fraza-parolă în portofe
     </message>
     <message>
         <location filename="../xcash-gui/pages/Mining.qml" line="532" />
-        <source>%1% fee · %2 XCA votes</source>
-        <translation>comision %1% · %2 XCA voturi</translation>
+        <source>%1% fee · %2 XCK votes</source>
+        <translation>comision %1% · %2 XCK voturi</translation>
     </message>
 </context>
 <context>
@@ -2635,8 +2635,8 @@ Pentru a re-scana tranzacția, puteți re-sincroniza portofelul resetând înăl
     </message>
     <message>
         <location filename="../xcash-gui/pages/Transfer.qml" line="169" />
-        <source>Spendable funds: %1 XCA. Please wait ~%2 minutes for your whole balance to become spendable.</source>
-        <translation>Sold disponibil: %1 XCA. Te rugăm să aștepți ~%2 minute pentru ca întregul sold să fie disponibil.</translation>
+        <source>Spendable funds: %1 XCK. Please wait ~%2 minutes for your whole balance to become spendable.</source>
+        <translation>Sold disponibil: %1 XCK. Te rugăm să aștepți ~%2 minute pentru ca întregul sold să fie disponibil.</translation>
     </message>
     <message>
         <location filename="../xcash-gui/pages/Transfer.qml" line="333" />
@@ -2747,8 +2747,8 @@ Pentru a re-scana tranzacția, puteți re-sincroniza portofelul resetând înăl
     </message>
     <message>
         <location filename="../xcash-gui/pages/Transfer.qml" line="988" />
-        <source>Spend XCA from a cold (offline) wallet</source>
-        <translation>Trimite XCA dintr-un portofel rece (offline)</translation>
+        <source>Spend XCK from a cold (offline) wallet</source>
+        <translation>Trimite XCK dintr-un portofel rece (offline)</translation>
     </message>
     <message>
         <location filename="../xcash-gui/pages/Transfer.qml" line="986" />
@@ -3118,8 +3118,8 @@ For reserve proofs you don't need to specify tx id or address.</source>
     </message>
     <message>
         <location filename="../xcash-gui/pages/TxKey.qml" line="109" />
-        <source>Paste amount of XCA (reserve proof only)</source>
-        <translation>Lipiți suma de XCA (doar pentru dovada rezervelor)</translation>
+        <source>Paste amount of XCK (reserve proof only)</source>
+        <translation>Lipiți suma de XCK (doar pentru dovada rezervelor)</translation>
     </message>
     <message>
         <location filename="../xcash-gui/pages/TxKey.qml" line="138" />

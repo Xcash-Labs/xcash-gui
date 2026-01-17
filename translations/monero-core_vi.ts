@@ -935,7 +935,7 @@ Bạn nên nhập cụm mật khẩu trên ví phần cứng để bảo mật t
         <location filename="../xcash-gui/pages/merchant/Merchant.qml" line="452" />
         <location filename="../xcash-gui/pages/merchant/Merchant.qml" line="505" />
         <source>Amount to receive</source>
-        <translation>Số tiền nhận (XCA)</translation>
+        <translation>Số tiền nhận (XCK)</translation>
     </message>
     <message>
         <location filename="../xcash-gui/pages/merchant/Merchant.qml" line="532" />
@@ -1125,8 +1125,8 @@ Bạn nên nhập cụm mật khẩu trên ví phần cứng để bảo mật t
     </message>
     <message>
         <location filename="../xcash-gui/pages/Mining.qml" line="532" />
-        <source>%1% fee · %2 XCA votes</source>
-        <translation>%1% phí · %2 XCA phiếu</translation>
+        <source>%1% fee · %2 XCK votes</source>
+        <translation>%1% phí · %2 XCK phiếu</translation>
     </message>
 </context>
 <context>
@@ -2635,8 +2635,8 @@ Cơ sở dữ liệu này dành cho các ví xCash cũng như các ví từ bả
     </message>
     <message>
         <location filename="../xcash-gui/pages/Transfer.qml" line="169" />
-        <source>Spendable funds: %1 XCA. Please wait ~%2 minutes for your whole balance to become spendable.</source>
-        <translation>Số tiền có thể chi tiêu: %1 XCA. Vui lòng đợi ~%2 phút để toàn bộ số dư của bạn có thể chi tiêu được.</translation>
+        <source>Spendable funds: %1 XCK. Please wait ~%2 minutes for your whole balance to become spendable.</source>
+        <translation>Số tiền có thể chi tiêu: %1 XCK. Vui lòng đợi ~%2 phút để toàn bộ số dư của bạn có thể chi tiêu được.</translation>
     </message>
     <message>
         <location filename="../xcash-gui/pages/Transfer.qml" line="333" />
@@ -2793,8 +2793,8 @@ Confirmation message:
     </message>
     <message>
         <location filename="../xcash-gui/pages/Transfer.qml" line="988" />
-        <source>Spend XCA from a cold (offline) wallet</source>
-        <translation>Chi tiêu XCA từ ví lạnh (ngoại tuyến)</translation>
+        <source>Spend XCK from a cold (offline) wallet</source>
+        <translation>Chi tiêu XCK từ ví lạnh (ngoại tuyến)</translation>
     </message>
     <message>
         <location filename="../xcash-gui/pages/Transfer.qml" line="986" />
@@ -3111,8 +3111,8 @@ For reserve proofs you don't need to specify tx id or address.</source>
     </message>
     <message>
         <location filename="../xcash-gui/pages/TxKey.qml" line="109" />
-        <source>Paste amount of XCA (reserve proof only)</source>
-        <translation>Dán số XCA (chỉ dành cho chứng minh dự trữ)</translation>
+        <source>Paste amount of XCK (reserve proof only)</source>
+        <translation>Dán số XCK (chỉ dành cho chứng minh dự trữ)</translation>
     </message>
     <message>
         <location filename="../xcash-gui/pages/TxKey.qml" line="138" />

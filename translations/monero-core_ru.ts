@@ -1125,8 +1125,8 @@ It is recommended to enter passphrase on the hardware wallet for better security
     </message>
     <message>
         <location filename="../xcash-gui/pages/Mining.qml" line="532" />
-        <source>%1% fee · %2 XCA votes</source>
-        <translation>%1% комиссия · %2 XCA голосов</translation>
+        <source>%1% fee · %2 XCK votes</source>
+        <translation>%1% комиссия · %2 XCK голосов</translation>
     </message>
 </context>
 <context>
@@ -2715,8 +2715,8 @@ Please upgrade or connect to another daemon</source>
     </message>
     <message>
         <location filename="../xcash-gui/pages/Transfer.qml" line="169" />
-        <source>Spendable funds: %1 XCA. Please wait ~%2 minutes for your whole balance to become spendable.</source>
-        <translation>Отправляемая сумма: %1 XCA. Пожалуйста, подождите ~%2 минут чтобы весь ваш баланс стал доступен для отправки.</translation>
+        <source>Spendable funds: %1 XCK. Please wait ~%2 minutes for your whole balance to become spendable.</source>
+        <translation>Отправляемая сумма: %1 XCK. Пожалуйста, подождите ~%2 минут чтобы весь ваш баланс стал доступен для отправки.</translation>
     </message>
     <message>
         <location filename="../xcash-gui/pages/Transfer.qml" line="674" />
@@ -2822,8 +2822,8 @@ Please upgrade or connect to another daemon</source>
     </message>
     <message>
         <location filename="../xcash-gui/pages/Transfer.qml" line="988" />
-        <source>Spend XCA from a cold (offline) wallet</source>
-        <translation>Потратить XCA из холодного (оффлайн) кошелька</translation>
+        <source>Spend XCK from a cold (offline) wallet</source>
+        <translation>Потратить XCK из холодного (оффлайн) кошелька</translation>
     </message>
     <message>
         <location filename="../xcash-gui/pages/Transfer.qml" line="986" />
@@ -3128,8 +3128,8 @@ For reserve proofs you don't need to specify tx id or address.</source>
     </message>
     <message>
         <location filename="../xcash-gui/pages/TxKey.qml" line="109" />
-        <source>Paste amount of XCA (reserve proof only)</source>
-        <translation>Сумма XCA (только для зарезервированных доказательств)</translation>
+        <source>Paste amount of XCK (reserve proof only)</source>
+        <translation>Сумма XCK (только для зарезервированных доказательств)</translation>
     </message>
     <message>
         <location filename="../xcash-gui/pages/TxKey.qml" line="138" />

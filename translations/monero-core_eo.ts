@@ -1125,8 +1125,8 @@ Estas rekomendita, ke entajpi pasfrazon sur la aparata monujo por pli bona sekur
     </message>
     <message>
         <location filename="../xcash-gui/pages/Mining.qml" line="532" />
-        <source>%1% fee · %2 XCA votes</source>
-        <translation>%1% komisiono · %2 XCA votoj</translation>
+        <source>%1% fee · %2 XCK votes</source>
+        <translation>%1% komisiono · %2 XCK votoj</translation>
     </message>
 </context>
 <context>
@@ -2631,8 +2631,8 @@ Por reskani la transakcion, vi povas resinkronigi vian monujon per reseto de la 
     </message>
     <message>
         <location filename="../xcash-gui/pages/Transfer.qml" line="169" />
-        <source>Spendable funds: %1 XCA. Please wait ~%2 minutes for your whole balance to become spendable.</source>
-        <translation>Disponeblaj fondoj: %1 XCA. Bonvolu atendi ~%2 minutojn por ke via tuta saldo fariĝu disponebla.</translation>
+        <source>Spendable funds: %1 XCK. Please wait ~%2 minutes for your whole balance to become spendable.</source>
+        <translation>Disponeblaj fondoj: %1 XCK. Bonvolu atendi ~%2 minutojn por ke via tuta saldo fariĝu disponebla.</translation>
     </message>
     <message>
         <location filename="../xcash-gui/pages/Transfer.qml" line="674" />
@@ -2802,8 +2802,8 @@ Por reskani la transakcion, vi povas resinkronigi vian monujon per reseto de la 
     </message>
     <message>
         <location filename="../xcash-gui/pages/Transfer.qml" line="988" />
-        <source>Spend XCA from a cold (offline) wallet</source>
-        <translation>Elspezi XCA el malvarma (senreta) monujo</translation>
+        <source>Spend XCK from a cold (offline) wallet</source>
+        <translation>Elspezi XCK el malvarma (senreta) monujo</translation>
     </message>
     <message>
         <location filename="../xcash-gui/pages/Transfer.qml" line="986" />
@@ -3112,8 +3112,8 @@ For reserve proofs you don't need to specify tx id or address.</source>
     </message>
     <message>
         <location filename="../xcash-gui/pages/TxKey.qml" line="109" />
-        <source>Paste amount of XCA (reserve proof only)</source>
-        <translation>Algluu sumon de XCA (nur por rezervpruvo)</translation>
+        <source>Paste amount of XCK (reserve proof only)</source>
+        <translation>Algluu sumon de XCK (nur por rezervpruvo)</translation>
     </message>
     <message>
         <location filename="../xcash-gui/pages/TxKey.qml" line="138" />

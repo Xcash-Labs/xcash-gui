@@ -1125,8 +1125,8 @@ Pre lepšiu bezpečnosť sa odporúča heslovú frázu zadať do hardvérovej pe
     </message>
     <message>
         <location filename="../xcash-gui/pages/Mining.qml" line="532" />
-        <source>%1% fee · %2 XCA votes</source>
-        <translation>%1% poplatok · %2 XCA hlasov</translation>
+        <source>%1% fee · %2 XCK votes</source>
+        <translation>%1% poplatok · %2 XCK hlasov</translation>
     </message>
 </context>
 <context>
@@ -2630,8 +2630,8 @@ Aby ste transakciu znova preskenovali, môžete svoju peňaženku znovu synchron
     </message>
     <message>
         <location filename="../xcash-gui/pages/Transfer.qml" line="169" />
-        <source>Spendable funds: %1 XCA. Please wait ~%2 minutes for your whole balance to become spendable.</source>
-        <translation>Vyčerpateľné peňažné prostriedky: %1 XCA. Prosím, počkajte ~%2 minút, aby Váš celý zostatok bol vyčerpateľný.</translation>
+        <source>Spendable funds: %1 XCK. Please wait ~%2 minutes for your whole balance to become spendable.</source>
+        <translation>Vyčerpateľné peňažné prostriedky: %1 XCK. Prosím, počkajte ~%2 minút, aby Váš celý zostatok bol vyčerpateľný.</translation>
     </message>
     <message>
         <location filename="../xcash-gui/pages/Transfer.qml" line="333" />
@@ -2742,8 +2742,8 @@ Aby ste transakciu znova preskenovali, môžete svoju peňaženku znovu synchron
     </message>
     <message>
         <location filename="../xcash-gui/pages/Transfer.qml" line="988" />
-        <source>Spend XCA from a cold (offline) wallet</source>
-        <translation>Odoslať XCA zo studenej (offline) peňaženky</translation>
+        <source>Spend XCK from a cold (offline) wallet</source>
+        <translation>Odoslať XCK zo studenej (offline) peňaženky</translation>
     </message>
     <message>
         <location filename="../xcash-gui/pages/Transfer.qml" line="986" />
@@ -3118,8 +3118,8 @@ For reserve proofs you don't need to specify tx id or address.</source>
     </message>
     <message>
         <location filename="../xcash-gui/pages/TxKey.qml" line="109" />
-        <source>Paste amount of XCA (reserve proof only)</source>
-        <translation>Prilepte množstvo XCA (len pre dôkaz rezervy)</translation>
+        <source>Paste amount of XCK (reserve proof only)</source>
+        <translation>Prilepte množstvo XCK (len pre dôkaz rezervy)</translation>
     </message>
     <message>
         <location filename="../xcash-gui/pages/TxKey.qml" line="138" />

@@ -1125,8 +1125,8 @@ It is recommended to enter passphrase on the hardware wallet for better security
     </message>
     <message>
         <location filename="../xcash-gui/pages/Mining.qml" line="532" />
-        <source>%1% fee · %2 XCA votes</source>
-        <translation>%1% கட்டணம் · %2 XCA வாக்குகள்</translation>
+        <source>%1% fee · %2 XCK votes</source>
+        <translation>%1% கட்டணம் · %2 XCK வாக்குகள்</translation>
     </message>
 </context>
 <context>
@@ -2635,8 +2635,8 @@ In order to rescan the transaction, you can re-sync your wallet by resetting the
     </message>
     <message>
         <location filename="../xcash-gui/pages/Transfer.qml" line="169" />
-        <source>Spendable funds: %1 XCA. Please wait ~%2 minutes for your whole balance to become spendable.</source>
-        <translation>செலவிடத்தக்கக் காசுகள்: %1 XCA. தயவு செய்து காத்திருக்கவும். இன்னும் ~%2 நிமிடங்களில் உங்கள் இருப்பு செலவிடத்தக்கதாகி விடும்.</translation>
+        <source>Spendable funds: %1 XCK. Please wait ~%2 minutes for your whole balance to become spendable.</source>
+        <translation>செலவிடத்தக்கக் காசுகள்: %1 XCK. தயவு செய்து காத்திருக்கவும். இன்னும் ~%2 நிமிடங்களில் உங்கள் இருப்பு செலவிடத்தக்கதாகி விடும்.</translation>
     </message>
     <message>
         <location filename="../xcash-gui/pages/Transfer.qml" line="333" />
@@ -2793,8 +2793,8 @@ Confirmation message:
     </message>
     <message>
         <location filename="../xcash-gui/pages/Transfer.qml" line="988" />
-        <source>Spend XCA from a cold (offline) wallet</source>
-        <translation>XCA காசுகளைக் குளிர் (முடக்கலை) பணப்பையிலிருந்து செலவழிக்கவும்</translation>
+        <source>Spend XCK from a cold (offline) wallet</source>
+        <translation>XCK காசுகளைக் குளிர் (முடக்கலை) பணப்பையிலிருந்து செலவழிக்கவும்</translation>
     </message>
     <message>
         <location filename="../xcash-gui/pages/Transfer.qml" line="986" />
@@ -3111,8 +3111,8 @@ For reserve proofs you don't need to specify tx id or address.</source>
     </message>
     <message>
         <location filename="../xcash-gui/pages/TxKey.qml" line="109" />
-        <source>Paste amount of XCA (reserve proof only)</source>
-        <translation>XCA தொகையை ஒட்டவும் (ஒதுக்கீட்டு சான்று மட்டும்)</translation>
+        <source>Paste amount of XCK (reserve proof only)</source>
+        <translation>XCK தொகையை ஒட்டவும் (ஒதுக்கீட்டு சான்று மட்டும்)</translation>
     </message>
     <message>
         <location filename="../xcash-gui/pages/TxKey.qml" line="138" />

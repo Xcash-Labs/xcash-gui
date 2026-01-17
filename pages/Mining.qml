@@ -526,7 +526,7 @@ Rectangle {
                 var votesXCA = formatVotesAtomicToXcash(d.votes);
                 delegatesModel.append({
                     column1: d.delegateName,
-                    column2: qsTr("%1% fee · %2 XCA votes").arg(d.fee).arg(votesXCA),
+                    column2: qsTr("%1% fee · %2 XCK votes").arg(d.fee).arg(votesXCA),
                     delegateIndx: sharedCount
                 });
                 sharedCount++;

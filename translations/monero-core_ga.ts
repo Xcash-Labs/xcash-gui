@@ -1125,8 +1125,8 @@ Moltar an focal faire a iontráil ar an sparán crua-earraí le haghaidh slánd�
     </message>
     <message>
         <location filename="../xcash-gui/pages/Mining.qml" line="532" />
-        <source>%1% fee · %2 XCA votes</source>
-        <translation>%1% muirear · %2 XCA vótaí</translation>
+        <source>%1% fee · %2 XCK votes</source>
+        <translation>%1% muirear · %2 XCK vótaí</translation>
     </message>
 </context>
 <context>
@@ -2634,8 +2634,8 @@ Chun an t-idirbheart a scanadh arís, is féidir leat do sparán a athshioncron�
     </message>
     <message>
         <location filename="../xcash-gui/pages/Transfer.qml" line="169" />
-        <source>Spendable funds: %1 XCA. Please wait ~%2 minutes for your whole balance to become spendable.</source>
-        <translation>Cistí atá ar fáil le caitheamh: %1 XCA. Fan le do thoil ~%2 nóiméad chun go mbeidh do chothromaíocht iomlán ar fáil le caitheamh.</translation>
+        <source>Spendable funds: %1 XCK. Please wait ~%2 minutes for your whole balance to become spendable.</source>
+        <translation>Cistí atá ar fáil le caitheamh: %1 XCK. Fan le do thoil ~%2 nóiméad chun go mbeidh do chothromaíocht iomlán ar fáil le caitheamh.</translation>
     </message>
     <message>
         <location filename="../xcash-gui/pages/Transfer.qml" line="333" />
@@ -2792,8 +2792,8 @@ Confirmation message:
     </message>
     <message>
         <location filename="../xcash-gui/pages/Transfer.qml" line="988" />
-        <source>Spend XCA from a cold (offline) wallet</source>
-        <translation>Caith XCA ó sparán fuar (as líne)</translation>
+        <source>Spend XCK from a cold (offline) wallet</source>
+        <translation>Caith XCK ó sparán fuar (as líne)</translation>
     </message>
     <message>
         <location filename="../xcash-gui/pages/Transfer.qml" line="986" />
@@ -3110,8 +3110,8 @@ For reserve proofs you don't need to specify tx id or address.</source>
     </message>
     <message>
         <location filename="../xcash-gui/pages/TxKey.qml" line="109" />
-        <source>Paste amount of XCA (reserve proof only)</source>
-        <translation>Greamaigh méid XCA (cruthúnas cúlchiste amháin)</translation>
+        <source>Paste amount of XCK (reserve proof only)</source>
+        <translation>Greamaigh méid XCK (cruthúnas cúlchiste amháin)</translation>
     </message>
     <message>
         <location filename="../xcash-gui/pages/TxKey.qml" line="138" />

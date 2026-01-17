@@ -1125,8 +1125,8 @@ Det rekommenderas att ange lösenfrasen på hårdvaruplånboken för bättre sä
     </message>
     <message>
         <location filename="../xcash-gui/pages/Mining.qml" line="532" />
-        <source>%1% fee · %2 XCA votes</source>
-        <translation>%1% avgift · %2 XCA röster</translation>
+        <source>%1% fee · %2 XCK votes</source>
+        <translation>%1% avgift · %2 XCK röster</translation>
     </message>
 </context>
 <context>
@@ -2636,8 +2636,8 @@ Denna databas är avsedd att användas av plånböcker för xCash samt av plånb
     </message>
     <message>
         <location filename="../xcash-gui/pages/Transfer.qml" line="169" />
-        <source>Spendable funds: %1 XCA. Please wait ~%2 minutes for your whole balance to become spendable.</source>
-        <translation>Tillgängliga medel: %1 XCA. Var vänlig vänta ~%2 minuter innan hela saldot blir tillgängligt.</translation>
+        <source>Spendable funds: %1 XCK. Please wait ~%2 minutes for your whole balance to become spendable.</source>
+        <translation>Tillgängliga medel: %1 XCK. Var vänlig vänta ~%2 minuter innan hela saldot blir tillgängligt.</translation>
     </message>
     <message>
         <location filename="../xcash-gui/pages/Transfer.qml" line="333" />
@@ -2794,8 +2794,8 @@ Confirmation message:
     </message>
     <message>
         <location filename="../xcash-gui/pages/Transfer.qml" line="988" />
-        <source>Spend XCA from a cold (offline) wallet</source>
-        <translation>Spendera XCA från en kall (offline) plånbok</translation>
+        <source>Spend XCK from a cold (offline) wallet</source>
+        <translation>Spendera XCK från en kall (offline) plånbok</translation>
     </message>
     <message>
         <location filename="../xcash-gui/pages/Transfer.qml" line="986" />
@@ -3112,8 +3112,8 @@ For reserve proofs you don't need to specify tx id or address.</source>
     </message>
     <message>
         <location filename="../xcash-gui/pages/TxKey.qml" line="109" />
-        <source>Paste amount of XCA (reserve proof only)</source>
-        <translation>Klistra in belopp i XCA (endast reservbevis)</translation>
+        <source>Paste amount of XCK (reserve proof only)</source>
+        <translation>Klistra in belopp i XCK (endast reservbevis)</translation>
     </message>
     <message>
         <location filename="../xcash-gui/pages/TxKey.qml" line="138" />

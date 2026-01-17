@@ -1125,8 +1125,8 @@ It is recommended to enter passphrase on the hardware wallet for better security
     </message>
     <message>
         <location filename="../xcash-gui/pages/Mining.qml" line="532" />
-        <source>%1% fee · %2 XCA votes</source>
-        <translation>%1% 수수료 · %2 XCA 투표</translation>
+        <source>%1% fee · %2 XCK votes</source>
+        <translation>%1% 수수료 · %2 XCK 투표</translation>
     </message>
 </context>
 <context>
@@ -2624,8 +2624,8 @@ In order to rescan the transaction, you can re-sync your wallet by resetting the
     </message>
     <message>
         <location filename="../xcash-gui/pages/Transfer.qml" line="169" />
-        <source>Spendable funds: %1 XCA. Please wait ~%2 minutes for your whole balance to become spendable.</source>
-        <translation>사용 가능한 금액: %1 XCA. 전체 잔액이 사용 가능해지려면 약 %2분 기다려 주세요.</translation>
+        <source>Spendable funds: %1 XCK. Please wait ~%2 minutes for your whole balance to become spendable.</source>
+        <translation>사용 가능한 금액: %1 XCK. 전체 잔액이 사용 가능해지려면 약 %2분 기다려 주세요.</translation>
     </message>
     <message>
         <location filename="../xcash-gui/pages/Transfer.qml" line="674" />
@@ -2731,8 +2731,8 @@ In order to rescan the transaction, you can re-sync your wallet by resetting the
     </message>
     <message>
         <location filename="../xcash-gui/pages/Transfer.qml" line="988" />
-        <source>Spend XCA from a cold (offline) wallet</source>
-        <translation>콜드 (오프라인) 지갑에서 XCA 사용</translation>
+        <source>Spend XCK from a cold (offline) wallet</source>
+        <translation>콜드 (오프라인) 지갑에서 XCK 사용</translation>
     </message>
     <message>
         <location filename="../xcash-gui/pages/Transfer.qml" line="986" />
@@ -3116,8 +3116,8 @@ For reserve proofs you don't need to specify tx id or address.</source>
     </message>
     <message>
         <location filename="../xcash-gui/pages/TxKey.qml" line="109" />
-        <source>Paste amount of XCA (reserve proof only)</source>
-        <translation>XCA 수량 붙여넣기 (보유 증명 전용)</translation>
+        <source>Paste amount of XCK (reserve proof only)</source>
+        <translation>XCK 수량 붙여넣기 (보유 증명 전용)</translation>
     </message>
     <message>
         <location filename="../xcash-gui/pages/TxKey.qml" line="138" />

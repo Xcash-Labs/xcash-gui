@@ -1125,8 +1125,8 @@ It is recommended to enter passphrase on the hardware wallet for better security
     </message>
     <message>
         <location filename="../xcash-gui/pages/Mining.qml" line="532" />
-        <source>%1% fee · %2 XCA votes</source>
-        <translation>%1% शुल्क · %2 XCA मतहरू</translation>
+        <source>%1% fee · %2 XCK votes</source>
+        <translation>%1% शुल्क · %2 XCK मतहरू</translation>
     </message>
 </context>
 <context>
@@ -2634,8 +2634,8 @@ In order to rescan the transaction, you can re-sync your wallet by resetting the
     </message>
     <message>
         <location filename="../xcash-gui/pages/Transfer.qml" line="169" />
-        <source>Spendable funds: %1 XCA. Please wait ~%2 minutes for your whole balance to become spendable.</source>
-        <translation>खर्च गर्न मिल्ने रकम: %1 XCA. कृपया ~%2 मिनेट पर्खनुहोस् ताकि तपाईंको सम्पूर्ण ब्यालेन्स खर्चयोग्य होस्.</translation>
+        <source>Spendable funds: %1 XCK. Please wait ~%2 minutes for your whole balance to become spendable.</source>
+        <translation>खर्च गर्न मिल्ने रकम: %1 XCK. कृपया ~%2 मिनेट पर्खनुहोस् ताकि तपाईंको सम्पूर्ण ब्यालेन्स खर्चयोग्य होस्.</translation>
     </message>
     <message>
         <location filename="../xcash-gui/pages/Transfer.qml" line="333" />
@@ -2792,8 +2792,8 @@ Confirmation message:
     </message>
     <message>
         <location filename="../xcash-gui/pages/Transfer.qml" line="988" />
-        <source>Spend XCA from a cold (offline) wallet</source>
-        <translation>XCA कोल्ड (अफलाइन) वालेटबाट खर्च गर्नुहोस्</translation>
+        <source>Spend XCK from a cold (offline) wallet</source>
+        <translation>XCK कोल्ड (अफलाइन) वालेटबाट खर्च गर्नुहोस्</translation>
     </message>
     <message>
         <location filename="../xcash-gui/pages/Transfer.qml" line="986" />
@@ -3110,8 +3110,8 @@ For reserve proofs you don't need to specify tx id or address.</source>
     </message>
     <message>
         <location filename="../xcash-gui/pages/TxKey.qml" line="109" />
-        <source>Paste amount of XCA (reserve proof only)</source>
-        <translation>XCA को रकम टाँस्नुहोस् (केवल रिजर्भ प्रमाणका लागि)</translation>
+        <source>Paste amount of XCK (reserve proof only)</source>
+        <translation>XCK को रकम टाँस्नुहोस् (केवल रिजर्भ प्रमाणका लागि)</translation>
     </message>
     <message>
         <location filename="../xcash-gui/pages/TxKey.qml" line="138" />

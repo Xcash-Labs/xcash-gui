@@ -1125,8 +1125,8 @@ Es recomana introduir la frase de contrasenya a la cartera de maquinari per a un
     </message>
     <message>
         <location filename="../xcash-gui/pages/Mining.qml" line="532" />
-        <source>%1% fee · %2 XCA votes</source>
-        <translation>%1% comissió · %2 XCA vots</translation>
+        <source>%1% fee · %2 XCK votes</source>
+        <translation>%1% comissió · %2 XCK vots</translation>
     </message>
 </context>
 <context>
@@ -2625,8 +2625,8 @@ Per tornar a escanejar la transacció, pots re-sincronitzar la teva cartera rest
     </message>
     <message>
         <location filename="../xcash-gui/pages/Transfer.qml" line="169" />
-        <source>Spendable funds: %1 XCA. Please wait ~%2 minutes for your whole balance to become spendable.</source>
-        <translation>Fons disponibles: %1 XCA. Si us plau, espereu ~%2 minuts perquè la totalitat del vostre saldo es pugui gastar.</translation>
+        <source>Spendable funds: %1 XCK. Please wait ~%2 minutes for your whole balance to become spendable.</source>
+        <translation>Fons disponibles: %1 XCK. Si us plau, espereu ~%2 minuts perquè la totalitat del vostre saldo es pugui gastar.</translation>
     </message>
     <message>
         <location filename="../xcash-gui/pages/Transfer.qml" line="333" />
@@ -2788,8 +2788,8 @@ Confirmation message:
     </message>
     <message>
         <location filename="../xcash-gui/pages/Transfer.qml" line="988" />
-        <source>Spend XCA from a cold (offline) wallet</source>
-        <translation>Gastar XCA des d'una cartera freda (desconnectada)</translation>
+        <source>Spend XCK from a cold (offline) wallet</source>
+        <translation>Gastar XCK des d'una cartera freda (desconnectada)</translation>
     </message>
     <message>
         <location filename="../xcash-gui/pages/Transfer.qml" line="986" />
@@ -3111,8 +3111,8 @@ For reserve proofs you don't need to specify tx id or address.</source>
     </message>
     <message>
         <location filename="../xcash-gui/pages/TxKey.qml" line="109" />
-        <source>Paste amount of XCA (reserve proof only)</source>
-        <translation>Enganxa l'import d'XCA (només per a prova de reserva)</translation>
+        <source>Paste amount of XCK (reserve proof only)</source>
+        <translation>Enganxa l'import d'XCK (només per a prova de reserva)</translation>
     </message>
     <message>
         <location filename="../xcash-gui/pages/TxKey.qml" line="138" />

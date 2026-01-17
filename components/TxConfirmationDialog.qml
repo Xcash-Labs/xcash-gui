@@ -207,7 +207,7 @@ Rectangle {
                     if (root.transactionAmount == "(all)" && currentWallet.isHwBacked() === true) {
                         return qsTr("All unlocked balance") +  translationManager.emptyString;
                     } else {
-                        return root.transactionAmount + " XCA " +  translationManager.emptyString;
+                        return root.transactionAmount + " XCK " +  translationManager.emptyString;
                     }
                 }
             }
@@ -313,7 +313,7 @@ Rectangle {
                                 title = qsTr("xCash address") + translationManager.emptyString;
                             }
                             if (recipients.length > 1) {
-                                title = "%1. %2 - %3 XCA".arg(index + 1).arg(title).arg(recipient.amount);
+                                title = "%1. %2 - %3 XCK".arg(index + 1).arg(title).arg(recipient.amount);
                                 if (persistentSettings.fiatPriceEnabled) {
                                     title += " (%1)".arg(showFiatConversion(recipient.amount));
                                 }
@@ -352,7 +352,7 @@ Rectangle {
                                     return qsTr("Calculating fee") + "..." +  translationManager.emptyString;
                                 }
                             } else {
-                                return root.transactionFee + " XCA" + (maliciousTxFee ? " (HIGH FEE)" : "")
+                                return root.transactionFee + " XCK" + (maliciousTxFee ? " (HIGH FEE)" : "")
                             }
                         } else {
                             return "";

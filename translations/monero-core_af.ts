@@ -1125,8 +1125,8 @@ Dit word aanbeveel om die wagfrase op die hardewarebeursie in te tik vir beter s
     </message>
     <message>
         <location filename="../xcash-gui/pages/Mining.qml" line="532" />
-        <source>%1% fee · %2 XCA votes</source>
-        <translation>%1% fooi · %2 XCA-stemme</translation>
+        <source>%1% fee · %2 XCK votes</source>
+        <translation>%1% fooi · %2 XCK-stemme</translation>
     </message>
 </context>
 <context>
@@ -2635,8 +2635,8 @@ Om die transaksie opnuut te skandeer, kan jy jou beursie weer sinchroniseer deur
     </message>
     <message>
         <location filename="../xcash-gui/pages/Transfer.qml" line="169" />
-        <source>Spendable funds: %1 XCA. Please wait ~%2 minutes for your whole balance to become spendable.</source>
-        <translation>Spandeerbare fondse: %1 XCA. Wag asb ~%2 minute vir volle balans om beskikbaar te word.</translation>
+        <source>Spendable funds: %1 XCK. Please wait ~%2 minutes for your whole balance to become spendable.</source>
+        <translation>Spandeerbare fondse: %1 XCK. Wag asb ~%2 minute vir volle balans om beskikbaar te word.</translation>
     </message>
     <message>
         <location filename="../xcash-gui/pages/Transfer.qml" line="333" />
@@ -2793,8 +2793,8 @@ Confirmation message:
     </message>
     <message>
         <location filename="../xcash-gui/pages/Transfer.qml" line="988" />
-        <source>Spend XCA from a cold (offline) wallet</source>
-        <translation>Spandeer XCA vanaf 'n vanlynbeursie</translation>
+        <source>Spend XCK from a cold (offline) wallet</source>
+        <translation>Spandeer XCK vanaf 'n vanlynbeursie</translation>
     </message>
     <message>
         <location filename="../xcash-gui/pages/Transfer.qml" line="986" />
@@ -3111,8 +3111,8 @@ For reserve proofs you don't need to specify tx id or address.</source>
     </message>
     <message>
         <location filename="../xcash-gui/pages/TxKey.qml" line="109" />
-        <source>Paste amount of XCA (reserve proof only)</source>
-        <translation>Plak bedrag van XCA (slegs bewys van reserwes)</translation>
+        <source>Paste amount of XCK (reserve proof only)</source>
+        <translation>Plak bedrag van XCK (slegs bewys van reserwes)</translation>
     </message>
     <message>
         <location filename="../xcash-gui/pages/TxKey.qml" line="138" />

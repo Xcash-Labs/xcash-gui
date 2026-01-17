@@ -307,7 +307,7 @@ Rectangle {
                                 anchors.leftMargin: -balanceNumberLabel.width
                                 fontSize: 16
                                 fontFamily: MoneroComponents.Style.fontMonoRegular.name;
-                                text: balance + " XCA"
+                                text: balance + " XCK"
                                 elide: Text.ElideRight
                                 textWidth: 180
                                 themeTransition: false
@@ -396,8 +396,8 @@ Rectangle {
             subaddressAccountListView.model = appWindow.currentWallet.subaddressAccountModel;
             appWindow.currentWallet.subaddress.refresh(appWindow.currentWallet.currentSubaddressAccount)
 
-            balanceAll.text = walletManager.displayAmount(appWindow.currentWallet.balanceAll()) + " XCA"
-            unlockedBalanceAll.text = walletManager.displayAmount(appWindow.currentWallet.unlockedBalanceAll()) + " XCA"
+            balanceAll.text = walletManager.displayAmount(appWindow.currentWallet.balanceAll()) + " XCK"
+            unlockedBalanceAll.text = walletManager.displayAmount(appWindow.currentWallet.unlockedBalanceAll()) + " XCK"
         }
     }
 

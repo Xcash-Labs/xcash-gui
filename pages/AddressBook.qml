@@ -323,7 +323,7 @@ Rectangle {
                     .arg(qsTr("Address")) + translationManager.emptyString
                 placeholderText: {
                     if(persistentSettings.nettype == NetworkType.MAINNET){
-                        return "4.. / 8.. / monero:.. / OpenAlias";
+                        return "XCK.. / 8.. / monero:.. / OpenAlias";
                     } else if (persistentSettings.nettype == NetworkType.STAGENET){
                         return "5.. / 7.. / monero:..";
                     } else if(persistentSettings.nettype == NetworkType.TESTNET){

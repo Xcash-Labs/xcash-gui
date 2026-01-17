@@ -1125,8 +1125,8 @@ Disarankan untuk memasukkan passphrase pada dompet perangkat keras untuk keamana
     </message>
     <message>
         <location filename="../xcash-gui/pages/Mining.qml" line="532" />
-        <source>%1% fee · %2 XCA votes</source>
-        <translation>%1% biaya · %2 XCA suara</translation>
+        <source>%1% fee · %2 XCK votes</source>
+        <translation>%1% biaya · %2 XCK suara</translation>
     </message>
 </context>
 <context>
@@ -2635,8 +2635,8 @@ Untuk memindai ulang transaksi tersebut, Anda dapat menyinkronkan ulang dompet A
     </message>
     <message>
         <location filename="../xcash-gui/pages/Transfer.qml" line="169" />
-        <source>Spendable funds: %1 XCA. Please wait ~%2 minutes for your whole balance to become spendable.</source>
-        <translation>Dana yang dapat dibelanjakan: %1 XCA. Harap tunggu ~%2 menit agar seluruh saldo Anda menjadi dapat dibelanjakan.</translation>
+        <source>Spendable funds: %1 XCK. Please wait ~%2 minutes for your whole balance to become spendable.</source>
+        <translation>Dana yang dapat dibelanjakan: %1 XCK. Harap tunggu ~%2 menit agar seluruh saldo Anda menjadi dapat dibelanjakan.</translation>
     </message>
     <message>
         <location filename="../xcash-gui/pages/Transfer.qml" line="333" />
@@ -2742,8 +2742,8 @@ Untuk memindai ulang transaksi tersebut, Anda dapat menyinkronkan ulang dompet A
     </message>
     <message>
         <location filename="../xcash-gui/pages/Transfer.qml" line="988" />
-        <source>Spend XCA from a cold (offline) wallet</source>
-        <translation>Belanjakan XCA dari dompet dingin (offline)</translation>
+        <source>Spend XCK from a cold (offline) wallet</source>
+        <translation>Belanjakan XCK dari dompet dingin (offline)</translation>
     </message>
     <message>
         <location filename="../xcash-gui/pages/Transfer.qml" line="986" />
@@ -3116,8 +3116,8 @@ For reserve proofs you don't need to specify tx id or address.</source>
     </message>
     <message>
         <location filename="../xcash-gui/pages/TxKey.qml" line="109" />
-        <source>Paste amount of XCA (reserve proof only)</source>
-        <translation>Tempel jumlah XCA (hanya untuk bukti cadangan)</translation>
+        <source>Paste amount of XCK (reserve proof only)</source>
+        <translation>Tempel jumlah XCK (hanya untuk bukti cadangan)</translation>
     </message>
     <message>
         <location filename="../xcash-gui/pages/TxKey.qml" line="138" />

@@ -230,7 +230,7 @@ Rectangle {
                         if (persistentSettings.fiatPriceEnabled && persistentSettings.fiatPriceToggle) {
                             return appWindow.fiatApiCurrencySymbol();
                         } else {
-                            return "XCA"
+                            return "XCK"
                         }
                     }
                     color: MoneroComponents.Style.blackTheme ? "white" : "black"

@@ -1125,8 +1125,8 @@ It is recommended to enter passphrase on the hardware wallet for better security
     </message>
     <message>
         <location filename="../xcash-gui/pages/Mining.qml" line="532" />
-        <source>%1% fee · %2 XCA votes</source>
-        <translation>%1% 手续费 · %2 XCA 投票</translation>
+        <source>%1% fee · %2 XCK votes</source>
+        <translation>%1% 手续费 · %2 XCK 投票</translation>
     </message>
 </context>
 <context>
@@ -2636,7 +2636,7 @@ In order to rescan the transaction, you can re-sync your wallet by resetting the
     </message>
     <message>
         <location filename="../xcash-gui/pages/Transfer.qml" line="169" />
-        <source>Spendable funds: %1 XCA. Please wait ~%2 minutes for your whole balance to become spendable.</source>
+        <source>Spendable funds: %1 XCK. Please wait ~%2 minutes for your whole balance to become spendable.</source>
         <translation>可用资金：%1 。请等待约%2分钟使你所有的余额可用。</translation>
     </message>
     <message>
@@ -2809,7 +2809,7 @@ Confirmation message:
     </message>
     <message>
         <location filename="../xcash-gui/pages/Transfer.qml" line="988" />
-        <source>Spend XCA from a cold (offline) wallet</source>
+        <source>Spend XCK from a cold (offline) wallet</source>
         <translation>花费冷(线下)钱包里的门罗币</translation>
     </message>
     <message>
@@ -3119,8 +3119,8 @@ For reserve proofs you don't need to specify tx id or address.</source>
     </message>
     <message>
         <location filename="../xcash-gui/pages/TxKey.qml" line="109" />
-        <source>Paste amount of XCA (reserve proof only)</source>
-        <translation>粘贴 XCA 金额（仅用于储备证明）</translation>
+        <source>Paste amount of XCK (reserve proof only)</source>
+        <translation>粘贴 XCK 金额（仅用于储备证明）</translation>
     </message>
     <message>
         <location filename="../xcash-gui/pages/TxKey.qml" line="138" />

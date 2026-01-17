@@ -1125,8 +1125,8 @@ Mælt er með að slá inn lykilorð í harðvaraveskinu til að auka öryggi.</
     </message>
     <message>
         <location filename="../xcash-gui/pages/Mining.qml" line="532" />
-        <source>%1% fee · %2 XCA votes</source>
-        <translation>%1% þóknun · %2 XCA atkvæði</translation>
+        <source>%1% fee · %2 XCK votes</source>
+        <translation>%1% þóknun · %2 XCK atkvæði</translation>
     </message>
 </context>
 <context>
@@ -2633,8 +2633,8 @@ Til að endurskanna færsluna geturðu samstillt veskið þitt aftur með því 
     </message>
     <message>
         <location filename="../xcash-gui/pages/Transfer.qml" line="169" />
-        <source>Spendable funds: %1 XCA. Please wait ~%2 minutes for your whole balance to become spendable.</source>
-        <translation>Fé sem má nota: %1 XCA. Vinsamlegast bíðið um það bil ~%2 mínútur þar til heildarupphæðin þín verður nothæf.</translation>
+        <source>Spendable funds: %1 XCK. Please wait ~%2 minutes for your whole balance to become spendable.</source>
+        <translation>Fé sem má nota: %1 XCK. Vinsamlegast bíðið um það bil ~%2 mínútur þar til heildarupphæðin þín verður nothæf.</translation>
     </message>
     <message>
         <location filename="../xcash-gui/pages/Transfer.qml" line="333" />
@@ -2791,8 +2791,8 @@ Confirmation message:
     </message>
     <message>
         <location filename="../xcash-gui/pages/Transfer.qml" line="988" />
-        <source>Spend XCA from a cold (offline) wallet</source>
-        <translation>Senda XCA úr köldu (ónettengdu) veski</translation>
+        <source>Spend XCK from a cold (offline) wallet</source>
+        <translation>Senda XCK úr köldu (ónettengdu) veski</translation>
     </message>
     <message>
         <location filename="../xcash-gui/pages/Transfer.qml" line="986" />
@@ -3109,8 +3109,8 @@ For reserve proofs you don't need to specify tx id or address.</source>
     </message>
     <message>
         <location filename="../xcash-gui/pages/TxKey.qml" line="109" />
-        <source>Paste amount of XCA (reserve proof only)</source>
-        <translation>Lím inn upphæð XCA (aðeins fyrir sönnun á varasjóði)</translation>
+        <source>Paste amount of XCK (reserve proof only)</source>
+        <translation>Lím inn upphæð XCK (aðeins fyrir sönnun á varasjóði)</translation>
     </message>
     <message>
         <location filename="../xcash-gui/pages/TxKey.qml" line="138" />

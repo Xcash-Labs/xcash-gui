@@ -1125,8 +1125,8 @@ Dėl geresnio saugumo rekomenduojama slaptafrazę įvesti aparatinėje piniginė
     </message>
     <message>
         <location filename="../xcash-gui/pages/Mining.qml" line="532" />
-        <source>%1% fee · %2 XCA votes</source>
-        <translation>%1% mokestis · %2 XCA balsai</translation>
+        <source>%1% fee · %2 XCK votes</source>
+        <translation>%1% mokestis · %2 XCK balsai</translation>
     </message>
 </context>
 <context>
@@ -2707,8 +2707,8 @@ Confirmation message:
     </message>
     <message>
         <location filename="../xcash-gui/pages/Transfer.qml" line="169" />
-        <source>Spendable funds: %1 XCA. Please wait ~%2 minutes for your whole balance to become spendable.</source>
-        <translation>Prieinamos lėšos: %1 XCA. Palaukite ~%2 minučių, kol visas jūsų likutis taps prieinamas.</translation>
+        <source>Spendable funds: %1 XCK. Please wait ~%2 minutes for your whole balance to become spendable.</source>
+        <translation>Prieinamos lėšos: %1 XCK. Palaukite ~%2 minučių, kol visas jūsų likutis taps prieinamas.</translation>
     </message>
     <message>
         <location filename="../xcash-gui/pages/Transfer.qml" line="674" />
@@ -2809,8 +2809,8 @@ Confirmation message:
     </message>
     <message>
         <location filename="../xcash-gui/pages/Transfer.qml" line="988" />
-        <source>Spend XCA from a cold (offline) wallet</source>
-        <translation>Išleisti XCA iš šaltos (neprisijungusios) piniginės</translation>
+        <source>Spend XCK from a cold (offline) wallet</source>
+        <translation>Išleisti XCK iš šaltos (neprisijungusios) piniginės</translation>
     </message>
     <message>
         <location filename="../xcash-gui/pages/Transfer.qml" line="986" />
@@ -3119,8 +3119,8 @@ For reserve proofs you don't need to specify tx id or address.</source>
     </message>
     <message>
         <location filename="../xcash-gui/pages/TxKey.qml" line="109" />
-        <source>Paste amount of XCA (reserve proof only)</source>
-        <translation>Įklijuokite XCA sumą (tik rezervų įrodymui)</translation>
+        <source>Paste amount of XCK (reserve proof only)</source>
+        <translation>Įklijuokite XCK sumą (tik rezervų įrodymui)</translation>
     </message>
     <message>
         <location filename="../xcash-gui/pages/TxKey.qml" line="138" />

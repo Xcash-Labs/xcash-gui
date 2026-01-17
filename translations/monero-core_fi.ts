@@ -1125,8 +1125,8 @@ On suositeltavaa syöttää salasana suoraan laitelompakkoon parempaa turvallisu
     </message>
     <message>
         <location filename="../xcash-gui/pages/Mining.qml" line="532" />
-        <source>%1% fee · %2 XCA votes</source>
-        <translation>%1% maksu · %2 XCA ääntä</translation>
+        <source>%1% fee · %2 XCK votes</source>
+        <translation>%1% maksu · %2 XCK ääntä</translation>
     </message>
 </context>
 <context>
@@ -2634,8 +2634,8 @@ Jotta voit skannata tapahtuman uudelleen, synkronoi lompakkosi asettamalla lompa
     </message>
     <message>
         <location filename="../xcash-gui/pages/Transfer.qml" line="169" />
-        <source>Spendable funds: %1 XCA. Please wait ~%2 minutes for your whole balance to become spendable.</source>
-        <translation>Käytettävät varat: %1 XCA. Odota ~%2 minuuttia, jotta koko saldosi on käyttettävissä.</translation>
+        <source>Spendable funds: %1 XCK. Please wait ~%2 minutes for your whole balance to become spendable.</source>
+        <translation>Käytettävät varat: %1 XCK. Odota ~%2 minuuttia, jotta koko saldosi on käyttettävissä.</translation>
     </message>
     <message>
         <location filename="../xcash-gui/pages/Transfer.qml" line="333" />
@@ -2794,8 +2794,8 @@ Vahvistusviesti:
     </message>
     <message>
         <location filename="../xcash-gui/pages/Transfer.qml" line="988" />
-        <source>Spend XCA from a cold (offline) wallet</source>
-        <translation>Kuluta XCA kylmästä (offline) lompakosta</translation>
+        <source>Spend XCK from a cold (offline) wallet</source>
+        <translation>Kuluta XCK kylmästä (offline) lompakosta</translation>
     </message>
     <message>
         <location filename="../xcash-gui/pages/Transfer.qml" line="986" />
@@ -3112,8 +3112,8 @@ For reserve proofs you don't need to specify tx id or address.</source>
     </message>
     <message>
         <location filename="../xcash-gui/pages/TxKey.qml" line="109" />
-        <source>Paste amount of XCA (reserve proof only)</source>
-        <translation>Liitä summa XCA (vain varatuille todisteille)</translation>
+        <source>Paste amount of XCK (reserve proof only)</source>
+        <translation>Liitä summa XCK (vain varatuille todisteille)</translation>
     </message>
     <message>
         <location filename="../xcash-gui/pages/TxKey.qml" line="138" />

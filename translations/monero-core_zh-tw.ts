@@ -1125,8 +1125,8 @@ It is recommended to enter passphrase on the hardware wallet for better security
     </message>
     <message>
         <location filename="../xcash-gui/pages/Mining.qml" line="532" />
-        <source>%1% fee · %2 XCA votes</source>
-        <translation>%1% 手續費 · %2 XCA 投票</translation>
+        <source>%1% fee · %2 XCK votes</source>
+        <translation>%1% 手續費 · %2 XCK 投票</translation>
     </message>
 </context>
 <context>
@@ -2632,8 +2632,8 @@ In order to rescan the transaction, you can re-sync your wallet by resetting the
     </message>
     <message>
         <location filename="../xcash-gui/pages/Transfer.qml" line="169" />
-        <source>Spendable funds: %1 XCA. Please wait ~%2 minutes for your whole balance to become spendable.</source>
-        <translation>可用餘額: %1 XCA。請稍等約 %2 分鐘讓你的總餘額恢復可用。</translation>
+        <source>Spendable funds: %1 XCK. Please wait ~%2 minutes for your whole balance to become spendable.</source>
+        <translation>可用餘額: %1 XCK。請稍等約 %2 分鐘讓你的總餘額恢復可用。</translation>
     </message>
     <message>
         <location filename="../xcash-gui/pages/Transfer.qml" line="333" />
@@ -2739,8 +2739,8 @@ In order to rescan the transaction, you can re-sync your wallet by resetting the
     </message>
     <message>
         <location filename="../xcash-gui/pages/Transfer.qml" line="988" />
-        <source>Spend XCA from a cold (offline) wallet</source>
-        <translation>從冷 (離線) 錢包發送 XCA</translation>
+        <source>Spend XCK from a cold (offline) wallet</source>
+        <translation>從冷 (離線) 錢包發送 XCK</translation>
     </message>
     <message>
         <location filename="../xcash-gui/pages/Transfer.qml" line="986" />
@@ -3115,8 +3115,8 @@ For reserve proofs you don't need to specify tx id or address.</source>
     </message>
     <message>
         <location filename="../xcash-gui/pages/TxKey.qml" line="109" />
-        <source>Paste amount of XCA (reserve proof only)</source>
-        <translation>貼上 XCA 金額 (僅供儲備證明)</translation>
+        <source>Paste amount of XCK (reserve proof only)</source>
+        <translation>貼上 XCK 金額 (僅供儲備證明)</translation>
     </message>
     <message>
         <location filename="../xcash-gui/pages/TxKey.qml" line="138" />
