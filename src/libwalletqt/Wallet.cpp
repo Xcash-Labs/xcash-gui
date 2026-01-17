@@ -601,14 +601,6 @@ QString Wallet::getRegisteredDelegatesJson() const
 
     QByteArray data = reply->readAll();
 
-    qWarning() << "[delegates] httpStatus=" << httpStatus
-               << "qtErr=" << int(err)
-               << "errStr=" << errStr
-               << "bytes=" << data.size();
-
-    // Optional: show a little of the response (helps spot HTML error pages)
-    qWarning() << "[delegates] body(head200)=" << QString::fromUtf8(data.left(200));
-
     reply->deleteLater();
 
     if (err != QNetworkReply::NoError || httpStatus != 200)
