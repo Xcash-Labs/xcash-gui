@@ -129,53 +129,24 @@ function restoreWalletCheckViewSpendAddress(walletmanager, nettype, viewkey, spe
     return results;
 }
 
-//usage: getApproximateBlockchainHeight("March 18 2016") or getApproximateBlockchainHeight("2016-11-11")
-//returns estimated block height with 1 month buffer prior to requested date.
+// XCash: estimate height from date with ~1 month buffer
 function getApproximateBlockchainHeight(_date, _nettype){
-    // time of monero birth 2014-04-18 10:49:53 (1397818193)
-    var moneroBirthTime = _nettype == "Mainnet" ? 1397818193 : _nettype == "Testnet" ? 1410295020 : 1518932025;
-    // avg seconds per block in v1
-    var secondsPerBlockV1 = 60;
-    // time of v2 fork 2016-03-23 15:57:38 (1458748658)
-    var forkTime = _nettype == "Mainnet" ? 1458748658 : _nettype == "Testnet" ? 1448285909 : 1520937818;
-    // v2 fork block
-    var forkBlock = _nettype == "Mainnet" ? 1009827 : _nettype == "Testnet" ? 624634 : 32000;
-    // avg seconds per block in V2
-    var secondsPerBlockV2 = 120;
-    // time in UTC
+    var xcashBirthTime = 1768082909;   // 2026-01-10 22:08:29 UTC
+    var secondsPerBlock = 60;
+
+    // Parse date -> epoch seconds
     var requestedTime = Math.floor(new Date(_date) / 1000);
-    var approxBlockchainHeight;
-    var secondsPerBlock;
-    // before monero's birth
-    if (requestedTime < moneroBirthTime){
-        console.log("Calculated blockchain height: 0, requestedTime < moneroBirthTime " );
-        return 0;
-    }
-    // time between during v1
-    if (requestedTime > moneroBirthTime && requestedTime < forkTime){
-        approxBlockchainHeight = Math.floor((requestedTime - moneroBirthTime)/secondsPerBlockV1);
-        console.log("Calculated blockchain height: " + approxBlockchainHeight );
-        secondsPerBlock = secondsPerBlockV1;
-    }
-    // time is during V2
-    else{
-        approxBlockchainHeight =  Math.floor(forkBlock + (requestedTime - forkTime)/secondsPerBlockV2);
-        console.log("Calculated blockchain height: " + approxBlockchainHeight );
-        secondsPerBlock = secondsPerBlockV2;
-    }
+    if (!Number.isFinite(requestedTime)) return 0;
 
-    if(_nettype == "Testnet" || _nettype == "Stagenet"){
-        // testnet got some huge rollbacks, so the estimation is way off
-        var approximateTestnetRolledBackBlocks = _nettype == "Testnet" ? 342100 : _nettype == "Stagenet" ? 60000 : 30000;
-        if(approxBlockchainHeight > approximateTestnetRolledBackBlocks)
-            approxBlockchainHeight -= approximateTestnetRolledBackBlocks
-    }
+    // Before chain start
+    if (requestedTime <= xcashBirthTime) return 0;
 
-    var blocksPerMonth = 60*60*24*30/secondsPerBlock;
-    if(approxBlockchainHeight - blocksPerMonth > 0){
-        return approxBlockchainHeight - blocksPerMonth;
-    }
-    else{
-        return 0;
-    }
+    // Approx height since birth
+    var approxBlockchainHeight = Math.floor((requestedTime - xcashBirthTime) / secondsPerBlock);
+
+    // 1-month buffer earlier (optional but matches Monero behavior)
+    var blocksPerMonth = Math.floor((60 * 60 * 24 * 30) / secondsPerBlock);
+    approxBlockchainHeight = Math.max(0, approxBlockchainHeight - blocksPerMonth);
+
+    return approxBlockchainHeight;
 }
