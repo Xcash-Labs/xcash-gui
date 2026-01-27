@@ -1,7 +1,7 @@
 ; X-Cash GUI Wallet Installer for Windows
 ; Forked from the Monero Fluorine Fermi GUI Wallet Installer
 ; Copyright (c) 2017-2024, The Monero Project
-; X-Cash modifications (c) 2025, X-Cash contributors
+; X-Cash modifications (c) 2025, XCash-Labs contributors
 ; See LICENSE
 
 ; fix this later, should come from image
@@ -24,7 +24,7 @@ WizardSmallImageFile=WizardSmallImage.bmp
 WizardImageFile=WelcomeImage.bmp
 DisableWelcomePage=no
 LicenseFile=LICENSE
-AppPublisher=The X-Cash Developer Community
+AppPublisher=The XCash-Labs Developer Community
 AppPublisherURL=https://xcashlabs.org
 TimeStampsInUTC=yes
 CompressionThreads=1
