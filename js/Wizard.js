@@ -129,24 +129,63 @@ function restoreWalletCheckViewSpendAddress(walletmanager, nettype, viewkey, spe
     return results;
 }
 
-// XCash: estimate height from date with ~1 month buffer
-function getApproximateBlockchainHeight(_date, _nettype){
-    var xcashBirthTime = 1768082909;   // 2026-01-10 22:08:29 UTC
-    var secondsPerBlock = 60;
+// XCash Klassic: estimate height from date with ~1 month buffer
+// usage: getApproximateBlockchainHeight("March 18 2026", "Mainnet")
+//        getApproximateBlockchainHeight("2026-02-27", "Mainnet")
+//        getApproximateBlockchainHeight("20260227", "Mainnet")
+function getApproximateBlockchainHeight(_date, _nettype) {
+    // XCash Klassic genesis: 2026-01-10 22:08:29 UTC
+    // NOTE: keep as SECONDS since epoch (UTC)
+    const mainnetBirthTime = 1768082909;
 
-    // Parse date -> epoch seconds
-    var requestedTime = Math.floor(new Date(_date) / 1000);
-    if (!Number.isFinite(requestedTime)) return 0;
+    // If you have different testnet/stagenet genesis times, set them here.
+    const testnetBirthTime = mainnetBirthTime;
+    const stagenetBirthTime = mainnetBirthTime;
+
+    const birthTime =
+        _nettype === "Testnet" ? testnetBirthTime :
+            _nettype === "Stagenet" ? stagenetBirthTime :
+                mainnetBirthTime;
+
+    const secondsPerBlock = 60;
+
+    // ---- robust date parsing (keeps old call sites working) ----
+    const s = String(_date ?? "").trim();
+    if (!s) return 0;
+
+    let requestedTimeSec = 0;
+
+    // Strict YYYY-MM-DD => interpret as UTC midnight (avoid locale parsing differences)
+    let m = s.match(/^(\d{4})-(\d{2})-(\d{2})$/);
+    if (m) {
+        const y = parseInt(m[1], 10);
+        const mo = parseInt(m[2], 10);
+        const d = parseInt(m[3], 10);
+        requestedTimeSec = Math.floor(Date.UTC(y, mo - 1, d) / 1000);
+    }
+    // Compact YYYYMMDD => convert to UTC midnight
+    else if ((m = s.match(/^(\d{4})(\d{2})(\d{2})$/))) {
+        const y = parseInt(m[1], 10);
+        const mo = parseInt(m[2], 10);
+        const d = parseInt(m[3], 10);
+        requestedTimeSec = Math.floor(Date.UTC(y, mo - 1, d) / 1000);
+    }
+    // Fallback: allow legacy "March 18 2016" etc. (browser parsing, but keeps compatibility)
+    else {
+        const t = Date.parse(s);
+        if (!Number.isFinite(t)) return 0;
+        requestedTimeSec = Math.floor(t / 1000);
+    }
 
     // Before chain start
-    if (requestedTime <= xcashBirthTime) return 0;
+    if (!Number.isFinite(requestedTimeSec) || requestedTimeSec <= birthTime) return 0;
 
     // Approx height since birth
-    var approxBlockchainHeight = Math.floor((requestedTime - xcashBirthTime) / secondsPerBlock);
+    let approxHeight = Math.floor((requestedTimeSec - birthTime) / secondsPerBlock);
 
-    // 1-month buffer earlier (optional but matches Monero behavior)
-    var blocksPerMonth = Math.floor((60 * 60 * 24 * 30) / secondsPerBlock);
-    approxBlockchainHeight = Math.max(0, approxBlockchainHeight - blocksPerMonth);
+    // 1-month buffer earlier (matches old behavior)
+    const blocksPerMonth = Math.floor((60 * 60 * 24 * 30) / secondsPerBlock);
+    approxHeight = Math.max(0, approxHeight - blocksPerMonth);
 
-    return approxBlockchainHeight;
+    return approxHeight;
 }
