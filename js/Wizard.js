@@ -189,3 +189,67 @@ function getApproximateBlockchainHeight(_date, _nettype) {
 
     return approxHeight;
 }
+
+function getApproximateBlockchainHeight(_date, _nettype) {
+  const mainnetBirthTime = 1768082909; // 2026-01-10 22:08:29 UTC
+
+print("HEIGHT_FN input typeof:", typeof _date, "value:", _date);
+print("HEIGHT_FN nettype:", _nettype);
+print("HEIGHT_FN birthTime:", mainnetBirthTime);
+
+
+  const testnetBirthTime = mainnetBirthTime;
+  const stagenetBirthTime = mainnetBirthTime;
+
+  const birthTime =
+    _nettype === "Testnet" ? testnetBirthTime :
+    _nettype === "Stagenet" ? stagenetBirthTime :
+    mainnetBirthTime;
+
+  const secondsPerBlock = 60;
+
+  const s = String(_date ?? "").trim();
+  if (!s) return 0;
+
+  let requestedTimeSec = 0;
+
+  let m = s.match(/^(\d{4})-(\d{2})-(\d{2})$/);
+  if (m) {
+    const y = parseInt(m[1], 10);
+    const mo = parseInt(m[2], 10);
+    const d = parseInt(m[3], 10);
+    requestedTimeSec = Math.floor(Date.UTC(y, mo - 1, d) / 1000);
+  } else if ((m = s.match(/^(\d{4})(\d{2})(\d{2})$/))) {
+    const y = parseInt(m[1], 10);
+    const mo = parseInt(m[2], 10);
+    const d = parseInt(m[3], 10);
+    requestedTimeSec = Math.floor(Date.UTC(y, mo - 1, d) / 1000);
+  } else {
+    const t = Date.parse(s);
+    if (!Number.isFinite(t)) return 0;
+    requestedTimeSec = Math.floor(t / 1000);
+  }
+
+  // ---- DEBUG ----
+  console.log("DEBUG input:", s, "nettype:", _nettype);
+  console.log("DEBUG birthTime:", birthTime);
+  console.log("DEBUG requestedTimeSec:", requestedTimeSec);
+  console.log("DEBUG secondsPerBlock:", secondsPerBlock);
+
+  if (!Number.isFinite(requestedTimeSec) || requestedTimeSec <= birthTime) {
+    console.log("DEBUG: requestedTimeSec <= birthTime, returning 0");
+    return 0;
+  }
+
+  const rawHeight = Math.floor((requestedTimeSec - birthTime) / secondsPerBlock);
+  console.log("DEBUG rawHeight:", rawHeight);
+
+  const blocksPerMonth = Math.floor((60 * 60 * 24 * 30) / secondsPerBlock);
+  console.log("DEBUG blocksPerMonth:", blocksPerMonth);
+
+  const finalHeight = Math.max(0, rawHeight - blocksPerMonth);
+  console.log("DEBUG finalHeight:", finalHeight);
+
+  // return finalHeight;
+  return 555555;
+}
