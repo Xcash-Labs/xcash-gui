@@ -177,10 +177,6 @@ Name: "{group}\Utilities\x (Try GUI Wallet Low Graphics Mode)"; Filename: "{app}
 Name: "{commondesktop}\xCash GUI Wallet"; Filename: "{app}\xcash-wallet-gui.exe"; Tasks: desktopicon
 
 [Registry]
-; Optional: clean up old Monero keys (can be kept or removed)
-Root: HKCU; Subkey: "Software\monero-project"; Flags: uninsdeletekeyifempty
-Root: HKCU; Subkey: "Software\monero-project\monero-core"; Flags: uninsdeletekey
-
 ; Configure a custom URI scheme: Links starting with "xcash:" will start the GUI wallet exe
 ; Used to easily start payments; example URI: "xcash://<address>?tx_amount=5.0"
 Root: HKCR; Subkey: "xcash"; ValueType: "string"; ValueData: "URL:xCash Payment Protocol"; Flags: uninsdeletekey
