@@ -1,349 +1,444 @@
-# Monero GUI
+# XCash Klassic GUI
 
-Copyright (c) 2014-2024, xCash Forked from The Monero Project
+Copyright (c) 2014-2024, The Monero Project  
+Copyright (c) 2026, XCash Labs
+
+XCash Klassic GUI is forked from the Monero GUI project and adapted for the XCash Klassic network.
 
 ## Table of Contents
-  * [Development resources](#development-resources)
-  * [Vulnerability response](#vulnerability-response)
-  * [Introduction](#introduction)
-  * [About this project](#about-this-project)
-  * [Supporting the project](#supporting-the-project)
-  * [License](#license)
-  * [Translations](#translations)
-  * [Installing the Monero GUI from a package](#installing-the-monero-gui-from-a-package)
-  * [Compiling the Monero GUI from source](#compiling-the-monero-gui-from-source)
-    + [Building Reproducible Windows static binaries with Docker (any OS)](#building-reproducible-windows-static-binaries-with-docker-any-os)
-    + [Building Reproducible Linux static binaries with Docker (any OS)](#building-reproducible-linux-static-binaries-with-docker-any-os)
-    + [Building Android APK with Docker (any OS) *Experimental*](#building-android-apk-with-docker-any-os-experimental)
-    + [Building on Linux](#building-on-linux)
-    + [Building on OS X](#building-on-os-x)
-    + [Building on Windows](#building-on-windows)
+
+* [Development resources](#development-resources)
+* [Vulnerability response](#vulnerability-response)
+* [Introduction](#introduction)
+* [About this project](#about-this-project)
+* [Supporting the project](#supporting-the-project)
+* [License](#license)
+* [Translations](#translations)
+* [Installing the XCash Klassic GUI](#installing-the-xcash-klassic-gui)
+* [Compiling the XCash Klassic GUI from source](#compiling-the-xcash-klassic-gui-from-source)
+  + [Building Reproducible Windows static binaries with Docker (any OS)](#building-reproducible-windows-static-binaries-with-docker-any-os)
+  + [Building Reproducible Linux static binaries with Docker (any OS)](#building-reproducible-linux-static-binaries-with-docker-any-os)
+  + [Building Android APK with Docker (any OS) Experimental](#building-android-apk-with-docker-any-os-experimental)
+  + [Building on Linux](#building-on-linux)
+  + [Building on OS X](#building-on-os-x)
+  + [Building on Windows](#building-on-windows)
 
 ## Development resources
 
-- Web: [getmonero.org](https://getmonero.org)
-- Mail: [dev@getmonero.org](mailto:dev@getmonero.org)
-- Github: [https://github.com/monero-project/monero-gui](https://github.com/monero-project/monero-gui)
-- IRC: [#monero-gui on Libera](irc://irc.libera.chat/#monero-gui)
-- Translation platform (Weblate): [translate.getmonero.org](https://translate.getmonero.org)
-- UI Design: [Monero-GUI on Figma](https://www.figma.com/file/DplJ2DDQfIKiuRvolHX2hN/Monero-GUI)
+- Web: [xcashlabs.org](https://xcashlabs.org)
+- GitHub: [https://github.com/Xcash-Labs/xcash-gui](https://github.com/Xcash-Labs/xcash-gui)
+- Core repository: [https://github.com/Xcash-Labs/xcash-labs-core](https://github.com/Xcash-Labs/xcash-labs-core)
+- Explorer: [https://explorer.xcashlabs.org](https://explorer.xcashlabs.org)
+- Delegates: [https://xcashlabs.org/delegates/](https://xcashlabs.org/delegates/)
 
 ## Vulnerability response
 
-- Our [Vulnerability Response Process](https://github.com/monero-project/meta/blob/master/VULNERABILITY_RESPONSE_PROCESS.md) encourages responsible disclosure
-- We are also available via [HackerOne](https://hackerone.com/monero)
+If you discover a security vulnerability in XCash Klassic GUI or the supporting XCash Klassic core software, please report it responsibly through the XCash Labs project channels.
+
+When reporting a vulnerability, include:
+
+- a clear description of the issue
+- steps to reproduce it
+- affected operating system and build version
+- whether funds, private keys, wallet files, or network consensus may be impacted
 
 ## Introduction
 
-Monero is a private, secure, untraceable, decentralised digital currency. You are your bank, you control your funds, and nobody can trace your transfers unless you allow them to do so.
+XCash Klassic is a CryptoNote-based digital currency focused on privacy, security, and decentralization. The XCash Klassic GUI gives users a graphical wallet for creating wallets, restoring wallets, sending and receiving XCK, and interacting with the XCash Klassic network.
 
-**Privacy:** Monero uses a cryptographically sound system to allow you to send and receive funds without your transactions being easily revealed on the blockchain (the ledger of transactions that everyone has). This ensures that your purchases, receipts, and all transfers remain absolutely private by default.
+**Privacy:** XCash Klassic is based on CryptoNote technology and inherits privacy-focused transaction features from its Monero-derived codebase.
 
-**Security:** Using the power of a distributed peer-to-peer consensus network, every transaction on the network is cryptographically secured. Individual wallets have a 25 word mnemonic seed that is only displayed once, and can be written down to backup the wallet. Wallet files are encrypted with a passphrase to ensure they are useless if stolen.
+**Security:** Wallet files are encrypted with a passphrase. Wallet recovery is handled through a mnemonic seed that should be written down and stored safely offline.
 
-**Untraceability:** By taking advantage of ring signatures, a special property of a certain type of cryptography, Monero is able to ensure that transactions are not only untraceable, but have an optional measure of ambiguity that ensures that transactions cannot easily be tied back to an individual user or computer.
+**Control:** XCash Klassic allows users to control their own funds without relying on a centralized custodian.
 
 ## About this project
 
-This is the GUI for the [core Monero implementation](https://github.com/monero-project/monero). It is open source and completely free to use without restrictions, except for those specified in the license agreement below. There are no restrictions on anyone creating an alternative implementation of Monero that uses the protocol and network in a compatible manner.
+This repository contains the graphical wallet for XCash Klassic. It is forked from the Monero GUI and adapted for the XCash Klassic network, branding, currency units, addresses, and supporting core binaries.
 
-As with many development projects, the repository on Github is considered to be the "staging" area for the latest changes. Before changes are merged into that branch on the main repository, they are tested by individual developers in their own branches, submitted as a pull request, and then subsequently tested by contributors who focus on testing and code reviews. That having been said, the repository should be carefully considered before using it in a production environment, unless there is a patch in the repository for a particular show-stopping issue you are experiencing. It is generally a better idea to use a tagged release for stability.
+As with many development projects, the repository on GitHub is the staging area for the latest changes. New changes should be tested before being used in production. For normal users, tagged releases are recommended over development branches.
+
+This project depends on the XCash Klassic core software for wallet and daemon functionality.
 
 ## Supporting the project
 
-Monero is a 100% community-sponsored endeavor. If you want to join our efforts, the easiest thing you can do is support the project financially. Both Monero and Bitcoin donations can be made to **donate.getmonero.org** if using a client that supports the [OpenAlias](https://openalias.org) standard.
+XCash Klassic is developed and maintained by XCash Labs.
 
-The Monero donation address is: `888tNkZrPN6JsEgekjMnABU4TBzc2Dt29EPAvkRxbANsAnjyPbb3iQ1YBRk1UXcdRsiKc9dhwMVgN5S9cQUiyoogDavup3H` (viewkey: `f359631075708155cc3d92a32b75a7d02a5dcf27756707b47a2b31b21c389501`)
+GUI development funding and supporting services may be provided through:
 
-The Bitcoin donation address is: `1KTexdemPdxSBcG55heUuTjDRYqbC5ZL8H`
-
-GUI development funding and/or some supporting services are also graciously provided by [sponsors](https://www.getmonero.org/community/sponsorships/):
-
-[<img width="150" src="https://www.getmonero.org/img/sponsors/tarilabs.png"/>](https://tarilabs.com/)
-[<img width="150" src="https://www.getmonero.org/img/sponsors/symas.png"/>](https://symas.com/)
-[<img width="150" src="https://www.getmonero.org/img/sponsors/macstadium.png"/>](https://www.macstadium.com/)
-
-There are also several mining pools that kindly donate a portion of their fees, [a list of them can be found on our Bitcointalk post](https://bitcointalk.org/index.php?topic=583449.0).
+- GitHub Sponsors: [https://github.com/sponsors/Xcash-Labs](https://github.com/sponsors/Xcash-Labs)
+- Project website: [https://xcashlabs.org](https://xcashlabs.org)
 
 ## License
 
 See [LICENSE](LICENSE).
 
+This project is forked from the Monero GUI project and retains the applicable upstream license notices.
+
 ## Translations
 
-Do you speak a second language and would like to help translate the Monero GUI? Check out Weblate, our localization platform, at [translate.getmonero.org](https://translate.getmonero.org/). Choose the language and suggest a translation for a string or review an existing one. The Localization Workgroup made [a guide with step-by-step instructions](https://github.com/monero-ecosystem/monero-translations/blob/master/weblate.md) for Weblate.
+The XCash Klassic GUI uses Qt translation files inherited from the Monero GUI project.
 
-If you need help/support or any info you can contact the localization workgroup on the IRC channel #monero-translations (relayed on [Matrix](https://matrix.to/#/!BKMbQLMDzHKzmtrBfg:matrix.org?via=monero.social&via=matrix.org&via=libera.chat)) or by email at translate[at]getmonero[dot]org. For more info about the Localization workgroup: [github.com/monero-ecosystem/monero-translations](https://github.com/monero-ecosystem/monero-translations)
+Some translated strings may still reference Monero until they are reviewed and updated for XCash Klassic. When adding or changing user-facing text, update the base translation file first and regenerate translation sources as needed.
 
-Status of the translations:  
+Useful files and folders:
 
-<a href="https://translate.getmonero.org/engage/monero/?utm_source=widget">
-<img src="https://translate.getmonero.org/widgets/monero/-/gui-wallet/horizontal-auto.svg" alt="Translation status" />
-</a>
+```text
+translations/
+*.ts
+*.qm
+```
 
-## Installing the Monero GUI from a package
+## Installing the XCash Klassic GUI
 
-Packages are available for
-* Arch Linux: [monero-gui](https://archlinux.org/packages/extra/x86_64/monero-gui/)
-* NixOS: `nix-shell -p monero-gui`
-* Flatpak: [Monero GUI](https://flathub.org/apps/details/org.getmonero.Monero)
-* GuixSD: `guix package -i monero-gui`
-* macOS (homebrew): `brew install --cask monero-wallet`
+Prebuilt release packages, when available, should be downloaded from the official XCash Labs release channels.
 
-Packaging for your favorite distribution would be a welcome contribution!
+Recommended sources:
 
-## Compiling the Monero GUI from source
+- [https://github.com/Xcash-Labs/xcash-gui/releases](https://github.com/Xcash-Labs/xcash-gui/releases)
+- [https://xcashlabs.org](https://xcashlabs.org)
+
+Always verify that you are downloading from an official XCash Labs source.
+
+## Compiling the XCash Klassic GUI from source
 
 *Note*: Qt 5.9.7 is the minimum version required to build the GUI.
 
-*Note*: Official GUI releases use monero-wallet-gui from this process alongside the supporting binaries (monerod, etc) from the [CLI deterministic builds](https://github.com/monero-project/monero/blob/release-v0.18/contrib/gitian/README.md).
+*Note*: This project is forked from Monero GUI, so some build scripts, dependency names, and internal binary names may still contain `monero` until fully renamed.
 
 ### Building Reproducible Windows static binaries with Docker (any OS)
 
-1. Install Docker [https://docs.docker.com/engine/install/](https://docs.docker.com/engine/install/)
-2. Clone the repository
+1. Install Docker:
+
+   ```text
+   https://docs.docker.com/engine/install/
    ```
+
+2. Clone the repository:
+
+   ```bash
    git clone --branch master --recursive https://github.com/Xcash-Labs/xcash-gui.git
    ```
-   \* `master` - replace with the desired version tag (e.g. `v0.18.4.3`) to build the release binaries.
 
-3. Prepare build environment
-   ```
+   Replace `master` with the desired release tag when building a tagged release.
+
+3. Prepare the build environment:
+
+   ```bash
    cd xcash-gui
    docker build --tag xcash:build-env-windows --build-arg THREADS=4 --file Dockerfile.windows .
    ```
-   \* `4` - number of CPU threads to use
 
-4. Build
-   ```
+   `4` is the number of CPU threads to use.
+
+4. Build:
+
+   ```bash
    docker run --rm -it -v <XCASH_GUI_DIR_FULL_PATH>:/xcash-gui -w /xcash-gui xcash:build-env-windows sh -c 'make depends root=/depends target=x86_64-w64-mingw32 tag=win-x64 -j4'
    ```
-   \* `<XCASH_GUI_DIR_FULL_PATH>` - absolute path to `xcash-gui` directory  
-   \* `4` - number of CPU threads to use
 
-5. xCash GUI Windows static binaries will be placed in `xcash-gui/build/x86_64-w64-mingw32/release/bin` directory
+   Replace `<XCASH_GUI_DIR_FULL_PATH>` with the absolute path to your `xcash-gui` directory.
+
+5. XCash Klassic GUI Windows static binaries will be placed in:
+
+   ```text
+   xcash-gui/build/x86_64-w64-mingw32/release/bin
+   ```
 
 ### Building Reproducible Linux static binaries with Docker (any OS)
 
-1. Install Docker [https://docs.docker.com/engine/install/](https://docs.docker.com/engine/install/)
-2. Clone the repository
+1. Install Docker:
+
+   ```text
+   https://docs.docker.com/engine/install/
    ```
+
+2. Clone the repository:
+
+   ```bash
    git clone --branch master --recursive https://github.com/Xcash-Labs/xcash-gui.git
    ```
-   \* `master` - replace with the desired version tag (e.g. `v0.18.4.3`) to build the release binaries.
-3. Prepare build environment
-   ```
+
+   Replace `master` with the desired release tag when building a tagged release.
+
+3. Prepare the build environment:
+
+   ```bash
    cd xcash-gui
    docker build --tag xcash:build-env-linux --build-arg THREADS=4 --file Dockerfile.linux .
    ```
-   \* `4` - number of CPU threads to use
 
-4. Build
-   ```
+4. Build:
+
+   ```bash
    docker run --rm -it -v <XCASH_GUI_DIR_FULL_PATH>:/xcash-gui -w /xcash-gui xcash:build-env-linux sh -c 'make release-static -j4'
    ```
-   \* `<XCASH_GUI_DIR_FULL_PATH>` - absolute path to `xcash-gui` directory  
-   \* `4` - number of CPU threads to use
-5. XCash GUI Linux static binary will be placed in  `xcash-gui/build/release/bin` directory
-6. (*Note*) This process is only for building `monero-wallet-gui`
-7. (*Optional*) Compare `monero-wallet-gui` SHA-256 hash to the one obtained from a trusted source
+
+5. XCash Klassic GUI Linux static binaries will be placed in:
+
+   ```text
+   xcash-gui/build/release/bin
    ```
+
+6. Optional: compare the `xcash-wallet-gui` SHA-256 hash to a trusted source:
+
+   ```bash
    docker run --rm -it -v <XCASH_GUI_DIR_FULL_PATH>:/xcash-gui -w /xcash-gui xcash:build-env-linux sh -c 'shasum -a 256 /xcash-gui/build/release/bin/xcash-wallet-gui'
    ```
-   \* `<XCASH_GUI_DIR_FULL_PATH>` - absolute path to `xcash-gui` directory  
 
-### Building Android APK with Docker (any OS) *Experimental*
- - Minimum Android 9 Pie (API 28)
- - ARMv8-A 64-bit CPU
-1. Install Docker [https://docs.docker.com/engine/install/](https://docs.docker.com/engine/install/)
-2. Clone the repository
-   ```
-   git clone --recursive https://github.com/monero-project/monero-gui.git
-   ```
-3. Prepare build environment
-   ```
-   cd monero-gui
-   docker build --tag monero:build-env-android --build-arg THREADS=4 --file Dockerfile.android .
-   ```
-   \* `4` - number of CPU threads to use
+### Building Android APK with Docker (any OS) Experimental
 
-4. Build
+Android support is experimental.
+
+Minimum requirements:
+
+- Android 9 Pie / API 28
+- ARMv8-A 64-bit CPU
+
+1. Install Docker:
+
+   ```text
+   https://docs.docker.com/engine/install/
    ```
-   docker run --rm -it -v <MONERO_GUI_DIR_FULL_PATH>:/monero-gui -e THREADS=4 monero:build-env-android
+
+2. Clone the repository:
+
+   ```bash
+   git clone --recursive https://github.com/Xcash-Labs/xcash-gui.git
    ```
-   \* `<MONERO_GUI_DIR_FULL_PATH>` - absolute path to `monero-gui` directory  
-   \* `4` - number of CPU threads to use
-5. Monero GUI APK will be placed in  `monero-gui/build/Android/release/android-build` directory
-6. Deploy
-   * Using ADB (Android debugger bridge)
-     - [Enable adb debugging on your device](https://developer.android.com/studio/command-line/adb.html#Enabling)
-      * Connect your device with USB and install Monero GUI APK with adb:
-      ```
-      adb install build/Android/release/android-build/monero-gui.apk
-      ```
-      * Troubleshooting:
-      ```
-      adb devices -l
-      adb logcat
-      ```
-      * If using adb inside docker, make sure you did
-      ```
-      docker run -v /dev/bus/usb:/dev/bus/usb --privileged
-      ```
-   * Using a web server
-      ```
-      mkdir /usr/tmp
-      cp build/Android/release/android-build/monero-gui.apk /usr/tmp
-      docker run -d -v /usr/tmp:/usr/share/nginx/html:ro -p 8080:80 nginx
-      ```
-      Now it should be accessible through a web browser at
-      ```
-      http://<your.local.ip>:8080/QtApp-debug.apk
-      ```
+
+3. Prepare the build environment:
+
+   ```bash
+   cd xcash-gui
+   docker build --tag xcash:build-env-android --build-arg THREADS=4 --file Dockerfile.android .
+   ```
+
+4. Build:
+
+   ```bash
+   docker run --rm -it -v <XCASH_GUI_DIR_FULL_PATH>:/xcash-gui -e THREADS=4 xcash:build-env-android
+   ```
+
+5. The APK should be placed in:
+
+   ```text
+   xcash-gui/build/Android/release/android-build
+   ```
+
+6. Deploy with ADB:
+
+   ```bash
+   adb install build/Android/release/android-build/xcash-gui.apk
+   ```
+
+7. Troubleshooting:
+
+   ```bash
+   adb devices -l
+   adb logcat
+   ```
+
+   If using ADB inside Docker, make sure the container has USB access:
+
+   ```bash
+   docker run -v /dev/bus/usb:/dev/bus/usb --privileged
+   ```
 
 ### Building on Linux
 
-(Tested on Ubuntu 17.10 x64, Ubuntu 18.04 x64 and Gentoo x64)
+Tested upstream environments included Ubuntu and Gentoo. Your mileage may vary depending on Qt and dependency versions.
 
-1. Install Monero dependencies
+1. Install dependencies.
 
-  - For Debian distributions (Debian, Ubuntu, Mint, Tails...)
+   Debian / Ubuntu / Mint / Tails:
 
-	`sudo apt install build-essential cmake miniupnpc libunbound-dev graphviz doxygen libunwind8-dev pkg-config libssl-dev libzmq3-dev libsodium-dev libhidapi-dev libnorm-dev libusb-1.0-0-dev libpgm-dev libprotobuf-dev protobuf-compiler libgcrypt20-dev libboost-chrono-dev libboost-date-time-dev libboost-filesystem-dev libboost-locale-dev libboost-program-options-dev libboost-regex-dev libboost-serialization-dev libboost-system-dev libboost-thread-dev`
+   ```bash
+   sudo apt install build-essential cmake miniupnpc libunbound-dev graphviz doxygen libunwind8-dev pkg-config libssl-dev libzmq3-dev libsodium-dev libhidapi-dev libnorm-dev libusb-1.0-0-dev libpgm-dev libprotobuf-dev protobuf-compiler libgcrypt20-dev libboost-chrono-dev libboost-date-time-dev libboost-filesystem-dev libboost-locale-dev libboost-program-options-dev libboost-regex-dev libboost-serialization-dev libboost-system-dev libboost-thread-dev
+   ```
 
-  - For Gentoo
+   Gentoo:
 
-	`sudo emerge app-arch/xz-utils app-doc/doxygen dev-cpp/gtest dev-libs/boost dev-libs/expat dev-libs/openssl dev-util/cmake media-gfx/graphviz net-dns/unbound net-libs/miniupnpc net-libs/zeromq sys-libs/libunwind dev-libs/libsodium dev-libs/hidapi dev-libs/libgcrypt`
+   ```bash
+   sudo emerge app-arch/xz-utils app-doc/doxygen dev-cpp/gtest dev-libs/boost dev-libs/expat dev-libs/openssl dev-util/cmake media-gfx/graphviz net-dns/unbound net-libs/miniupnpc net-libs/zeromq sys-libs/libunwind dev-libs/libsodium dev-libs/hidapi dev-libs/libgcrypt
+   ```
 
-  - For Fedora
+   Fedora:
 
-	`sudo dnf install make automake cmake gcc-c++ boost-devel miniupnpc-devel graphviz doxygen unbound-devel libunwind-devel pkgconfig openssl-devel libcurl-devel hidapi-devel libusb-devel zeromq-devel libgcrypt-devel`
+   ```bash
+   sudo dnf install make automake cmake gcc-c++ boost-devel miniupnpc-devel graphviz doxygen unbound-devel libunwind-devel pkgconfig openssl-devel libcurl-devel hidapi-devel libusb-devel zeromq-devel libgcrypt-devel
+   ```
 
-2. Install Qt:
+2. Install Qt.
 
-  *Note*: The Qt 5.9.7 or newer requirement makes **some** distributions (mostly based on Debian, like Ubuntu 16.x or Linux Mint 18.x) obsolete due to their repositories containing an older Qt version.
+   Qt 5.9.7 or newer is required. The recommended approach is to install a compatible Qt 5 version from Qt or your distribution packages.
 
- The recommended way is to install 5.9.7 from the [official Qt installer](https://www.qt.io/download-qt-installer) or [compiling it yourself](https://wiki.qt.io/Install_Qt_5_on_Ubuntu). This ensures you have the correct version. Higher versions *can* work but as it differs from our production build target, slight differences may occur.
+   Debian / Ubuntu / Mint / Tails:
 
-The following instructions will fetch Qt from your distribution's repositories instead. Take note of what version it installs. Your mileage may vary.
+   ```bash
+   sudo apt install qtbase5-dev qtdeclarative5-dev qml-module-qtqml-models2 qml-module-qtquick-controls qml-module-qtquick-controls2 qml-module-qtquick-dialogs qml-module-qtquick-xmllistmodel qml-module-qt-labs-settings qml-module-qt-labs-platform qml-module-qt-labs-folderlistmodel qttools5-dev-tools qml-module-qtquick-templates2 libqt5svg5-dev
+   ```
 
-  - For Debian distributions (Debian, Ubuntu, Mint, Tails...)
+   Gentoo:
 
-    `sudo apt install qtbase5-dev qtdeclarative5-dev qml-module-qtqml-models2 qml-module-qtquick-controls qml-module-qtquick-controls2 qml-module-qtquick-dialogs qml-module-qtquick-xmllistmodel qml-module-qt-labs-settings qml-module-qt-labs-platform qml-module-qt-labs-folderlistmodel qttools5-dev-tools qml-module-qtquick-templates2 libqt5svg5-dev`
+   ```bash
+   sudo emerge dev-qt/qtcore:5 dev-qt/qtdeclarative:5 dev-qt/qtquickcontrols:5 dev-qt/qtquickcontrols2:5 dev-qt/qtgraphicaleffects:5
+   ```
 
-  - For Gentoo
-  
-   
-    The *qml* USE flag must be enabled.
+   Optional scanner support:
 
-    `sudo emerge dev-qt/qtcore:5 dev-qt/qtdeclarative:5 dev-qt/qtquickcontrols:5 dev-qt/qtquickcontrols2:5 dev-qt/qtgraphicaleffects:5`
+   Debian / Ubuntu / Mint / Tails:
 
-  - Optional : To build the flag `WITH_SCANNER`
+   ```bash
+   sudo apt install qtmultimedia5-dev qml-module-qtmultimedia
+   ```
 
-    - For Debian distributions (Debian, Ubuntu, Mint, Tails...)
+   Gentoo:
 
-      `sudo apt install qtmultimedia5-dev qml-module-qtmultimedia`
+   ```bash
+   emerge dev-qt/qtmultimedia:5
+   ```
 
-    - For Gentoo      
+3. Clone the repository:
 
-      `emerge dev-qt/qtmultimedia:5`
+   ```bash
+   git clone --recursive https://github.com/Xcash-Labs/xcash-gui.git
+   cd xcash-gui
+   ```
 
+4. Build:
 
-3. Clone repository
+   ```bash
+   make release -j4
+   ```
 
-    ```
-    git clone --recursive https://github.com/monero-project/monero-gui.git
-    cd monero-gui
-    ```
+   Add `CMAKE_PREFIX_PATH` if you need to point the build at a custom Qt installation:
 
-4. Build
+   ```bash
+   CMAKE_PREFIX_PATH=$HOME/Qt/5.9.7/gcc_64 make release -j4
+   ```
 
-    ```
-    make release -j4
-    ```
-
-    \* `4` - number of CPU threads to use  
-    \* Add `CMAKE_PREFIX_PATH` environment variable to set a custom Qt install directory, e.g. `CMAKE_PREFIX_PATH=$HOME/Qt/5.9.7/gcc_64 make release -j4`
-
-The executable can be found in the build/release/bin folder.
+The executable can be found in the build release bin folder.
 
 ### Building on OS X
 
-1. Install Xcode from AppStore
+1. Install Xcode from the App Store.
 
-2. Install [homebrew](http://brew.sh/)
+2. Install Homebrew:
 
-3. Install [monero](https://github.com/monero-project/monero) dependencies:
-
-  `brew install cmake pkg-config openssl boost unbound hidapi zmq libpgm libsodium miniupnpc expat libunwind-headers protobuf libgcrypt`
-
-4. Install Qt:
-
-  `brew install qt5`  (or download QT 5.9.7+ from [qt.io](https://www.qt.io/download-open-source/))
-
-5. Grab an up-to-date copy of the monero-gui repository
-
-   ```
-   git clone --recursive https://github.com/monero-project/monero-gui.git
-   cd monero-gui
+   ```text
+   https://brew.sh/
    ```
 
-6. Start the build
+3. Install dependencies:
 
-    ```
-    make release -j4
-    ```
-    \* `4` - number of CPU threads to use  
-    \* Add `CMAKE_PREFIX_PATH` environment variable to set a custom Qt install directory, e.g. `CMAKE_PREFIX_PATH=$HOME/Qt/5.9.7/clang_64 make release -j4`
+   ```bash
+   brew install cmake pkg-config openssl boost unbound hidapi zmq libpgm libsodium miniupnpc expat libunwind-headers protobuf libgcrypt
+   ```
 
-The executable can be found in the `build/release/bin` folder.
+4. Install Qt 5:
 
-For building an application bundle see `DEPLOY.md`.
+   ```bash
+   brew install qt5
+   ```
+
+   Alternatively, install Qt 5.9.7 or newer from Qt.
+
+5. Clone the repository:
+
+   ```bash
+   git clone --recursive https://github.com/Xcash-Labs/xcash-gui.git
+   cd xcash-gui
+   ```
+
+6. Build:
+
+   ```bash
+   make release -j4
+   ```
+
+   Add `CMAKE_PREFIX_PATH` if needed:
+
+   ```bash
+   CMAKE_PREFIX_PATH=$HOME/Qt/5.9.7/clang_64 make release -j4
+   ```
+
+The executable can be found in:
+
+```text
+build/release/bin
+```
+
+For building an application bundle, see:
+
+```text
+DEPLOY.md
+```
 
 ### Building on Windows
 
-The Monero GUI on Windows is 64 bits only; 32-bit Windows GUI builds are not officially supported anymore.
+The XCash Klassic GUI on Windows is 64-bit only.
 
-1. Install [MSYS2](https://www.msys2.org/), follow the instructions on that page on how to update system and packages to the latest versions
+1. Install MSYS2:
 
-2. Open an 64-bit MSYS2 shell: Use the *MSYS2 MinGW 64-bit* shortcut, or use the `msys2_shell.cmd` batch file with a `-mingw64` parameter
+   ```text
+   https://www.msys2.org/
+   ```
 
-3. Install MSYS2 packages for Monero dependencies; the needed 64-bit packages have `x86_64` in their names
+2. Open a 64-bit MSYS2 shell. Use the **MSYS2 MinGW 64-bit** shortcut, or use `msys2_shell.cmd` with the `-mingw64` parameter.
 
-    ```
-    pacman -S mingw-w64-x86_64-toolchain make mingw-w64-x86_64-cmake mingw-w64-x86_64-boost mingw-w64-x86_64-openssl mingw-w64-x86_64-zeromq mingw-w64-x86_64-libsodium mingw-w64-x86_64-hidapi mingw-w64-x86_64-protobuf-c mingw-w64-x86_64-libusb mingw-w64-x86_64-libgcrypt mingw-w64-x86_64-unbound mingw-w64-x86_64-pcre mingw-w64-x86_64-angleproject
-    ```
+3. Install MSYS2 packages:
 
-    You find more details about those dependencies in the [Monero documentation](https://github.com/monero-project/monero). Note that that there is no more need to compile Boost from source; like everything else, you can install it now with a MSYS2 package.
+   ```bash
+   pacman -S mingw-w64-x86_64-toolchain make mingw-w64-x86_64-cmake mingw-w64-x86_64-boost mingw-w64-x86_64-openssl mingw-w64-x86_64-zeromq mingw-w64-x86_64-libsodium mingw-w64-x86_64-hidapi mingw-w64-x86_64-protobuf-c mingw-w64-x86_64-libusb mingw-w64-x86_64-libgcrypt mingw-w64-x86_64-unbound mingw-w64-x86_64-pcre mingw-w64-x86_64-angleproject
+   ```
 
-4. Install Qt5
+4. Install Qt 5:
 
-    ```
-    pacman -S mingw-w64-x86_64-qt5
-    ```
+   ```bash
+   pacman -S mingw-w64-x86_64-qt5
+   ```
 
-    There is no more need to download some special installer from the Qt website, the standard MSYS2 package for Qt will do in almost all circumstances.
+5. Install Git:
 
-5. Install git
+   ```bash
+   pacman -S git
+   ```
 
-    ```
-    pacman -S git
-    ```
+6. Clone the repository:
 
-6. Clone repository
+   ```bash
+   git clone --recursive https://github.com/Xcash-Labs/xcash-gui.git
+   cd xcash-gui
+   ```
 
-    ```
-    git clone --recursive https://github.com/monero-project/monero-gui.git
-    cd monero-gui
-    ```
+7. Build:
 
-7. Build
+   ```bash
+   make release-win64 JOBS=4
+   cd build/release
+   mingw32-make deploy
+   ```
 
-    ```
-    make release-win64 JOBS=4
-    cd build/release
-    mingw32-make deploy
-    ```
-    \* `4` - number of CPU threads to use
+The executable can be found in:
 
-The executable can be found in the `.\bin` directory.
+```text
+build/release/bin
+```
+
+## Notes for maintainers
+
+Because this project is forked from Monero GUI, some remaining references to Monero may still exist in comments, translation files, generated files, dependency names, or upstream documentation.
+
+High-priority files to review when rebranding:
+
+```text
+README.md
+share/*.metainfo.xml
+translations/
+src/
+qml/
+images/
+```
+
+Generated build outputs should not be edited manually.

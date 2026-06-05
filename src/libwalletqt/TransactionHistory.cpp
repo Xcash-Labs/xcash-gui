@@ -96,7 +96,7 @@ void TransactionHistory::refresh(quint32 accountIndex)
             }
 
             static const int BLOCK_TIME_MINUTES = 1;
-            quint64 requiredConfirmations = (ti->blockHeight() < ti->unlockTime()) ? ti->unlockTime() - ti->blockHeight() : 20;
+            quint64 requiredConfirmations = (ti->blockHeight() < ti->unlockTime()) ? ti->unlockTime() - ti->blockHeight() : 10;
             // store last tx height
             if (ti->confirmations() < requiredConfirmations && ti->blockHeight() >= lastTxHeight) {
                 lastTxHeight = ti->blockHeight();
@@ -146,14 +146,14 @@ bool TransactionHistory::TransactionHistory::locked() const
     return m_locked;
 }
 
-
 TransactionHistory::TransactionHistory(Monero::TransactionHistory *pimpl, QObject *parent)
     : QObject(parent), m_pimpl(pimpl), m_minutesToUnlock(0), m_locked(false)
 {
 #if QT_VERSION >= QT_VERSION_CHECK(5, 14, 0)
-    m_firstDateTime = QDate(2014, 4, 18).startOfDay();
+    m_firstDateTime = QDate(2026, 1, 10).startOfDay();
 #else
-    m_firstDateTime  = QDateTime(QDate(2014, 4, 18)); // the genesis block
+    m_firstDateTime  = QDateTime(QDate(2026, 1, 10)); // XCash Klassic launch date
+
 #endif
     m_lastDateTime = QDateTime::currentDateTime().addDays(1); // tomorrow (guard against jitter and timezones)
 }
